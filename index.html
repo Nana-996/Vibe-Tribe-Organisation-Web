@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vibe Tribe Organisation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <div class="nav-logo-icon">VTO</div>
+    <span class="nav-name">Vibe Tribe <span>Organisation</span></span>
+  </div>
+  <div class="nav-links">
+    <a href="#laptop">Laptop Services</a>
+    <a href="#devices">Buy &amp; Sell</a>
+    <a href="#design">Design</a>
+    <a href="#web">Websites</a>
+    <a href="#cv">CV Expert</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a href="#contact" class="nav-cta">WhatsApp Us</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="hero-badge">Accra, Ghana · Central University</span>
+  <div class="vto-symbol">
+    <img src="logo.jpeg" alt="VTO Logo" style="width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--gold); object-fit: cover;">
+  </div>
+  <h1>Vibe Tribe<br/><span class="gold">Organisation</span></h1>
+  <p class="hero-tagline">Where design remembers the ancestors, and speaks to tomorrow.</p>
+  <p>Your one-stop shop for tech services, device trading, graphic design, websites, and professional CVs — all at student-friendly prices.</p>
+  <div class="hero-buttons">
+    <a href="#laptop" class="btn-primary">Explore Services</a>
+    <a href="#contact" class="btn-secondary">Contact Us</a>
+  </div>
+</section>
+
+<!-- SERVICES INTRO -->
+<div class="services-intro">
+  <p class="section-label">What We Do</p>
+  <h2>Five Services. One Organisation.</h2>
+  <p>Fill in any form below and we'll get back to you fast — usually within the hour.</p>
+</div>
+
+<!-- ===== 1. LAPTOP SOFTWARE SERVICES ===== -->
+<section class="service-section" id="laptop">
+  <div class="container">
+    <div class="service-header">
+      <div class="service-icon">💻</div>
+      <div class="service-header-text">
+        <h2>Laptop Software Services</h2>
+        <p>Is your laptop slow, freezing, crashing, or infected with viruses? We provide professional software solutions to restore your system to peak performance — fast and affordable.</p>
+      </div>
+    </div>
+    <div class="service-bullets">
+      <div class="bullet"><span class="tick">✔</span> Windows Installation &amp; Reinstallation</div>
+      <div class="bullet"><span class="tick">✔</span> Laptop Speed Optimization</div>
+      <div class="bullet"><span class="tick">✔</span> Virus &amp; Malware Removal</div>
+      <div class="bullet"><span class="tick">✔</span> Software Installation (MS Office, SPSS, etc.)</div>
+      <div class="bullet"><span class="tick">✔</span> Driver Installation &amp; Updates</div>
+      <div class="bullet"><span class="tick">✔</span> Data Backup &amp; Basic Recovery</div>
+      <div class="bullet"><span class="tick">✔</span> System Cleanup &amp; Performance Boost</div>
+      <div class="bullet"><span class="tick">✔</span> Password &amp; User Account Fixes</div>
+    </div>
+    <div class="form-box">
+      <h3>📋 Laptop Service Request Form</h3>
+      <p class="form-sub">Fill this out so we can prepare everything before you even arrive.</p>
+      <form name="vto-laptop-service" method="POST" data-netlify="true">
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Your Full Name *</label>
+            <input type="text" name="name" placeholder="e.g. Kofi Mensah" required/>
+          </div>
+          <div class="form-group">
+            <label>WhatsApp Number *</label>
+            <input type="tel" name="phone" placeholder="+233 XX XXX XXXX" required/>
+          </div>
+          <div class="form-group">
+            <label>Laptop Brand &amp; Model</label>
+            <input type="text" name="laptop_model" placeholder="e.g. HP Pavilion 15, Dell Inspiron"/>
+          </div>
+          <div class="form-group">
+            <label>Service Needed *</label>
+            <select name="service_type" required>
+              <option value="">-- Select a service --</option>
+              <option>Windows Installation / Reinstallation</option>
+              <option>Speed Optimization</option>
+              <option>Virus &amp; Malware Removal</option>
+              <option>Software Installation</option>
+              <option>Driver Installation &amp; Updates</option>
+              <option>Data Backup &amp; Recovery</option>
+              <option>System Cleanup</option>
+              <option>Password / Account Fix</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label>Describe the Problem *</label>
+            <textarea name="problem_description" placeholder="Describe what's happening with your laptop — the more detail, the better." required></textarea>
+          </div>
+          <div class="form-group">
+            <label>Preferred Date</label>
+            <input type="date" name="preferred_date"/>
+          </div>
+          <div class="form-group">
+            <label>Urgency</label>
+            <select name="urgency">
+              <option>Not urgent — within a week</option>
+              <option>Moderately urgent — 2–3 days</option>
+              <option>Very urgent — ASAP</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="form-submit">Submit Request →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 2. BUY, SELL & SWAP ===== -->
+<section class="service-section" id="devices">
+  <div class="container">
+    <div class="service-header">
+      <div class="service-icon">📱</div>
+      <div class="service-header-text">
+        <h2>Buy · Sell · Swap Devices</h2>
+        <p>All phones, laptops, tablets, smartwatches, earbuds and gadgets. Original devices only. Receipt provided. Free screen protector with every phone purchased. Fast delivery in Accra.</p>
+      </div>
+    </div>
+    <div class="service-bullets">
+      <div class="bullet"><span class="tick">✔</span> Buy New &amp; Used Devices</div>
+      <div class="bullet"><span class="tick">✔</span> Sell Your Device</div>
+      <div class="bullet"><span class="tick">✔</span> Swap / Trade-In</div>
+      <div class="bullet"><span class="tick">✔</span> Phone &amp; Gadget Repairs</div>
+      <div class="bullet"><span class="tick">✔</span> Accessories Available</div>
+      <div class="bullet"><span class="tick">✔</span> Phone Unlocking</div>
+      <div class="bullet"><span class="tick">✔</span> Original Devices Only</div>
+      <div class="bullet"><span class="tick">✔</span> Receipt Provided</div>
+    </div>
+    <div class="form-box">
+      <h3>📋 Device Request / Listing Form</h3>
+      <p class="form-sub">Tell us what you want to buy, sell, or swap.</p>
+      <form name="vto-devices" method="POST" data-netlify="true">
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Your Full Name *</label>
+            <input type="text" name="name" placeholder="e.g. Ama Serwaa" required/>
+          </div>
+          <div class="form-group">
+            <label>WhatsApp Number *</label>
+            <input type="tel" name="phone" placeholder="+233 XX XXX XXXX" required/>
+          </div>
+          <div class="form-group">
+            <label>I want to… *</label>
+            <select name="action_type" required>
+              <option value="">-- Select --</option>
+              <option>Buy a Device</option>
+              <option>Sell My Device</option>
+              <option>Swap / Trade-In</option>
+              <option>Repair a Device</option>
+              <option>Buy an Accessory</option>
+              <option>Unlock a Phone</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Device Type</label>
+            <select name="device_type">
+              <option>Smartphone</option>
+              <option>Laptop</option>
+              <option>Tablet</option>
+              <option>Smartwatch</option>
+              <option>Earbuds / Headphones</option>
+              <option>Other Gadget</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label>Device Name / Model (or what you're looking for)</label>
+            <input type="text" name="device_model" placeholder="e.g. iPhone 14 Pro Max 256GB, Samsung A54, MacBook Air M2"/>
+          </div>
+          <div class="form-group">
+            <label>Your Budget (GHS)</label>
+            <input type="text" name="budget" placeholder="e.g. 3000 – 4500"/>
+          </div>
+          <div class="form-group">
+            <label>Condition of Your Device (if selling/swapping)</label>
+            <select name="condition">
+              <option>Brand New</option>
+              <option>Excellent (like new)</option>
+              <option>Good (minor scratches)</option>
+              <option>Fair (visible wear)</option>
+              <option>Needs repair</option>
+              <option>N/A — I'm buying</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label>Additional Details</label>
+            <textarea name="details" placeholder="Any extra info — accessories included, faults, colour preference, delivery location, etc."></textarea>
+          </div>
+        </div>
+        <button type="submit" class="form-submit">Submit Request →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 3. GRAPHIC DESIGN ===== -->
+<section class="service-section" id="design">
+  <div class="container">
+    <div class="service-header">
+      <div class="service-icon">🎨</div>
+      <div class="service-header-text">
+        <h2>Graphic Design</h2>
+        <p>Bold, culturally rooted designs that speak to your audience. Flyers, logos, branding kits, social media graphics, banners — designed to stand out and be remembered.</p>
+      </div>
+    </div>
+    <div class="service-bullets">
+      <div class="bullet"><span class="tick">✔</span> Flyers &amp; Posters</div>
+      <div class="bullet"><span class="tick">✔</span> Logo Design &amp; Branding</div>
+      <div class="bullet"><span class="tick">✔</span> Social Media Graphics</div>
+      <div class="bullet"><span class="tick">✔</span> Business Cards</div>
+      <div class="bullet"><span class="tick">✔</span> Banners &amp; Signage</div>
+      <div class="bullet"><span class="tick">✔</span> Event Programs / Brochures</div>
+    </div>
+    <div class="form-box">
+      <h3>📋 Design Project Brief</h3>
+      <p class="form-sub">The more you tell us, the better the design.</p>
+      <form name="vto-design" method="POST" data-netlify="true">
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Your Full Name *</label>
+            <input type="text" name="name" placeholder="e.g. Kwame Asante" required/>
+          </div>
+          <div class="form-group">
+            <label>WhatsApp Number *</label>
+            <input type="tel" name="phone" placeholder="+233 XX XXX XXXX" required/>
+          </div>
+          <div class="form-group">
+            <label>Design Type *</label>
+            <select name="design_type" required>
+              <option value="">-- Select --</option>
+              <option>Flyer / Poster</option>
+              <option>Logo Design</option>
+              <option>Branding Kit</option>
+              <option>Social Media Graphics</option>
+              <option>Business Card</option>
+              <option>Banner / Signage</option>
+              <option>Event Program / Brochure</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Purpose / Event Name</label>
+            <input type="text" name="event_name" placeholder="e.g. Church event, Birthday party, Business launch"/>
+          </div>
+          <div class="form-group">
+            <label>Preferred Colours / Theme</label>
+            <input type="text" name="colors" placeholder="e.g. Black & gold, Blue & white, Bold & vibrant"/>
+          </div>
+          <div class="form-group">
+            <label>Deadline</label>
+            <input type="date" name="deadline"/>
+          </div>
+          <div class="form-group full">
+            <label>Text / Content to Include *</label>
+            <textarea name="content_text" placeholder="Provide all the text: names, dates, time, venue, contact numbers, taglines, etc." required></textarea>
+          </div>
+          <div class="form-group full">
+            <label>Reference / Inspiration (optional)</label>
+            <textarea name="inspiration" placeholder="Describe a style you like, or paste a link to a design that inspires you."></textarea>
+          </div>
+        </div>
+        <button type="submit" class="form-submit">Submit Brief →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 4. WEBSITE DESIGN ===== -->
+<section class="service-section" id="web">
+  <div class="container">
+    <div class="service-header">
+      <div class="service-icon">🌐</div>
+      <div class="service-header-text">
+        <h2>Website Design</h2>
+        <p>Modern, mobile-friendly websites for businesses, organisations, portfolios, and events. We build clean, fast sites that make a strong first impression — no bloat, no fuss.</p>
+      </div>
+    </div>
+    <div class="service-bullets">
+      <div class="bullet"><span class="tick">✔</span> Business / Brand Websites</div>
+      <div class="bullet"><span class="tick">✔</span> Portfolio Sites</div>
+      <div class="bullet"><span class="tick">✔</span> Event / Landing Pages</div>
+      <div class="bullet"><span class="tick">✔</span> Organisation Websites</div>
+      <div class="bullet"><span class="tick">✔</span> Mobile Responsive</div>
+      <div class="bullet"><span class="tick">✔</span> Contact Forms Included</div>
+    </div>
+    <div class="form-box">
+      <h3>📋 Website Project Brief</h3>
+      <p class="form-sub">Tell us about the site you need so we can give you an accurate quote.</p>
+      <form name="vto-website" method="POST" data-netlify="true">
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Your Full Name *</label>
+            <input type="text" name="name" required placeholder="Your name"/>
+          </div>
+          <div class="form-group">
+            <label>WhatsApp Number *</label>
+            <input type="tel" name="phone" required placeholder="+233 XX XXX XXXX"/>
+          </div>
+          <div class="form-group">
+            <label>Business / Organisation Name *</label>
+            <input type="text" name="business_name" required placeholder="Name of your business or org"/>
+          </div>
+          <div class="form-group">
+            <label>Website Type *</label>
+            <select name="website_type" required>
+              <option value="">-- Select --</option>
+              <option>Business / Brand Website</option>
+              <option>Portfolio</option>
+              <option>Landing Page / Event Page</option>
+              <option>Organisation Website</option>
+              <option>Online Store (E-commerce)</option>
+              <option>Blog</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label>What Should the Website Do / Contain? *</label>
+            <textarea name="functionality" required placeholder="e.g. Show our services, let people contact us, display our portfolio, sell products online..."></textarea>
+          </div>
+          <div class="form-group">
+            <label>Preferred Design Style</label>
+            <select name="design_style">
+              <option>Dark &amp; Bold (like this site)</option>
+              <option>Clean &amp; Minimal (white/light)</option>
+              <option>Colourful &amp; Energetic</option>
+              <option>Professional &amp; Corporate</option>
+              <option>Creative / Artistic</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Deadline / Target Date</label>
+            <input type="date" name="deadline"/>
+          </div>
+          <div class="form-group full">
+            <label>Reference Sites (optional)</label>
+            <input type="text" name="references" placeholder="Paste links to websites you like the look of"/>
+          </div>
+          <div class="form-group full">
+            <label>Anything Else We Should Know?</label>
+            <textarea name="extra_info" placeholder="Budget range, number of pages, special features needed, etc."></textarea>
+          </div>
+        </div>
+        <button type="submit" class="form-submit">Submit Brief →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5. CV EXPERT ===== -->
+<section class="service-section" id="cv">
+  <div class="container">
+    <div class="service-header">
+      <div class="service-icon">📄</div>
+      <div class="service-header-text">
+        <h2>CV Expert</h2>
+        <p>A great CV opens doors. We design professional, ATS-friendly CVs and cover letters tailored to the job you're applying for — so your skills get noticed immediately.</p>
+      </div>
+    </div>
+    <div class="service-bullets">
+      <div class="bullet"><span class="tick">✔</span> Professional CV Writing</div>
+      <div class="bullet"><span class="tick">✔</span> CV Redesign / Refresh</div>
+      <div class="bullet"><span class="tick">✔</span> Cover Letter Writing</div>
+      <div class="bullet"><span class="tick">✔</span> LinkedIn Profile Optimisation</div>
+      <div class="bullet"><span class="tick">✔</span> Student / Entry-Level CVs</div>
+      <div class="bullet"><span class="tick">✔</span> PDF &amp; Word Format Delivery</div>
+    </div>
+    <div class="form-box">
+      <h3>📋 CV Request Form</h3>
+      <p class="form-sub">Provide your details below so we can craft a CV that gets you hired.</p>
+      <form name="vto-cv" method="POST" data-netlify="true">
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Your Full Name *</label>
+            <input type="text" name="name" required placeholder="As it will appear on your CV"/>
+          </div>
+          <div class="form-group">
+            <label>WhatsApp Number *</label>
+            <input type="tel" name="phone" required placeholder="+233 XX XXX XXXX"/>
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" name="email" placeholder="your@email.com"/>
+          </div>
+          <div class="form-group">
+            <label>Service Needed *</label>
+            <select name="service_needed" required>
+              <option value="">-- Select --</option>
+              <option>New CV (from scratch)</option>
+              <option>CV Redesign / Refresh</option>
+              <option>Cover Letter</option>
+              <option>CV + Cover Letter (bundle)</option>
+              <option>LinkedIn Optimisation</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label>Field / Industry You're Applying To *</label>
+            <input type="text" name="industry" required placeholder="e.g. Pharmacy, Engineering, Marketing, Finance, Teaching"/>
+          </div>
+          <div class="form-group full">
+            <label>Your Education Background</label>
+            <textarea name="education" placeholder="School(s), degree(s), graduation year(s)"></textarea>
+          </div>
+          <div class="form-group full">
+            <label>Work / Volunteer / Internship Experience</label>
+            <textarea name="experience" placeholder="List any relevant experience — even if minimal. Include organisation, role, and duration."></textarea>
+          </div>
+          <div class="form-group full">
+            <label>Key Skills</label>
+            <textarea name="skills" placeholder="e.g. Microsoft Office, Communication, Research, Teamwork, Python, Customer Service..."></textarea>
+          </div>
+          <div class="form-group">
+            <label>Preferred CV Style</label>
+            <select name="style">
+              <option>Modern &amp; Clean</option>
+              <option>Classic / Traditional</option>
+              <option>Creative / Colourful</option>
+              <option>Minimalist</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Deadline</label>
+            <input type="date" name="deadline"/>
+          </div>
+        </div>
+        <button type="submit" class="form-submit">Submit CV Request →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-grid">
+    <div class="trust-item">
+      <div class="trust-icon">🛡️</div>
+      <h4>Original Devices</h4>
+      <p>All devices are verified original. Receipt always provided.</p>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">⚡</div>
+      <h4>Fast Turnaround</h4>
+      <p>Quick delivery on all services — we don't keep you waiting.</p>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">💰</div>
+      <h4>Student-Friendly Prices</h4>
+      <p>Affordable rates designed for students and young professionals.</p>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">🔒</div>
+      <h4>Safe &amp; Confidential</h4>
+      <p>Your data and files are handled with full confidentiality.</p>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="contact-box">
+      <h2>Ready to get started?</h2>
+      <p>Reach out on WhatsApp and we'll respond within the hour. We're based at Central University, Accra — delivery available across Accra.</p>
+      <div class="contact-numbers">
+        <a class="contact-num" href="tel:+233559024653">+233 559 024 653</a>
+        <a class="contact-num" href="tel:+233508318653">+233 508 318 653</a>
+      </div>
+      <p class="location">📍 Located at <span>Central University, Accra, Ghana</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-brand">Vibe Tribe <span>Organisation</span></span>
+  <p>Where design remembers the ancestors, and speaks to tomorrow. © 2026 VTO.</p>
+</footer>
+
+</body>
+</html>
