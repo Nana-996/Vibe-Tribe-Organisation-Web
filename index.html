@@ -3,493 +3,1155 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Vibe Tribe Organisation</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <title>Vibe Tribe Organisation - Elite Tech, Design & Trading Hub</title>
+  <meta name="description" content="Vibe Tribe Organisation (VTO) is Accra's premier student-friendly service provider. We offer laptop software services, device trading, graphic design, websites, and expert CV writing."/>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <div class="nav-brand">
-    <div class="nav-logo-icon">VTO</div>
-    <span class="nav-name">Vibe Tribe <span>Organisation</span></span>
-  </div>
-  <div class="nav-links">
-    <a href="#laptop">Laptop Services</a>
-    <a href="#devices">Buy &amp; Sell</a>
-    <a href="#design">Design</a>
-    <a href="#web">Websites</a>
-    <a href="#cv">CV Expert</a>
-    <a href="#contact">Contact</a>
-  </div>
-  <a href="#contact" class="nav-cta">WhatsApp Us</a>
-</nav>
+  <!-- Background Orbs -->
+  <div class="glow-orb orb-1"></div>
+  <div class="glow-orb orb-2"></div>
 
-<!-- HERO -->
-<section class="hero">
-  <span class="hero-badge">Accra, Ghana · Central University</span>
-  <div class="vto-symbol">
-    <img src="logo.jpeg" alt="VTO Logo" style="width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--gold); object-fit: cover;">
-  </div>
-  <h1>Vibe Tribe<br/><span class="gold">Organisation</span></h1>
-  <p class="hero-tagline">Where design remembers the ancestors, and speaks to tomorrow.</p>
-  <p>Your one-stop shop for tech services, device trading, graphic design, websites, and professional CVs — all at student-friendly prices.</p>
-  <div class="hero-buttons">
-    <a href="#laptop" class="btn-primary">Explore Services</a>
-    <a href="#contact" class="btn-secondary">Contact Us</a>
-  </div>
-</section>
+  <!-- NAVIGATION -->
+  <nav class="glass-header">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <img src="logo.jpeg" alt="VTO Logo" class="brand-logo-img">
+        <div class="brand-text">
+          <span class="brand-title">VIBE TRIBE</span>
+          <span class="brand-subtitle">ORGANISATION</span>
+        </div>
+      </div>
+      
+      <!-- Desktop Links -->
+      <div class="nav-links">
+        <a href="#services-hub" class="nav-link">Our Services</a>
+        <a href="#portfolio" class="nav-link">Portfolio</a>
+        <a href="#why-vto" class="nav-link">Why Choose Us</a>
+        <a href="#contact" class="nav-link">Get in Touch</a>
+      </div>
 
-<!-- SERVICES INTRO -->
-<div class="services-intro">
-  <p class="section-label">What We Do</p>
-  <h2>Five Services. One Organisation.</h2>
-  <p>Fill in any form below and we'll get back to you fast — usually within the hour.</p>
-</div>
-
-<!-- ===== 1. LAPTOP SOFTWARE SERVICES ===== -->
-<section class="service-section" id="laptop">
-  <div class="container">
-    <div class="service-header">
-      <div class="service-icon">💻</div>
-      <div class="service-header-text">
-        <h2>Laptop Software Services</h2>
-        <p>Is your laptop slow, freezing, crashing, or infected with viruses? We provide professional software solutions to restore your system to peak performance — fast and affordable.</p>
+      <div class="nav-actions">
+        <a href="https://wa.me/233559024653" target="_blank" rel="noopener noreferrer" class="btn-nav-cta">
+          <svg class="icon-whatsapp" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 001.37 5.054L2 22l5.132-1.347a9.936 9.936 0 004.87 1.28h.005c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.037-5.176-2.923-7.062A9.923 9.923 0 0012.012 2zm5.728 14.105c-.313.882-1.534 1.613-2.115 1.7-.582.086-1.3-.178-3.793-1.215-3.08-1.28-5.068-4.417-5.223-4.622-.153-.205-1.236-1.644-1.236-3.136 0-1.492.78-2.224 1.057-2.52.277-.297.604-.37.807-.37.202 0 .405.002.58.01.183.008.43-.072.673.513.25.597.854 2.083.928 2.233.074.15.124.324.025.523-.1.2-.15.324-.3.498-.15.174-.312.387-.446.52-.15.15-.306.313-.13.615.176.302.78 1.286 1.676 2.085.938.835 1.73 1.093 1.977 1.217.247.124.39.1.536-.07.145-.17.632-.735.801-1.057.168-.323.336-.273.567-.186.231.087 1.464.69 1.716.814.252.124.42.186.48.291.06.105.06.61-.253 1.493z"/>
+          </svg>
+          <span>WhatsApp Us</span>
+        </a>
+        <button class="nav-toggle" aria-label="Toggle Navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </div>
-    <div class="service-bullets">
-      <div class="bullet"><span class="tick">✔</span> Windows Installation &amp; Reinstallation</div>
-      <div class="bullet"><span class="tick">✔</span> Laptop Speed Optimization</div>
-      <div class="bullet"><span class="tick">✔</span> Virus &amp; Malware Removal</div>
-      <div class="bullet"><span class="tick">✔</span> Software Installation (MS Office, SPSS, etc.)</div>
-      <div class="bullet"><span class="tick">✔</span> Driver Installation &amp; Updates</div>
-      <div class="bullet"><span class="tick">✔</span> Data Backup &amp; Basic Recovery</div>
-      <div class="bullet"><span class="tick">✔</span> System Cleanup &amp; Performance Boost</div>
-      <div class="bullet"><span class="tick">✔</span> Password &amp; User Account Fixes</div>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-nav-overlay">
+      <div class="mobile-nav-links">
+        <a href="#services-hub" class="mob-link">Our Services</a>
+        <a href="#portfolio" class="mob-link">Portfolio Showcase</a>
+        <a href="#why-vto" class="mob-link">Why Choose Us</a>
+        <a href="#contact" class="mob-link">Get in Touch</a>
+        <a href="https://wa.me/233559024653" target="_blank" class="mob-cta">WhatsApp Chat</a>
+      </div>
     </div>
-    <div class="form-box">
-      <h3>📋 Laptop Service Request Form</h3>
-      <p class="form-sub">Fill this out so we can prepare everything before you even arrive.</p>
-      <form name="vto-laptop-service" method="POST" data-netlify="true" action="/success.html">
-        <div class="form-grid">
-          <div class="form-group">
-            <label>Your Full Name *</label>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section" id="hero">
+    <div class="hero-container">
+      <div class="hero-badge-wrapper">
+        <span class="badge-dot"></span>
+        <span class="hero-badge-text">Accra, Ghana · Central University</span>
+      </div>
+      
+      <div class="hero-brand-pulse">
+        <div class="pulse-ring ring-1"></div>
+        <div class="pulse-ring ring-2"></div>
+        <img src="logo.jpeg" alt="VTO Emblem" class="hero-logo-img">
+      </div>
+
+      <h1 class="hero-title">
+        VIBE TRIBE<br>
+        <span class="text-gold">ORGANISATION</span>
+      </h1>
+      
+      <p class="hero-subtitle">
+        "Where design remembers the ancestors, and speaks to tomorrow."
+      </p>
+      
+      <p class="hero-description">
+        We deliver executive-level technology services, original device trading, premium graphic design, elite modern websites, and ATS-friendly professional CVs — tailored for ambitious students and rising professionals at competitive rates.
+      </p>
+
+      <div class="hero-cta-group">
+        <a href="#services-hub" class="btn-hero-primary">Explore Services</a>
+        <a href="#contact" class="btn-hero-secondary">Consult Directly</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES HUB SECTION -->
+  <section class="services-hub-section" id="services-hub">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">Elite Core Services</span>
+        <h2 class="section-title">Five Domains. Absolute Mastery.</h2>
+        <p class="section-subtitle">Click the tabs below to explore our services, review pricing guidelines, and book instantly.</p>
+      </div>
+
+      <!-- Service Tab Controllers -->
+      <div class="tabs-control-wrapper">
+        <div class="tabs-controllers">
+          <button class="tab-btn active" data-target="laptop">
+            <span class="tab-icon">💻</span>
+            <span class="tab-name">Laptops</span>
+          </button>
+          <button class="tab-btn" data-target="devices">
+            <span class="tab-icon">📱</span>
+            <span class="tab-name">Buy &amp; Sell</span>
+          </button>
+          <button class="tab-btn" data-target="design">
+            <span class="tab-icon">🎨</span>
+            <span class="tab-name">Graphics</span>
+          </button>
+          <button class="tab-btn" data-target="web">
+            <span class="tab-icon">🌐</span>
+            <span class="tab-name">Websites</span>
+          </button>
+          <button class="tab-btn" data-target="cv">
+            <span class="tab-icon">📄</span>
+            <span class="tab-name">CV Expert</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Service Panels Container -->
+      <div class="service-panels-container">
+        
+        <!-- ===== 1. LAPTOP PANEL ===== -->
+        <div class="service-panel active" id="panel-laptop">
+          <div class="panel-grid">
+            <div class="panel-info">
+              <div class="panel-badge">Tech &amp; Diagnostics</div>
+              <h3 class="panel-title">Laptop Software Services</h3>
+              <p class="panel-desc">Is your machine running slow, crashing, or infected with malware? We offer premium software diagnostic, optimization, and installation services to restore peak productivity.</p>
+              
+              <div class="price-indicator">
+                <span class="price-label">Pricing starts from</span>
+                <span class="price-amount">GHS 80</span>
+              </div>
+
+              <div class="panel-bullets">
+                <div class="p-bullet">
+                  <svg class="bullet-check" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Windows Installation / Reinstallation</span>
+                </div>
+                <div class="p-bullet">
+                  <svg class="bullet-check" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Laptop Speed Optimization</span>
+                </div>
+                <div class="p-bullet">
+                  <svg class="bullet-check" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Virus &amp; Malware Deep Cleanup</span>
+                </div>
+                <div class="p-bullet">
+                  <svg class="bullet-check" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Pro Apps Setup (Office, SPSS, Creative Cloud)</span>
+                </div>
+                <div class="p-bullet">
+                  <svg class="bullet-check" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>System Drivers Auditing &amp; Refreshes</span>
+                </div>
+                <div class="p-bullet">
+                  <svg class="bullet-check" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Data Recovery &amp; Safe Local Backups</span>
+                </div>
+              </div>
+
+              <button class="btn-action-booking trigger-booking" data-service="laptop">
+                <span>Initiate Service Request</span>
+                <svg class="btn-arrow" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+              </button>
+            </div>
+            
+            <div class="panel-visual">
+              <div class="mockup-container">
+                <div class="mockup-frame laptop-frame">
+                  <div class="mockup-header-bar">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span class="mockup-title-text">System Status: Optimized</span>
+                  </div>
+                  <div class="mockup-body code-theme">
+                    <p class="code-line"><span class="c-keyword">systemctl</span> status vto-diagnostic</p>
+                    <p class="code-result success">● vto-diagnostic.service - VTO Core Laptop Optimization</p>
+                    <p class="code-result">   Loaded: loaded (/etc/systemd/system; enabled)</p>
+                    <p class="code-result success">   Active: active (running) since Mon 2026-06-01</p>
+                    <p class="code-result">   Main PID: 1205 (vto-boost)</p>
+                    <p class="code-result">   Tasks: 3 (limit: 4915)</p>
+                    <p class="code-result success">   C-State: TEMPS COOL [34°C] | MEM OPTIMIZED [96% free]</p>
+                    <p class="code-result font-gold">→ Windows OS Reinstalled successfully.</p>
+                    <p class="code-result font-gold">→ All drivers refreshed. Thermal paste verified.</p>
+                    <p class="code-line blink">█</p>
+                  </div>
+                </div>
+                <div class="visual-glow-glow"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== 2. DEVICES PANEL ===== -->
+        <div class="service-panel" id="panel-devices">
+          <div class="panel-grid">
+            <div class="panel-info">
+              <div class="panel-badge">Gadgets &amp; Hardware</div>
+              <h3 class="panel-title">Buy, Sell &amp; Swap Devices</h3>
+              <p class="panel-desc">Looking to upgrade your phone, tablet, or laptop? We facilitate reliable sales, purchase of used gear, and direct trade-in swaps. Receipts are always provided, and screen protectors are free with phone purchases.</p>
+              
+              <div class="price-indicator">
+                <span class="price-label">Swaps &amp; Sales</span>
+                <span class="price-amount">Instant Quotations</span>
+              </div>
+
+              <div class="panel-bullets">
+                <div class="p-bullet">
+                  <svg class="bullet-check" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Certified New &amp; Used Smart Devices</span>
+                </div>
+                <div class="p-bullet">
+                  <svg class="bullet-check" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Transparent Value Evaluation for Sellers</span>
+                </div>
+                <div class="p-bullet">
+                  <svg class="bullet-check" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Hassle-Free Trade-In / Swap Options</span>
+                </div>
+                <div class="p-bullet">
+                  <svg class="bullet-check" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Premium Accessories &amp; Screen Protection</span>
+                </div>
+                <div class="p-bullet">
+                  <svg class="bullet-check" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Safe Delivery Across Greater Accra</span>
+                </div>
+              </div>
+
+              <button class="btn-action-booking trigger-booking" data-service="devices">
+                <span>Quote or Swap Device</span>
+                <svg class="btn-arrow" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+              </button>
+            </div>
+            
+            <div class="panel-visual">
+              <div class="mockup-container">
+                <div class="phone-mockup">
+                  <div class="phone-screen">
+                    <div class="phone-notch"></div>
+                    <div class="phone-content">
+                      <div class="phone-header-brand">VTO Swap</div>
+                      <div class="active-deal-badge">🔥 Hot Swaps</div>
+                      
+                      <div class="phone-product-card">
+                        <div class="prod-img-placeholder">💻</div>
+                        <div class="prod-details">
+                          <span class="prod-name">MacBook Air M2</span>
+                          <span class="prod-condition">Grade A (9.8/10)</span>
+                          <span class="prod-price">GHS 13,800</span>
+                        </div>
+                      </div>
+
+                      <div class="phone-product-card">
+                        <div class="prod-img-placeholder">📱</div>
+                        <div class="prod-details">
+                          <span class="prod-name">iPhone 14 Pro 256GB</span>
+                          <span class="prod-condition">Battery Health 92%</span>
+                          <span class="prod-price">GHS 9,500</span>
+                        </div>
+                      </div>
+                      
+                      <span class="swap-action-label">Trade-In Value Estimator Online</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="visual-glow-glow font-indigo"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== 3. GRAPHICS PANEL ===== -->
+        <div class="service-panel" id="panel-design">
+          <div class="panel-grid">
+            <div class="panel-info">
+              <div class="panel-badge">Creative &amp; Branding</div>
+              <h3 class="panel-title">Graphic Design</h3>
+              <p class="panel-desc">Stand out with bold, memorable designs that respect heritage and grab attention. From event flyers and professional corporate logos to comprehensive digital branding kits.</p>
+              
+              <div class="price-indicator">
+                <span class="price-label">Flyers / Logos from</span>
+                <span class="price-amount">GHS 100</span>
+              </div>
+
+              <div class="panel-bullets">
+                <div class="p-bullet">
+                  <svg class="bullet-check" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Impactful Event Flyers &amp; Posters</span>
+                </div>
+                <div class="p-bullet">
+                  <svg class="bullet-check" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Minimalist &amp; Sophisticated Logos</span>
+                </div>
+                <div class="p-bullet">
+                  <svg class="bullet-check" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Cohesive Brand Kits &amp; Color Systems</span>
+                </div>
+                <div class="p-bullet">
+                  <svg class="bullet-check" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Social Media Assets &amp; Post Templates</span>
+                </div>
+                <div class="p-bullet">
+                  <svg class="bullet-check" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Event Brochures &amp; Printed Collateral</span>
+                </div>
+              </div>
+
+              <button class="btn-action-booking trigger-booking" data-service="design">
+                <span>Start Design Brief</span>
+                <svg class="btn-arrow" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+              </button>
+            </div>
+            
+            <div class="panel-visual">
+              <div class="mockup-container">
+                <div class="graphics-frame glass-card">
+                  <div class="gfx-canvas">
+                    <div class="gfx-header-logo">VTO</div>
+                    <div class="gfx-circle-glow"></div>
+                    <h4 class="gfx-art-title">THE TRIBE</h4>
+                    <p class="gfx-art-tag">SPEAKS TO TOMORROW</p>
+                    <div class="gfx-geometrics">
+                      <span>✦</span>
+                      <span>✦</span>
+                      <span>✦</span>
+                    </div>
+                  </div>
+                  <div class="gfx-palette">
+                    <div class="palette-swatch" style="background:#050508"></div>
+                    <div class="palette-swatch" style="background:#dca542"></div>
+                    <div class="palette-swatch" style="background:#6366f1"></div>
+                    <div class="palette-swatch" style="background:#f0f0f5"></div>
+                  </div>
+                </div>
+                <div class="visual-glow-glow"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== 4. WEBSITES PANEL ===== -->
+        <div class="service-panel" id="panel-web">
+          <div class="panel-grid">
+            <div class="panel-info">
+              <div class="panel-badge">Engineering &amp; Code</div>
+              <h3 class="panel-title">Website Design &amp; Development</h3>
+              <p class="panel-desc">Establish a world-class digital presence. We build lightning-fast, fully responsive, and SEO-optimized websites built for conversions, portfolios, or online commerce.</p>
+              
+              <div class="price-indicator">
+                <span class="price-label">Landing pages start at</span>
+                <span class="price-amount">GHS 1,200</span>
+              </div>
+
+              <div class="panel-bullets">
+                <div class="p-bullet">
+                  <svg class="bullet-check" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Bespoke Corporate &amp; Portfolio Platforms</span>
+                </div>
+                <div class="p-bullet">
+                  <svg class="bullet-check" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>100% Mobile &amp; Tablet Responsive Engineering</span>
+                </div>
+                <div class="p-bullet">
+                  <svg class="bullet-check" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Integrated Contact Modules &amp; Booking Pipelines</span>
+                </div>
+                <div class="p-bullet">
+                  <svg class="bullet-check" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Search Engine Optimization (SEO) Built-In</span>
+                </div>
+                <div class="p-bullet">
+                  <svg class="bullet-check" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Clean Code, Lightweight Back-ends, Faster Speeds</span>
+                </div>
+              </div>
+
+              <button class="btn-action-booking trigger-booking" data-service="web">
+                <span>Initiate Web Project</span>
+                <svg class="btn-arrow" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+              </button>
+            </div>
+            
+            <div class="panel-visual">
+              <div class="mockup-container">
+                <div class="browser-mockup glass-card">
+                  <div class="browser-header">
+                    <span class="browser-dot red"></span>
+                    <span class="browser-dot yellow"></span>
+                    <span class="browser-dot green"></span>
+                    <div class="browser-address">https://vibetribe.org</div>
+                  </div>
+                  <div class="browser-body">
+                    <div class="bb-nav">
+                      <span class="logo">VTO</span>
+                      <span class="burger"></span>
+                    </div>
+                    <div class="bb-hero">
+                      <div class="bb-hero-line font-gold">Building The Future</div>
+                      <div class="bb-hero-sub">Creative agency portfolio.</div>
+                      <div class="bb-grid">
+                        <div class="bb-card"></div>
+                        <div class="bb-card"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="visual-glow-glow font-indigo"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== 5. CV EXPERT PANEL ===== -->
+        <div class="service-panel" id="panel-cv">
+          <div class="panel-grid">
+            <div class="panel-info">
+              <div class="panel-badge">Career &amp; Professional</div>
+              <h3 class="panel-title">CV Expert Writing &amp; Redesign</h3>
+              <p class="panel-desc">Secure interviews at top-tier firms. We build high-impact, ATS-optimized resumes and matching cover letters formatted to modern recruiting standards.</p>
+              
+              <div class="price-indicator">
+                <span class="price-label">CV Refresh starts from</span>
+                <span class="price-amount">GHS 150</span>
+              </div>
+
+              <div class="panel-bullets">
+                <div class="p-bullet">
+                  <svg class="bullet-check" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Professional ATS-friendly Restructuring</span>
+                </div>
+                <div class="p-bullet">
+                  <svg class="bullet-check" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Industry-targeted Professional Keywords</span>
+                </div>
+                <div class="p-bullet">
+                  <svg class="bullet-check" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Persuasive Tailored Cover Letters</span>
+                </div>
+                <div class="p-bullet">
+                  <svg class="bullet-check" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>LinkedIn Profile Optimisation Blueprint</span>
+                </div>
+                <div class="p-bullet">
+                  <svg class="bullet-check" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  <span>Delivered in Editable Word &amp; Print-Ready PDF</span>
+                </div>
+              </div>
+
+              <button class="btn-action-booking trigger-booking" data-service="cv">
+                <span>Request CV Rewrite</span>
+                <svg class="btn-arrow" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+              </button>
+            </div>
+            
+            <div class="panel-visual">
+              <div class="mockup-container">
+                <div class="cv-mockup glass-card">
+                  <div class="cv-header">
+                    <span class="cv-name">Ama Mensah</span>
+                    <span class="cv-title">SOFTWARE ENGINEER</span>
+                  </div>
+                  <div class="cv-divider"></div>
+                  <div class="cv-section">
+                    <span class="cv-section-title">EXECUTIVE PROFILE</span>
+                    <p class="cv-section-body">Results-driven systems engineer with deep expertise in optimizing core codebases and building responsive applications...</p>
+                  </div>
+                  <div class="cv-section">
+                    <span class="cv-section-title">CORE SKILLS</span>
+                    <div class="cv-pills">
+                      <span class="cv-pill">Algorithms</span>
+                      <span class="cv-pill font-gold">React / Node.js</span>
+                      <span class="cv-pill">Clean Architecture</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="visual-glow-glow"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO SHOWCASE -->
+  <section class="portfolio-section" id="portfolio">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">Showcase of Work</span>
+        <h2 class="section-title">Premium Project Deliverables</h2>
+        <p class="section-subtitle">Excellence in execution. A brief snapshot of products built and designed by VTO.</p>
+      </div>
+
+      <div class="portfolio-grid">
+        
+        <!-- Case 1 -->
+        <div class="portfolio-card glass-card">
+          <div class="port-img-wrap">
+            <span class="port-icon-tag">🎨 Graphics</span>
+            <div class="mock-design-visual">
+              <div class="mdv-circle"></div>
+              <span class="mdv-star">✦</span>
+              <span class="mdv-label">Savvy Spend</span>
+            </div>
+          </div>
+          <div class="port-info">
+            <h4>Modern Branding Assets</h4>
+            <p>Complete logo redesign, social kits, and flyers using obsidian black and champagne gold.</p>
+            <button class="btn-portfolio-book trigger-booking" data-service="design">Consult Graphics →</button>
+          </div>
+        </div>
+
+        <!-- Case 2 -->
+        <div class="portfolio-card glass-card">
+          <div class="port-img-wrap">
+            <span class="port-icon-tag">🌐 Websites</span>
+            <div class="mock-web-visual">
+              <div class="mwv-header">
+                <span class="mwv-dot"></span><span class="mwv-dot"></span><span class="mwv-dot"></span>
+              </div>
+              <div class="mwv-hero">
+                <div class="mwv-line-1"></div>
+                <div class="mwv-line-2"></div>
+              </div>
+            </div>
+          </div>
+          <div class="port-info">
+            <h4>Landing Page Systems</h4>
+            <p>High-conversion responsive landing pages with full SEO setups and integrated lead triggers.</p>
+            <button class="btn-portfolio-book trigger-booking" data-service="web">Order Website →</button>
+          </div>
+        </div>
+
+        <!-- Case 3 -->
+        <div class="portfolio-card glass-card">
+          <div class="port-img-wrap">
+            <span class="port-icon-tag">📄 Career Development</span>
+            <div class="mock-cv-visual">
+              <div class="mcv-strip"></div>
+              <div class="mcv-line"></div>
+              <div class="mcv-line short"></div>
+              <div class="mcv-box"></div>
+            </div>
+          </div>
+          <div class="port-info">
+            <h4>Executive ATS Resume</h4>
+            <p>Full overhaul of resume and LinkedIn profiles with recruiters keywords for corporate interviews.</p>
+            <button class="btn-portfolio-book trigger-booking" data-service="cv">Request CV Draft →</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE VTO (TRUST STRIP) -->
+  <section class="why-vto-section" id="why-vto">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">Value Proposition</span>
+        <h2 class="section-title">Designed for Absolute Trust</h2>
+        <p class="section-subtitle">We merge professionalism with practical terms tailored specifically for ambitious minds.</p>
+      </div>
+
+      <div class="trust-grid">
+        <div class="trust-card glass-card">
+          <div class="t-icon">🛡️</div>
+          <h3>Verified Originals</h3>
+          <p>Every single device traded or supplied is verified original. Receipts and guarantees are standard protocol.</p>
+        </div>
+        <div class="trust-card glass-card">
+          <div class="t-icon">⚡</div>
+          <h3>Rapid Delivery</h3>
+          <p>No endless waiting. Laptop setups, design briefs, and CV overhauls are returned at optimal turnaround times.</p>
+        </div>
+        <div class="trust-card glass-card">
+          <div class="t-icon">🎓</div>
+          <h3>Student-First Prices</h3>
+          <p>Executive quality shouldn't require corporate budgets. Competitive rates structured for students.</p>
+        </div>
+        <div class="trust-card glass-card">
+          <div class="t-icon">🔒</div>
+          <h3>Data &amp; Privacy</h3>
+          <p>Absolute confidentiality for personal files, professional CV details, and software data backups.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GET IN TOUCH / CONTACT -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="contact-container glass-card">
+        <div class="contact-badge">VTO Headquarters</div>
+        <h2>Secure Your Booking Today</h2>
+        <p class="contact-lead-text">
+          Have an urgent task? Connect directly with us via WhatsApp or phone. We respond in under an hour. We are headquartered directly within Central University, Accra.
+        </p>
+
+        <div class="contact-numbers-grid">
+          <a href="https://wa.me/233559024653" target="_blank" class="contact-card-btn">
+            <span class="num-icon">💬</span>
+            <div class="num-details">
+              <span class="num-title">Kofi (VTO Lead)</span>
+              <span class="num-digits">+233 559 024 653</span>
+            </div>
+          </a>
+          <a href="https://wa.me/233508318653" target="_blank" class="contact-card-btn">
+            <span class="num-icon">💬</span>
+            <div class="num-details">
+              <span class="num-title">Ama (VTO Operations)</span>
+              <span class="num-digits">+233 508 318 653</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="location-stamp">
+          <span class="loc-pin">📍</span>
+          <span>Base of Operations: <strong>Central University campus, Accra, Ghana</strong></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer-block">
+    <div class="container footer-container">
+      <div class="footer-brand-info">
+        <span class="footer-title">VIBE TRIBE <span class="text-gold">ORGANISATION</span></span>
+        <p class="footer-tagline">"Where design remembers the ancestors, and speaks to tomorrow."</p>
+      </div>
+      <div class="footer-meta">
+        <p>© 2026 Vibe Tribe Organisation. All rights reserved.</p>
+        <p class="developed-by">Elite Web Engineering by VTO</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- DYNAMIC BOOKING DRAWER & OVERLAY -->
+  <div class="drawer-overlay" id="drawer-overlay"></div>
+  <div class="booking-drawer" id="booking-drawer">
+    <div class="drawer-header">
+      <div class="drawer-header-title">
+        <span class="d-icon" id="drawer-service-icon">💼</span>
+        <div>
+          <h3 id="drawer-service-title">Request Service</h3>
+          <p id="drawer-service-sub">Fill out the secure design brief / booking card</p>
+        </div>
+      </div>
+      <button class="drawer-close-btn" id="drawer-close" aria-label="Close Booking Drawer">&times;</button>
+    </div>
+
+    <div class="drawer-body">
+      
+      <!-- FORM 1: LAPTOP SOFTWARE SERVICES -->
+      <div class="drawer-form-wrapper" id="form-laptop">
+        <form name="vto-laptop-service" method="POST" data-netlify="true" action="/success.html">
+          <input type="hidden" name="form-name" value="vto-laptop-service" />
+          <div class="form-instructions">Provide your system details to schedule custom setup &amp; speed boost.</div>
+          
+          <div class="form-field">
+            <label>Full Name <span class="req">*</span></label>
             <input type="text" name="name" placeholder="e.g. Kofi Mensah" required/>
           </div>
-          <div class="form-group">
-            <label>WhatsApp Number *</label>
+          
+          <div class="form-field">
+            <label>WhatsApp Number <span class="req">*</span></label>
             <input type="tel" name="phone" placeholder="+233 XX XXX XXXX" required/>
           </div>
-          <div class="form-group">
+          
+          <div class="form-field">
             <label>Laptop Brand &amp; Model</label>
             <input type="text" name="laptop_model" placeholder="e.g. HP Pavilion 15, Dell Inspiron"/>
           </div>
-          <div class="form-group">
-            <label>Service Needed *</label>
+          
+          <div class="form-field">
+            <label>Required Service Option <span class="req">*</span></label>
             <select name="service_type" required>
-              <option value="">-- Select a service --</option>
+              <option value="">-- Select option --</option>
               <option>Windows Installation / Reinstallation</option>
-              <option>Speed Optimization</option>
-              <option>Virus &amp; Malware Removal</option>
-              <option>Software Installation</option>
-              <option>Driver Installation &amp; Updates</option>
+              <option>Speed Optimization &amp; Cleanup</option>
+              <option>Virus &amp; Malware Deep Clean</option>
+              <option>Professional Applications Setup</option>
+              <option>System Drivers &amp; Updates</option>
               <option>Data Backup &amp; Recovery</option>
-              <option>System Cleanup</option>
-              <option>Password / Account Fix</option>
-              <option>Other</option>
+              <option>Password / Account Unlock</option>
+              <option>Other / Diagnostics</option>
             </select>
           </div>
-          <div class="form-group full">
-            <label>Describe the Problem *</label>
-            <textarea name="problem_description" placeholder="Describe what's happening with your laptop — the more detail, the better." required></textarea>
+          
+          <div class="form-field">
+            <label>Describe the Symptoms / Requirements <span class="req">*</span></label>
+            <textarea name="problem_description" placeholder="Specify if there are specific errors, blue screens, or specific apps needed." required></textarea>
           </div>
-          <div class="form-group">
-            <label>Preferred Date</label>
-            <input type="date" name="preferred_date"/>
+          
+          <div class="form-row-2">
+            <div class="form-field">
+              <label>Preferred Appointment</label>
+              <input type="date" name="preferred_date"/>
+            </div>
+            <div class="form-field">
+              <label>Urgency Level</label>
+              <select name="urgency">
+                <option>Standard (Within a week)</option>
+                <option>Priority (2-3 days)</option>
+                <option>Urgent (ASAP / Same-day)</option>
+              </select>
+            </div>
           </div>
-          <div class="form-group">
-            <label>Urgency</label>
-            <select name="urgency">
-              <option>Not urgent — within a week</option>
-              <option>Moderately urgent — 2–3 days</option>
-              <option>Very urgent — ASAP</option>
-            </select>
-          </div>
-        </div>
-        <button type="submit" class="form-submit">Submit Request →</button>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 2. BUY, SELL & SWAP ===== -->
-<section class="service-section" id="devices">
-  <div class="container">
-    <div class="service-header">
-      <div class="service-icon">📱</div>
-      <div class="service-header-text">
-        <h2>Buy · Sell · Swap Devices</h2>
-        <p>All phones, laptops, tablets, smartwatches, earbuds and gadgets. Original devices only. Receipt provided. Free screen protector with every phone purchased. Fast delivery in Accra.</p>
+          
+          <button type="submit" class="btn-submit-form">Submit Secure Booking →</button>
+        </form>
       </div>
-    </div>
-    <div class="service-bullets">
-      <div class="bullet"><span class="tick">✔</span> Buy New &amp; Used Devices</div>
-      <div class="bullet"><span class="tick">✔</span> Sell Your Device</div>
-      <div class="bullet"><span class="tick">✔</span> Swap / Trade-In</div>
-      <div class="bullet"><span class="tick">✔</span> Phone &amp; Gadget Repairs</div>
-      <div class="bullet"><span class="tick">✔</span> Accessories Available</div>
-      <div class="bullet"><span class="tick">✔</span> Phone Unlocking</div>
-      <div class="bullet"><span class="tick">✔</span> Original Devices Only</div>
-      <div class="bullet"><span class="tick">✔</span> Receipt Provided</div>
-    </div>
-    <div class="form-box">
-      <h3>📋 Device Request / Listing Form</h3>
-      <p class="form-sub">Tell us what you want to buy, sell, or swap.</p>
-      <form name="vto-devices" method="POST" data-netlify="true" action="/success.html">
-        <div class="form-grid">
-          <div class="form-group">
-            <label>Your Full Name *</label>
+
+      <!-- FORM 2: BUY, SELL & SWAP DEVICES -->
+      <div class="drawer-form-wrapper" id="form-devices">
+        <form name="vto-devices" method="POST" data-netlify="true" action="/success.html">
+          <input type="hidden" name="form-name" value="vto-devices" />
+          <div class="form-instructions">Submit detail files to purchase, sell, or request hardware evaluations.</div>
+          
+          <div class="form-field">
+            <label>Full Name <span class="req">*</span></label>
             <input type="text" name="name" placeholder="e.g. Ama Serwaa" required/>
           </div>
-          <div class="form-group">
-            <label>WhatsApp Number *</label>
+          
+          <div class="form-field">
+            <label>WhatsApp Number <span class="req">*</span></label>
             <input type="tel" name="phone" placeholder="+233 XX XXX XXXX" required/>
           </div>
-          <div class="form-group">
-            <label>I want to… *</label>
-            <select name="action_type" required>
-              <option value="">-- Select --</option>
-              <option>Buy a Device</option>
-              <option>Sell My Device</option>
-              <option>Swap / Trade-In</option>
-              <option>Repair a Device</option>
-              <option>Buy an Accessory</option>
-              <option>Unlock a Phone</option>
-            </select>
+          
+          <div class="form-row-2">
+            <div class="form-field">
+              <label>Transaction Intent <span class="req">*</span></label>
+              <select name="action_type" required>
+                <option value="">-- Choose intention --</option>
+                <option>Buy a Device</option>
+                <option>Sell My Device</option>
+                <option>Swap / Trade-In</option>
+                <option>Device Repairs</option>
+                <option>Purchase Accessory</option>
+                <option>Phone Unlocking</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label>Device Category</label>
+              <select name="device_type">
+                <option>Smartphone</option>
+                <option>Laptop</option>
+                <option>Tablet</option>
+                <option>Smartwatch</option>
+                <option>Earbuds / Audio</option>
+                <option>Other</option>
+              </select>
+            </div>
           </div>
-          <div class="form-group">
-            <label>Device Type</label>
-            <select name="device_type">
-              <option>Smartphone</option>
-              <option>Laptop</option>
-              <option>Tablet</option>
-              <option>Smartwatch</option>
-              <option>Earbuds / Headphones</option>
-              <option>Other Gadget</option>
-            </select>
+          
+          <div class="form-field">
+            <label>Device Name / Spec / Desired Model <span class="req">*</span></label>
+            <input type="text" name="device_model" placeholder="e.g. iPhone 14 Pro Max 256GB, MacBook Air M1" required/>
           </div>
-          <div class="form-group full">
-            <label>Device Name / Model (or what you're looking for)</label>
-            <input type="text" name="device_model" placeholder="e.g. iPhone 14 Pro Max 256GB, Samsung A54, MacBook Air M2"/>
+          
+          <div class="form-row-2">
+            <div class="form-field">
+              <label>Target Budget / Valuation (GHS)</label>
+              <input type="text" name="budget" placeholder="e.g. GHS 4,000 - 6,000"/>
+            </div>
+            <div class="form-field">
+              <label>Current Physical Grade</label>
+              <select name="condition">
+                <option>N/A - I am purchasing</option>
+                <option>Brand New Sealed</option>
+                <option>Grade A (Like new)</option>
+                <option>Grade B (Minor wear)</option>
+                <option>Grade C (Scratched/Faults)</option>
+              </select>
+            </div>
           </div>
-          <div class="form-group">
-            <label>Your Budget (GHS)</label>
-            <input type="text" name="budget" placeholder="e.g. 3000 – 4500"/>
+          
+          <div class="form-field">
+            <label>Additional Notes</label>
+            <textarea name="details" placeholder="Specify if battery health is key, colors, box & original charger inclusions, etc."></textarea>
           </div>
-          <div class="form-group">
-            <label>Condition of Your Device (if selling/swapping)</label>
-            <select name="condition">
-              <option>Brand New</option>
-              <option>Excellent (like new)</option>
-              <option>Good (minor scratches)</option>
-              <option>Fair (visible wear)</option>
-              <option>Needs repair</option>
-              <option>N/A — I'm buying</option>
-            </select>
-          </div>
-          <div class="form-group full">
-            <label>Additional Details</label>
-            <textarea name="details" placeholder="Any extra info — accessories included, faults, colour preference, delivery location, etc."></textarea>
-          </div>
-        </div>
-        <button type="submit" class="form-submit">Submit Request →</button>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 3. GRAPHIC DESIGN ===== -->
-<section class="service-section" id="design">
-  <div class="container">
-    <div class="service-header">
-      <div class="service-icon">🎨</div>
-      <div class="service-header-text">
-        <h2>Graphic Design</h2>
-        <p>Bold, culturally rooted designs that speak to your audience. Flyers, logos, branding kits, social media graphics, banners — designed to stand out and be remembered.</p>
+          
+          <button type="submit" class="btn-submit-form">Submit Hardware Listing →</button>
+        </form>
       </div>
-    </div>
-    <div class="service-bullets">
-      <div class="bullet"><span class="tick">✔</span> Flyers &amp; Posters</div>
-      <div class="bullet"><span class="tick">✔</span> Logo Design &amp; Branding</div>
-      <div class="bullet"><span class="tick">✔</span> Social Media Graphics</div>
-      <div class="bullet"><span class="tick">✔</span> Business Cards</div>
-      <div class="bullet"><span class="tick">✔</span> Banners &amp; Signage</div>
-      <div class="bullet"><span class="tick">✔</span> Event Programs / Brochures</div>
-    </div>
-    <div class="form-box">
-      <h3>📋 Design Project Brief</h3>
-      <p class="form-sub">The more you tell us, the better the design.</p>
-      <form name="vto-design" method="POST" data-netlify="true" action="/success.html">
-        <div class="form-grid">
-          <div class="form-group">
-            <label>Your Full Name *</label>
+
+      <!-- FORM 3: GRAPHIC DESIGN BRIEF -->
+      <div class="drawer-form-wrapper" id="form-design">
+        <form name="vto-design" method="POST" data-netlify="true" action="/success.html">
+          <input type="hidden" name="form-name" value="vto-design" />
+          <div class="form-instructions">Submit specifications for high-fidelity branding &amp; visual designs.</div>
+          
+          <div class="form-field">
+            <label>Full Name <span class="req">*</span></label>
             <input type="text" name="name" placeholder="e.g. Kwame Asante" required/>
           </div>
-          <div class="form-group">
-            <label>WhatsApp Number *</label>
+          
+          <div class="form-field">
+            <label>WhatsApp Number <span class="req">*</span></label>
             <input type="tel" name="phone" placeholder="+233 XX XXX XXXX" required/>
           </div>
-          <div class="form-group">
-            <label>Design Type *</label>
-            <select name="design_type" required>
-              <option value="">-- Select --</option>
-              <option>Flyer / Poster</option>
-              <option>Logo Design</option>
-              <option>Branding Kit</option>
-              <option>Social Media Graphics</option>
-              <option>Business Card</option>
-              <option>Banner / Signage</option>
-              <option>Event Program / Brochure</option>
-              <option>Other</option>
-            </select>
+          
+          <div class="form-row-2">
+            <div class="form-field">
+              <label>Design Option <span class="req">*</span></label>
+              <select name="design_type" required>
+                <option value="">-- Select type --</option>
+                <option>Flyer / Poster</option>
+                <option>Corporate Logo Design</option>
+                <option>Branding Identity Kit</option>
+                <option>Social Media Pack</option>
+                <option>Business Card Suite</option>
+                <option>Banner / Signage</option>
+                <option>Brochure / Event program</option>
+                <option>Custom Request</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label>Required Deadline</label>
+              <input type="date" name="deadline"/>
+            </div>
           </div>
-          <div class="form-group">
-            <label>Purpose / Event Name</label>
-            <input type="text" name="event_name" placeholder="e.g. Church event, Birthday party, Business launch"/>
+          
+          <div class="form-field">
+            <label>Purpose / Event / Company Name</label>
+            <input type="text" name="event_name" placeholder="e.g. Corporate rebranding, Club flyers, Product Launch"/>
           </div>
-          <div class="form-group">
-            <label>Preferred Colours / Theme</label>
-            <input type="text" name="colors" placeholder="e.g. Black & gold, Blue & white, Bold & vibrant"/>
+          
+          <div class="form-field">
+            <label>Visual Palette / Colors Preferred</label>
+            <input type="text" name="colors" placeholder="e.g. Royal violet, gold gradient, clean white"/>
           </div>
-          <div class="form-group">
-            <label>Deadline</label>
-            <input type="date" name="deadline"/>
+          
+          <div class="form-field">
+            <label>Raw Copy / Text Content to Include <span class="req">*</span></label>
+            <textarea name="content_text" placeholder="Paste titles, dates, locations, phone numbers, and speaker details exactly as they must appear." required></textarea>
           </div>
-          <div class="form-group full">
-            <label>Text / Content to Include *</label>
-            <textarea name="content_text" placeholder="Provide all the text: names, dates, time, venue, contact numbers, taglines, etc." required></textarea>
+          
+          <div class="form-field">
+            <label>Reference Designs or Concept Links</label>
+            <textarea name="inspiration" placeholder="Describe the aesthetic direction (e.g. minimal, afro-centric, corporate luxury)"></textarea>
           </div>
-          <div class="form-group full">
-            <label>Reference / Inspiration (optional)</label>
-            <textarea name="inspiration" placeholder="Describe a style you like, or paste a link to a design that inspires you."></textarea>
-          </div>
-        </div>
-        <button type="submit" class="form-submit">Submit Brief →</button>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 4. WEBSITE DESIGN ===== -->
-<section class="service-section" id="web">
-  <div class="container">
-    <div class="service-header">
-      <div class="service-icon">🌐</div>
-      <div class="service-header-text">
-        <h2>Website Design</h2>
-        <p>Modern, mobile-friendly websites for businesses, organisations, portfolios, and events. We build clean, fast sites that make a strong first impression — no bloat, no fuss.</p>
+          
+          <button type="submit" class="btn-submit-form">Submit Creative Brief →</button>
+        </form>
       </div>
-    </div>
-    <div class="service-bullets">
-      <div class="bullet"><span class="tick">✔</span> Business / Brand Websites</div>
-      <div class="bullet"><span class="tick">✔</span> Portfolio Sites</div>
-      <div class="bullet"><span class="tick">✔</span> Event / Landing Pages</div>
-      <div class="bullet"><span class="tick">✔</span> Organisation Websites</div>
-      <div class="bullet"><span class="tick">✔</span> Mobile Responsive</div>
-      <div class="bullet"><span class="tick">✔</span> Contact Forms Included</div>
-    </div>
-    <div class="form-box">
-      <h3>📋 Website Project Brief</h3>
-      <p class="form-sub">Tell us about the site you need so we can give you an accurate quote.</p>
-      <form name="vto-website" method="POST" data-netlify="true" action="/success.html">
-        <div class="form-grid">
-          <div class="form-group">
-            <label>Your Full Name *</label>
-            <input type="text" name="name" required placeholder="Your name"/>
+
+      <!-- FORM 4: WEBSITE PROJECT BRIEF -->
+      <div class="drawer-form-wrapper" id="form-web">
+        <form name="vto-website" method="POST" data-netlify="true" action="/success.html">
+          <input type="hidden" name="form-name" value="vto-website" />
+          <div class="form-instructions">Establish customized website goals for corporate pages or web applications.</div>
+          
+          <div class="form-field">
+            <label>Full Name <span class="req">*</span></label>
+            <input type="text" name="name" placeholder="Your name" required/>
           </div>
-          <div class="form-group">
-            <label>WhatsApp Number *</label>
-            <input type="tel" name="phone" required placeholder="+233 XX XXX XXXX"/>
+          
+          <div class="form-field">
+            <label>WhatsApp Number <span class="req">*</span></label>
+            <input type="tel" name="phone" placeholder="+233 XX XXX XXXX" required/>
           </div>
-          <div class="form-group">
-            <label>Business / Organisation Name *</label>
-            <input type="text" name="business_name" required placeholder="Name of your business or org"/>
+          
+          <div class="form-field">
+            <label>Company / Brand Name <span class="req">*</span></label>
+            <input type="text" name="business_name" placeholder="Name of business/organisation" required/>
           </div>
-          <div class="form-group">
-            <label>Website Type *</label>
-            <select name="website_type" required>
-              <option value="">-- Select --</option>
-              <option>Business / Brand Website</option>
-              <option>Portfolio</option>
-              <option>Landing Page / Event Page</option>
-              <option>Organisation Website</option>
-              <option>Online Store (E-commerce)</option>
-              <option>Blog</option>
-              <option>Other</option>
-            </select>
+          
+          <div class="form-row-2">
+            <div class="form-field">
+              <label>Website Structure <span class="req">*</span></label>
+              <select name="website_type" required>
+                <option value="">-- Choose type --</option>
+                <option>Business Brand Website</option>
+                <option>Professional Portfolio</option>
+                <option>Single-page Landing Page</option>
+                <option>Organisation Portal</option>
+                <option>E-commerce Store</option>
+                <option>Interactive Web Application</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label>Target Launch Date</label>
+              <input type="date" name="deadline"/>
+            </div>
           </div>
-          <div class="form-group full">
-            <label>What Should the Website Do / Contain? *</label>
-            <textarea name="functionality" required placeholder="e.g. Show our services, let people contact us, display our portfolio, sell products online..."></textarea>
+          
+          <div class="form-field">
+            <label>Required Functional Scope <span class="req">*</span></label>
+            <textarea name="functionality" placeholder="What actions should users perform? (e.g. make bookings, purchase items, view architectural gallery)" required></textarea>
           </div>
-          <div class="form-group">
-            <label>Preferred Design Style</label>
+          
+          <div class="form-field">
+            <label>Artistic Theme Direction</label>
             <select name="design_style">
-              <option>Dark &amp; Bold (like this site)</option>
-              <option>Clean &amp; Minimal (white/light)</option>
-              <option>Colourful &amp; Energetic</option>
-              <option>Professional &amp; Corporate</option>
-              <option>Creative / Artistic</option>
+              <option>Obsidian &amp; Gold Dark Mode (VTO Signature)</option>
+              <option>Clean &amp; Minimalist High-light</option>
+              <option>Modern Vibrant &amp; High-Contrast</option>
+              <option>Classic Corporate Professional</option>
+              <option>Artistic &amp; Fluid</option>
             </select>
           </div>
-          <div class="form-group">
-            <label>Deadline / Target Date</label>
-            <input type="date" name="deadline"/>
+          
+          <div class="form-field">
+            <label>Competitors / Reference Websites</label>
+            <input type="text" name="references" placeholder="Paste URL addresses of designs you admire"/>
           </div>
-          <div class="form-group full">
-            <label>Reference Sites (optional)</label>
-            <input type="text" name="references" placeholder="Paste links to websites you like the look of"/>
+          
+          <div class="form-field">
+            <label>Scope Budget &amp; Custom Features</label>
+            <textarea name="extra_info" placeholder="Specify if custom payment APIs, database setups, or specific integrations are required."></textarea>
           </div>
-          <div class="form-group full">
-            <label>Anything Else We Should Know?</label>
-            <textarea name="extra_info" placeholder="Budget range, number of pages, special features needed, etc."></textarea>
-          </div>
-        </div>
-        <button type="submit" class="form-submit">Submit Brief →</button>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 5. CV EXPERT ===== -->
-<section class="service-section" id="cv">
-  <div class="container">
-    <div class="service-header">
-      <div class="service-icon">📄</div>
-      <div class="service-header-text">
-        <h2>CV Expert</h2>
-        <p>A great CV opens doors. We design professional, ATS-friendly CVs and cover letters tailored to the job you're applying for — so your skills get noticed immediately.</p>
+          
+          <button type="submit" class="btn-submit-form">Launch Web Project →</button>
+        </form>
       </div>
-    </div>
-    <div class="service-bullets">
-      <div class="bullet"><span class="tick">✔</span> Professional CV Writing</div>
-      <div class="bullet"><span class="tick">✔</span> CV Redesign / Refresh</div>
-      <div class="bullet"><span class="tick">✔</span> Cover Letter Writing</div>
-      <div class="bullet"><span class="tick">✔</span> LinkedIn Profile Optimisation</div>
-      <div class="bullet"><span class="tick">✔</span> Student / Entry-Level CVs</div>
-      <div class="bullet"><span class="tick">✔</span> PDF &amp; Word Format Delivery</div>
-    </div>
-    <div class="form-box">
-      <h3>📋 CV Request Form</h3>
-      <p class="form-sub">Provide your details below so we can craft a CV that gets you hired.</p>
-      <form name="vto-cv" method="POST" data-netlify="true" action="/success.html">
-        <div class="form-grid">
-          <div class="form-group">
-            <label>Your Full Name *</label>
-            <input type="text" name="name" required placeholder="As it will appear on your CV"/>
-          </div>
-          <div class="form-group">
-            <label>WhatsApp Number *</label>
-            <input type="tel" name="phone" required placeholder="+233 XX XXX XXXX"/>
-          </div>
-          <div class="form-group">
-            <label>Email Address</label>
-            <input type="email" name="email" placeholder="your@email.com"/>
-          </div>
-          <div class="form-group">
-            <label>Service Needed *</label>
-            <select name="service_needed" required>
-              <option value="">-- Select --</option>
-              <option>New CV (from scratch)</option>
-              <option>CV Redesign / Refresh</option>
-              <option>Cover Letter</option>
-              <option>CV + Cover Letter (bundle)</option>
-              <option>LinkedIn Optimisation</option>
-            </select>
-          </div>
-          <div class="form-group full">
-            <label>Field / Industry You're Applying To *</label>
-            <input type="text" name="industry" required placeholder="e.g. Pharmacy, Engineering, Marketing, Finance, Teaching"/>
-          </div>
-          <div class="form-group full">
-            <label>Your Education Background</label>
-            <textarea name="education" placeholder="School(s), degree(s), graduation year(s)"></textarea>
-          </div>
-          <div class="form-group full">
-            <label>Work / Volunteer / Internship Experience</label>
-            <textarea name="experience" placeholder="List any relevant experience — even if minimal. Include organisation, role, and duration."></textarea>
-          </div>
-          <div class="form-group full">
-            <label>Key Skills</label>
-            <textarea name="skills" placeholder="e.g. Microsoft Office, Communication, Research, Teamwork, Python, Customer Service..."></textarea>
-          </div>
-          <div class="form-group">
-            <label>Preferred CV Style</label>
-            <select name="style">
-              <option>Modern &amp; Clean</option>
-              <option>Classic / Traditional</option>
-              <option>Creative / Colourful</option>
-              <option>Minimalist</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Deadline</label>
-            <input type="date" name="deadline"/>
-          </div>
-        </div>
-        <button type="submit" class="form-submit">Submit CV Request →</button>
-      </form>
-    </div>
-  </div>
-</section>
 
-<!-- TRUST STRIP -->
-<div class="trust-strip">
-  <div class="trust-grid">
-    <div class="trust-item">
-      <div class="trust-icon">🛡️</div>
-      <h4>Original Devices</h4>
-      <p>All devices are verified original. Receipt always provided.</p>
-    </div>
-    <div class="trust-item">
-      <div class="trust-icon">⚡</div>
-      <h4>Fast Turnaround</h4>
-      <p>Quick delivery on all services — we don't keep you waiting.</p>
-    </div>
-    <div class="trust-item">
-      <div class="trust-icon">💰</div>
-      <h4>Student-Friendly Prices</h4>
-      <p>Affordable rates designed for students and young professionals.</p>
-    </div>
-    <div class="trust-item">
-      <div class="trust-icon">🔒</div>
-      <h4>Safe &amp; Confidential</h4>
-      <p>Your data and files are handled with full confidentiality.</p>
-    </div>
-  </div>
-</div>
-
-<!-- CONTACT -->
-<section class="contact-section" id="contact">
-  <div class="container">
-    <div class="contact-box">
-      <h2>Ready to get started?</h2>
-      <p>Reach out on WhatsApp and we'll respond within the hour. We're based at Central University, Accra — delivery available across Accra.</p>
-      <div class="contact-numbers">
-        <a class="contact-num" href="tel:+233559024653">+233 559 024 653</a>
-        <a class="contact-num" href="tel:+233508318653">+233 508 318 653</a>
+      <!-- FORM 5: CV EXPERT -->
+      <div class="drawer-form-wrapper" id="form-cv">
+        <form name="vto-cv" method="POST" data-netlify="true" action="/success.html">
+          <input type="hidden" name="form-name" value="vto-cv" />
+          <div class="form-instructions">Submit profile details to structure a high-performance ATS-optimized CV card.</div>
+          
+          <div class="form-field">
+            <label>Full Name <span class="req">*</span></label>
+            <input type="text" name="name" placeholder="As it should appear on your CV header" required/>
+          </div>
+          
+          <div class="form-row-2">
+            <div class="form-field">
+              <label>WhatsApp Number <span class="req">*</span></label>
+              <input type="tel" name="phone" placeholder="+233 XX XXX XXXX" required/>
+            </div>
+            <div class="form-field">
+              <label>Email Address</label>
+              <input type="email" name="email" placeholder="your@email.com"/>
+            </div>
+          </div>
+          
+          <div class="form-row-2">
+            <div class="form-field">
+              <label>Selected Package <span class="req">*</span></label>
+              <select name="service_needed" required>
+                <option value="">-- Choose package --</option>
+                <option>New CV Drafting (from scratch)</option>
+                <option>Professional CV Refresh</option>
+                <option>Tailored Cover Letter</option>
+                <option>CV &amp; Cover Letter Bundle</option>
+                <option>LinkedIn Optimization Roadmap</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label>Job Hunting Field / Industry <span class="req">*</span></label>
+              <input type="text" name="industry" placeholder="e.g. Finance, Healthcare, Tech" required/>
+            </div>
+          </div>
+          
+          <div class="form-field">
+            <label>Current Educational Milestones</label>
+            <textarea name="education" placeholder="List institutions attended, degrees, graduation months &amp; honors."></textarea>
+          </div>
+          
+          <div class="form-field">
+            <label>Work &amp; Professional Milestones</label>
+            <textarea name="experience" placeholder="List past roles, responsibilities, projects, and volunteer contributions."></textarea>
+          </div>
+          
+          <div class="form-field">
+            <label>Core Technical &amp; Soft Skills</label>
+            <textarea name="skills" placeholder="e.g. Financial auditing, React.js, CRM software, leadership, etc."></textarea>
+          </div>
+          
+          <div class="form-row-2">
+            <div class="form-field">
+              <label>Formatting Direction</label>
+              <select name="style">
+                <option>Clean Modern Corporate</option>
+                <option>Traditional / Classic Academic</option>
+                <option>Creative Visual Layout</option>
+                <option>Minimalist Single-Page Profile</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label>Target Delivery Date</label>
+              <input type="date" name="deadline"/>
+            </div>
+          </div>
+          
+          <button type="submit" class="btn-submit-form">Initiate Resume Order →</button>
+        </form>
       </div>
-      <p class="location">📍 Located at <span>Central University, Accra, Ghana</span></p>
+
     </div>
   </div>
-</section>
 
-<!-- FOOTER -->
-<footer>
-  <span class="footer-brand">Vibe Tribe <span>Organisation</span></span>
-  <p>Where design remembers the ancestors, and speaks to tomorrow. © 2026 VTO.</p>
-</footer>
+  <!-- Vanilla Scripts -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      // 1. MOBILE NAVIGATION MENU
+      const navToggle = document.querySelector('.nav-toggle');
+      const mobileNav = document.querySelector('.mobile-nav-overlay');
+      const mobLinks = document.querySelectorAll('.mob-link');
 
+      function toggleMobileMenu() {
+        navToggle.classList.toggle('active');
+        mobileNav.classList.toggle('active');
+        document.body.classList.toggle('no-scroll');
+      }
+
+      navToggle.addEventListener('click', toggleMobileMenu);
+      
+      mobLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          if (mobileNav.classList.contains('active')) {
+            toggleMobileMenu();
+          }
+        });
+      });
+
+      // 2. INTERACTIVE SERVICE TABS
+      const tabButtons = document.querySelectorAll('.tab-btn');
+      const servicePanels = document.querySelectorAll('.service-panel');
+
+      tabButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          // Remove active classes
+          tabButtons.forEach(b => b.classList.remove('active'));
+          servicePanels.forEach(p => p.classList.remove('active'));
+
+          // Add active classes to current selection
+          btn.classList.add('active');
+          const targetId = `panel-${btn.getAttribute('data-target')}`;
+          const targetPanel = document.getElementById(targetId);
+          if (targetPanel) {
+            targetPanel.classList.add('active');
+          }
+        });
+      });
+
+      // 3. BOOKING DRAWER FUNCTIONALITY
+      const drawer = document.getElementById('booking-drawer');
+      const drawerOverlay = document.getElementById('drawer-overlay');
+      const drawerClose = document.getElementById('drawer-close');
+      const triggerButtons = document.querySelectorAll('.trigger-booking');
+      
+      // Service details mapping for Drawer customization
+      const serviceDetails = {
+        laptop: {
+          title: 'Laptop Software Request',
+          sub: 'Restore your device to peak processing speed.',
+          icon: '💻'
+        },
+        devices: {
+          title: 'Device Upgrade & Trade-in',
+          sub: 'Submit physical condition specs for precise valuations.',
+          icon: '📱'
+        },
+        design: {
+          title: 'Creative Brief details',
+          sub: 'Outline your target visuals, deadlines & colors.',
+          icon: '🎨'
+        },
+        web: {
+          title: 'Website Specs Brief',
+          sub: 'Launch your premium, lightning-fast digital asset.',
+          icon: '🌐'
+        },
+        cv: {
+          title: 'Executive CV Order',
+          sub: 'Craft an ATS-optimized profile that secures reviews.',
+          icon: '📄'
+        }
+      };
+
+      function openDrawer(serviceKey) {
+        // Pre-configure drawer content
+        const details = serviceDetails[serviceKey] || { title: 'Book Service', sub: 'Send request', icon: '💼' };
+        
+        document.getElementById('drawer-service-title').textContent = details.title;
+        document.getElementById('drawer-service-sub').textContent = details.sub;
+        document.getElementById('drawer-service-icon').textContent = details.icon;
+
+        // Hide all form wrappers
+        const forms = document.querySelectorAll('.drawer-form-wrapper');
+        forms.forEach(form => form.classList.remove('active'));
+
+        // Show matching form wrapper
+        const activeForm = document.getElementById(`form-${serviceKey}`);
+        if (activeForm) {
+          activeForm.classList.add('active');
+        }
+
+        // Slide-in drawer
+        drawer.classList.add('active');
+        drawerOverlay.classList.add('active');
+        document.body.classList.add('no-scroll');
+      }
+
+      function closeDrawer() {
+        drawer.classList.remove('active');
+        drawerOverlay.classList.remove('active');
+        document.body.classList.remove('no-scroll');
+      }
+
+      triggerButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const serviceKey = btn.getAttribute('data-service');
+          openDrawer(serviceKey);
+        });
+      });
+
+      drawerClose.addEventListener('click', closeDrawer);
+      drawerOverlay.addEventListener('click', closeDrawer);
+
+      // ESC key to close drawer
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && drawer.classList.contains('active')) {
+          closeDrawer();
+        }
+      });
+      
+      // Auto-prefill forms based on anchor references if any
+      const hash = window.location.hash;
+      if (hash) {
+        const matchingTab = document.querySelector(`.tab-btn[data-target="${hash.substring(1)}"]`);
+        if (matchingTab) {
+          matchingTab.click();
+        }
+      }
+    });
+  </script>
 </body>
 </html>
