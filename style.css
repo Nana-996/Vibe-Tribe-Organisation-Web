@@ -194,21 +194,16 @@ body {
 }
 
 .brand-logo-wrapper {
-  width: 60px;
-  height: 28px;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
-  overflow: hidden;
-  position: relative;
   flex-shrink: 0;
 }
 
 .brand-logo-img {
-  width: 100%;
-  height: auto;
+  height: 38px;
+  width: auto;
   display: block;
-  mix-blend-mode: multiply;
 }
 
 .brand-text {
@@ -431,30 +426,23 @@ body {
 
 .hero-brand-pulse {
   position: relative;
-  width: 200px;
-  height: 100px;
   margin-bottom: 32px;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
 }
 
 .hero-logo-wrapper {
-  width: 180px;
-  height: 84px;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
-  overflow: hidden;
-  position: relative;
   z-index: 2;
 }
 
 .hero-logo-img {
-  width: 100%;
-  height: auto;
+  height: 90px;
+  width: auto;
   display: block;
-  mix-blend-mode: multiply;
   transition: transform 0.4s ease;
 }
 
@@ -465,8 +453,8 @@ body {
 .pulse-ring {
   position: absolute;
   top: -12px;
-  left: -12px;
-  right: -12px;
+  left: -20px;
+  right: -20px;
   bottom: -12px;
   border-radius: 12px;
   border: 1.5px solid var(--gold-primary);
