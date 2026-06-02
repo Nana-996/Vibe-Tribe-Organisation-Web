@@ -92,7 +92,13 @@ body {
 /* Custom Selection */
 ::selection {
   background: var(--gold-primary);
-  color: var(--bg-obsidian);
+  color: #ffffff;
+}
+
+/* Input Placeholders */
+::placeholder {
+  color: #8e8e9f;
+  opacity: 1;
 }
 
 /* Utility Elements */
@@ -165,7 +171,7 @@ body {
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(5, 5, 8, 0.75);
+  background: rgba(251, 251, 250, 0.82);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border-bottom: 1px solid var(--border-light);
@@ -188,8 +194,8 @@ body {
 }
 
 .brand-logo-wrapper {
-  width: 48px;
-  height: 40px;
+  width: 60px;
+  height: 28px;
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -201,10 +207,8 @@ body {
 .brand-logo-img {
   width: 100%;
   height: auto;
-  object-fit: cover;
-  object-position: top center;
+  display: block;
   mix-blend-mode: multiply;
-  clip-path: inset(0 0 35% 0);
 }
 
 .brand-text {
@@ -274,7 +278,7 @@ body {
   align-items: center;
   gap: 8px;
   background: linear-gradient(135deg, var(--gold-primary), var(--gold-glow));
-  color: var(--bg-obsidian);
+  color: var(--text-primary);
   font-family: var(--font-headings);
   font-weight: 700;
   font-size: 0.88rem;
@@ -321,7 +325,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(5, 5, 8, 0.95);
+  background: rgba(251, 251, 250, 0.95);
   backdrop-filter: blur(20px);
   z-index: 999;
   display: flex;
@@ -362,7 +366,7 @@ body {
   display: inline-block;
   margin-top: 16px;
   background-color: var(--gold-primary);
-  color: var(--bg-obsidian);
+  color: var(--text-primary);
   font-family: var(--font-headings);
   font-weight: 700;
   text-decoration: none;
@@ -428,7 +432,7 @@ body {
 .hero-brand-pulse {
   position: relative;
   width: 200px;
-  height: 140px;
+  height: 100px;
   margin-bottom: 32px;
   display: flex;
   align-items: flex-start;
@@ -436,8 +440,8 @@ body {
 }
 
 .hero-logo-wrapper {
-  width: 100%;
-  height: 100%;
+  width: 180px;
+  height: 84px;
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -449,11 +453,9 @@ body {
 .hero-logo-img {
   width: 100%;
   height: auto;
-  object-fit: cover;
-  object-position: top center;
+  display: block;
   mix-blend-mode: multiply;
   transition: transform 0.4s ease;
-  clip-path: inset(0 0 35% 0);
 }
 
 .hero-brand-pulse:hover .hero-logo-img {
@@ -523,7 +525,7 @@ body {
 .btn-hero-primary {
   display: inline-block;
   background: linear-gradient(135deg, var(--gold-primary), var(--gold-glow));
-  color: var(--bg-obsidian);
+  color: var(--text-primary);
   font-family: var(--font-headings);
   font-weight: 800;
   font-size: 1rem;
@@ -2101,7 +2103,7 @@ body {
 .btn-submit-form {
   width: 100%;
   background: linear-gradient(135deg, var(--gold-primary), var(--gold-glow));
-  color: var(--bg-obsidian);
+  color: var(--text-primary);
   border: none;
   font-family: var(--font-headings);
   font-weight: 800;
@@ -2219,7 +2221,7 @@ body {
 .btn-home {
   display: inline-block;
   background: linear-gradient(135deg, var(--gold-primary), var(--gold-glow));
-  color: var(--bg-obsidian);
+  color: var(--text-primary);
   font-family: var(--font-headings);
   font-weight: 800;
   font-size: 0.95rem;
@@ -2279,8 +2281,8 @@ body {
 
 /* Enhanced nav header */
 .glass-header {
-  background: rgba(10, 10, 20, 0.8);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+  background: rgba(251, 251, 250, 0.85);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
 }
 
 /* Enhanced section spacing */
@@ -2304,7 +2306,7 @@ body {
 
 /* Enhanced hero CTA secondary button */
 .btn-hero-secondary {
-  background-color: rgba(17, 17, 34, 0.8);
+  background-color: var(--bg-charcoal);
   border: 1px solid var(--border-solid);
 }
 
@@ -2322,7 +2324,7 @@ body {
 .form-field input[type="date"],
 .form-field select,
 .form-field textarea {
-  background: rgba(10, 10, 20, 0.8);
+  background: var(--bg-obsidian);
 }
 
 /* Enhanced drawer body */
