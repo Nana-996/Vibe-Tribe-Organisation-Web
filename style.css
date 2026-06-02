@@ -2381,3 +2381,45 @@ body {
 .section-tag:hover {
   transform: scale(1.05);
 }
+
+/* Custom VTO SVG Icons styling */
+.vto-icon {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  flex-shrink: 0;
+}
+
+.vto-icon-inline {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+.vto-icon-large {
+  width: 32px;
+  height: 32px;
+  stroke: var(--gold-primary);
+  margin-bottom: 20px;
+  display: inline-block;
+  filter: drop-shadow(0 4px 12px rgba(232, 180, 78, 0.15));
+}
+
+.vto-icon-chat {
+  width: 24px;
+  height: 24px;
+  stroke: var(--gold-primary);
+  flex-shrink: 0;
+}
+
+.vto-icon-pin {
+  width: 16px;
+  height: 16px;
+  stroke: var(--gold-primary);
+  margin-right: 8px;
+  display: inline-block;
+  vertical-align: middle;
+}
