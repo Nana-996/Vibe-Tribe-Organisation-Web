@@ -105,7 +105,7 @@
       <div class="section-header text-center">
         <span class="section-tag">Elite Core Services</span>
         <h2 class="section-title">Five Domains. Absolute Mastery.</h2>
-        <p class="section-subtitle">Click the tabs below to explore our services, review pricing guidelines, and book instantly.</p>
+        <p class="section-subtitle">Click the tabs below to explore our services, review what we offer, and book instantly.</p>
       </div>
 
       <!-- Service Tab Controllers -->
@@ -145,11 +145,6 @@
               <h3 class="panel-title">Laptop Software Services</h3>
               <p class="panel-desc">Is your machine running slow, crashing, or infected with malware? We offer premium software diagnostic, optimization, and installation services to restore peak productivity.</p>
               
-              <div class="price-indicator">
-                <span class="price-label">Pricing starts from</span>
-                <span class="price-amount">GHS 80</span>
-              </div>
-
               <div class="panel-bullets">
                 <div class="p-bullet">
                   <svg class="bullet-check" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
@@ -219,11 +214,6 @@
               <h3 class="panel-title">Buy, Sell &amp; Swap Devices</h3>
               <p class="panel-desc">Looking to upgrade your phone, tablet, or laptop? We facilitate reliable sales, purchase of used gear, and direct trade-in swaps. Receipts are always provided, and screen protectors are free with phone purchases.</p>
               
-              <div class="price-indicator">
-                <span class="price-label">Swaps &amp; Sales</span>
-                <span class="price-amount">Instant Quotations</span>
-              </div>
-
               <div class="panel-bullets">
                 <div class="p-bullet">
                   <svg class="bullet-check" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
@@ -267,7 +257,6 @@
                         <div class="prod-details">
                           <span class="prod-name">MacBook Air M2</span>
                           <span class="prod-condition">Grade A (9.8/10)</span>
-                          <span class="prod-price">GHS 13,800</span>
                         </div>
                       </div>
 
@@ -276,7 +265,6 @@
                         <div class="prod-details">
                           <span class="prod-name">iPhone 14 Pro 256GB</span>
                           <span class="prod-condition">Battery Health 92%</span>
-                          <span class="prod-price">GHS 9,500</span>
                         </div>
                       </div>
                       
@@ -298,11 +286,6 @@
               <h3 class="panel-title">Graphic Design</h3>
               <p class="panel-desc">Stand out with bold, memorable designs that respect heritage and grab attention. From event flyers and professional corporate logos to comprehensive digital branding kits.</p>
               
-              <div class="price-indicator">
-                <span class="price-label">Flyers / Logos from</span>
-                <span class="price-amount">GHS 100</span>
-              </div>
-
               <div class="panel-bullets">
                 <div class="p-bullet">
                   <svg class="bullet-check" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
@@ -333,27 +316,108 @@
             </div>
             
             <div class="panel-visual">
-              <div class="mockup-container">
-                <div class="graphics-frame glass-card">
-                  <div class="gfx-canvas">
-                    <div class="gfx-header-logo">VTO</div>
-                    <div class="gfx-circle-glow"></div>
-                    <h4 class="gfx-art-title">THE TRIBE</h4>
-                    <p class="gfx-art-tag">SPEAKS TO TOMORROW</p>
-                    <div class="gfx-geometrics">
-                      <span>✦</span>
-                      <span>✦</span>
-                      <span>✦</span>
+              <div class="anatomy-explorer">
+                <!-- Anatomy Tabs -->
+                <div class="anatomy-tabs">
+                  <button class="anatomy-tab-btn active" data-anatomy="grid">
+                    <span class="tab-dot"></span>Grid
+                  </button>
+                  <button class="anatomy-tab-btn" data-anatomy="colors">
+                    <span class="tab-dot"></span>Palette
+                  </button>
+                  <button class="anatomy-tab-btn" data-anatomy="typo">
+                    <span class="tab-dot"></span>Fonts
+                  </button>
+                  <button class="anatomy-tab-btn" data-anatomy="mockup">
+                    <span class="tab-dot"></span>Preview
+                  </button>
+                </div>
+                
+                <!-- Interactive Canvas -->
+                <div class="anatomy-canvas-wrapper">
+                  <div class="anatomy-canvas state-grid" id="anatomy-canvas">
+                    <!-- Grid and Guidelines -->
+                    <div class="guide-grid-lines">
+                      <div class="guide-axis-x"></div>
+                      <div class="guide-axis-y"></div>
+                      <div class="guide-circle guide-circle-lg"></div>
+                      <div class="guide-circle guide-circle-md"></div>
+                      <div class="guide-circle guide-circle-sm"></div>
+                    </div>
+                    
+                    <!-- Design Symbol / Brand Emblem -->
+                    <div class="anatomy-symbol-container">
+                      <div class="anatomy-emblem">
+                        <div class="emblem-shape shape-1"></div>
+                        <div class="emblem-shape shape-2"></div>
+                        <span class="emblem-letter">V</span>
+                      </div>
+                    </div>
+                    
+                    <!-- Typography Box overlay -->
+                    <div class="anatomy-typo-box">
+                      <div class="typo-box-border"></div>
+                      <span class="typo-tag-label">Outfit ExtraBold 900</span>
+                      <span class="typo-tracker-label">Tracking +1.5px</span>
+                    </div>
+
+                    <!-- Mockup Wrapper -->
+                    <div class="anatomy-mockup-overlay">
+                      <div class="anatomy-mockup-card">
+                        <div class="card-glass-glow"></div>
+                        <div class="card-logo">V</div>
+                        <div class="card-title">VIBE TRIBE</div>
+                        <div class="card-sub">EST. 2026</div>
+                      </div>
                     </div>
                   </div>
-                  <div class="gfx-palette">
-                    <div class="palette-swatch" style="background:#050508"></div>
-                    <div class="palette-swatch" style="background:#dca542"></div>
-                    <div class="palette-swatch" style="background:#6366f1"></div>
-                    <div class="palette-swatch" style="background:#f0f0f5"></div>
+                  <div class="visual-glow-glow"></div>
+                </div>
+
+                <!-- Interactive Legend Panel -->
+                <div class="anatomy-legend">
+                  <div class="legend-content active" id="legend-grid">
+                    <h5 class="legend-title">📐 Geometry &amp; Grid Blueprint</h5>
+                    <p class="legend-text">Constructed using Golden Ratio concentric circles and perfect geometric guide coordinates. The shape aligns mathematically for absolute design balance.</p>
+                    <div class="legend-pills">
+                      <span class="legend-pill">Rule of Thirds</span>
+                      <span class="legend-pill">Geometric Axis</span>
+                      <span class="legend-pill">Vector Balance</span>
+                    </div>
+                  </div>
+                  <div class="legend-content" id="legend-colors">
+                    <h5 class="legend-title">🎨 Chromatic Harmony</h5>
+                    <p class="legend-text">VTO's signature palette: Champagne Gold and Royal Indigo over Obsidian Black. High-contrast levels exceed strict digital screen accessibility standards.</p>
+                    <div class="legend-colors-list">
+                      <div class="legend-color-item">
+                        <span class="color-swatch" style="background: #e8b44e;"></span>
+                        <span>Gold (5.1:1 Contrast)</span>
+                      </div>
+                      <div class="legend-color-item">
+                        <span class="color-swatch" style="background: #7c7ff7;"></span>
+                        <span>Indigo (4.8:1 Contrast)</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="legend-content" id="legend-typo">
+                    <h5 class="legend-title">✍️ Typographic Architecture</h5>
+                    <p class="legend-text">Heavy weights of Outfit (900) paired with custom kerning and letter tracking (+1.5px) for a premium, bold feel, balanced by Inter for readable descriptions.</p>
+                    <div class="legend-pills">
+                      <span class="legend-pill">Outfit Bold</span>
+                      <span class="legend-pill">Inter Sans</span>
+                      <span class="legend-pill">Tracking +0.1em</span>
+                    </div>
+                  </div>
+                  <div class="legend-content" id="legend-mockup">
+                    <h5 class="legend-title">💼 Real-world Deployment</h5>
+                    <p class="legend-text">Demonstrating responsive vector scaling onto premium dark cardstock. The mark remains sharp, recognizable, and high-fidelity at all dimensions.</p>
+                    <div class="legend-pills">
+                      <span class="legend-pill">Card Mockup</span>
+                      <span class="legend-pill">3D Perspective</span>
+                      <span class="legend-pill">High Fidelity</span>
+                    </div>
                   </div>
                 </div>
-                <div class="visual-glow-glow"></div>
               </div>
             </div>
           </div>
@@ -367,11 +431,6 @@
               <h3 class="panel-title">Website Design &amp; Development</h3>
               <p class="panel-desc">Establish a world-class digital presence. We build lightning-fast, fully responsive, and SEO-optimized websites built for conversions, portfolios, or online commerce.</p>
               
-              <div class="price-indicator">
-                <span class="price-label">Landing pages start at</span>
-                <span class="price-amount">GHS 1,200</span>
-              </div>
-
               <div class="panel-bullets">
                 <div class="p-bullet">
                   <svg class="bullet-check" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
@@ -439,11 +498,6 @@
               <h3 class="panel-title">CV Expert Writing &amp; Redesign</h3>
               <p class="panel-desc">Secure interviews at top-tier firms. We build high-impact, ATS-optimized resumes and matching cover letters formatted to modern recruiting standards.</p>
               
-              <div class="price-indicator">
-                <span class="price-label">CV Refresh starts from</span>
-                <span class="price-amount">GHS 150</span>
-              </div>
-
               <div class="panel-bullets">
                 <div class="p-bullet">
                   <svg class="bullet-check" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
@@ -597,7 +651,7 @@
         </div>
         <div class="trust-card glass-card">
           <div class="t-icon">🎓</div>
-          <h3>Student-First Prices</h3>
+          <h3>Student-Friendly Terms</h3>
           <p>Executive quality shouldn't require corporate budgets. Competitive rates structured for students.</p>
         </div>
         <div class="trust-card glass-card">
@@ -783,8 +837,8 @@
           
           <div class="form-row-2">
             <div class="form-field">
-              <label>Target Budget / Valuation (GHS)</label>
-              <input type="text" name="budget" placeholder="e.g. GHS 4,000 - 6,000"/>
+              <label>Target Budget / Valuation</label>
+              <input type="text" name="budget" placeholder="e.g. describe your budget range"/>
             </div>
             <div class="form-field">
               <label>Current Physical Grade</label>
@@ -1141,6 +1195,28 @@
         if (e.key === 'Escape' && drawer.classList.contains('active')) {
           closeDrawer();
         }
+      });
+      
+      // 4. GRAPHIC DESIGN EXPLORER TABS
+      const anatomyTabs = document.querySelectorAll('.anatomy-tab-btn');
+      const anatomyCanvas = document.getElementById('anatomy-canvas');
+      const legendContents = document.querySelectorAll('.legend-content');
+
+      anatomyTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          anatomyTabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+
+          const state = tab.getAttribute('data-anatomy');
+          anatomyCanvas.className = `anatomy-canvas state-${state}`;
+
+          legendContents.forEach(content => {
+            content.classList.remove('active');
+            if (content.id === `legend-${state}`) {
+              content.classList.add('active');
+            }
+          });
+        });
       });
       
       // Auto-prefill forms based on anchor references if any
