@@ -263,9 +263,9 @@
     brandSubtitle: 'ORGANISATION',
     announcementText: '🔥 New Services Available: Instant Result Checking & Automobile Sourcing!',
     announcementActive: true,
-    paystackPublicKey: 'pk_test_sample_placeholder',
-    paystackEnabled: true,
-    dataStoreNotice: '⚡ Instant crediting within 5-15 mins. Enter valid recipient phone number.'
+    agentReferralUrl: 'https://www.bigmaxservices.com?ref=AGENT-A8ADA9',
+    agentReferralCode: 'AGENT-A8ADA9',
+    dataStoreNotice: '⚡ Instant crediting within 5-15 mins. Direct automated Mobile Money delivery.'
   };
 
   // Default Seed Data Bundles for MTN, Telecel, and AT
@@ -806,6 +806,20 @@
         if (!settings) {
           settings = JSON.parse(JSON.stringify(DEFAULT_SETTINGS));
           this.saveSettings(settings);
+        } else {
+          // Ensure agent referral settings are present
+          let updated = false;
+          if (!settings.agentReferralUrl) {
+            settings.agentReferralUrl = DEFAULT_SETTINGS.agentReferralUrl;
+            updated = true;
+          }
+          if (!settings.agentReferralCode) {
+            settings.agentReferralCode = DEFAULT_SETTINGS.agentReferralCode;
+            updated = true;
+          }
+          if (updated) {
+            this.saveSettings(settings);
+          }
         }
         return settings;
       } catch (e) {

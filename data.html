@@ -4,7 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Buy Cheap Data Bundles - MTN, Telecel & AT | Vibe Tribe Organisation</title>
-  <meta name="description" content="Purchase affordable, high-speed mobile data bundles for MTN, Telecel, and AT Ghana. Instant crediting, non-expiry bundles, Mobile Money and Card payment via Paystack."/>
+  <meta name="description" content="Purchase affordable, high-speed mobile data bundles for MTN, Telecel, and AT Ghana. Instant crediting, non-expiry bundles, direct automated Mobile Money delivery via official agent referral."/>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,9 +12,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 
   <link rel="stylesheet" href="style.css">
-  
-  <!-- Paystack Inline JS Library -->
-  <script src="https://js.paystack.co/v1/inline.js"></script>
 </head>
 <body>
 
@@ -94,8 +91,8 @@
         "Save up to 40% on mobile internet. Non-expiry and monthly bundles delivered straight to your SIM."
       </p>
 
-      <p class="hero-description" style="max-width: 650px; margin: 0 auto 30px;">
-        Choose your preferred network below. Pay securely via Mobile Money (MTN, Telecel, AT) or Bank Card with Paystack, or place a direct WhatsApp order.
+      <p class="hero-description" style="max-width: 680px; margin: 0 auto 30px;">
+        Choose your preferred bundle below or launch our direct Agent Portal to purchase instant data for MTN, Telecel, and AT with automated Mobile Money delivery.
       </p>
 
       <div class="data-trust-bar">
@@ -105,16 +102,24 @@
         </div>
         <div class="trust-chip">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-          <span>MoMo &amp; Card (Paystack)</span>
+          <span>Automated Mobile Money</span>
         </div>
         <div class="trust-chip">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-          <span>Non-Expiry Bundles Available</span>
+          <span>Non-Expiry Bundles</span>
         </div>
         <div class="trust-chip">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-          <span>100% Genuine Network Data</span>
+          <span>Official Agent Referral</span>
         </div>
+      </div>
+
+      <div style="margin-top: 28px; display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
+        <a href="https://www.bigmaxservices.com?ref=AGENT-A8ADA9" id="hero-launch-agent" target="_blank" rel="noopener noreferrer" class="btn-hero-primary" style="text-decoration: none; display: inline-flex; align-items: center; gap: 10px; font-size: 0.95rem; padding: 14px 28px;">
+          <span>⚡ Launch Direct Agent Portal</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+        </a>
+        <a href="#bundles" class="btn-hero-secondary" style="text-decoration: none; padding: 14px 24px; font-size: 0.95rem;">Browse Bundles ↓</a>
       </div>
     </div>
   </section>
@@ -149,7 +154,7 @@
       <div class="section-header text-center" style="margin-bottom: 36px;">
         <span class="section-tag" id="network-display-tag">All Available Bundles</span>
         <h2 class="section-title" id="network-display-title">Select Your Internet Plan</h2>
-        <p class="section-subtitle" id="network-display-subtitle">Click "Buy with Paystack" for instant card/MoMo payment, or "Order via WhatsApp" for direct agent booking.</p>
+        <p class="section-subtitle" id="network-display-subtitle">Instant Mobile Money delivery through our verified agent portal, or order via WhatsApp for direct support.</p>
       </div>
 
       <!-- Dynamic Bundles Grid Target -->
@@ -188,8 +193,8 @@
           <div class="t-icon">
             <svg class="vto-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
           </div>
-          <h3>2. Pay with MoMo or Card</h3>
-          <p>Complete payment securely using Paystack (supports all Mobile Money networks and bank cards) or via direct WhatsApp chat.</p>
+          <h3>2. Instant MoMo Checkout</h3>
+          <p>Complete payment instantly via Mobile Money (MTN MoMo, Telecel Cash, AT Money) through our official agent portal with automated delivery.</p>
         </div>
 
         <div class="trust-card glass-card">
@@ -262,74 +267,6 @@
     </div>
   </footer>
 
-  <!-- CHECKOUT MODAL OVERLAY -->
-  <div class="checkout-modal-overlay" id="checkout-modal-overlay">
-    <div class="checkout-modal-card">
-      <div class="checkout-modal-header">
-        <div>
-          <h3>Confirm Data Bundle</h3>
-          <p style="font-size: 0.76rem; color: var(--text-dim); margin-top: 2px;">Enter recipient details to complete purchase</p>
-        </div>
-        <button class="checkout-modal-close" id="btn-close-checkout" aria-label="Close Checkout">&times;</button>
-      </div>
-
-      <div class="checkout-modal-body">
-        <!-- Bundle Summary Pill -->
-        <div class="checkout-summary-box">
-          <div>
-            <div class="cs-plan-name" id="modal-bundle-title">MTN 5 GB</div>
-            <div class="cs-plan-net" id="modal-bundle-meta">MTN Ghana · Non-Expiry</div>
-          </div>
-          <div class="cs-plan-price" id="modal-bundle-price">GH₵ 24.00</div>
-        </div>
-
-        <form id="data-checkout-form">
-          <div class="form-field">
-            <label>Recipient Phone Number <span class="req">*</span></label>
-            <input type="tel" id="checkout-phone" placeholder="e.g. 055 902 4653 or 024 XXX XXXX" required/>
-            <span style="font-size: 0.72rem; color: var(--text-dim);">Verify number matches chosen network to prevent misdirected data.</span>
-          </div>
-
-          <div class="form-field">
-            <label>Customer Name <span class="req">*</span></label>
-            <input type="text" id="checkout-name" placeholder="Your name" required/>
-          </div>
-
-          <div class="form-field">
-            <label>Email Address <span class="req">*</span></label>
-            <input type="email" id="checkout-email" placeholder="Required for Paystack receipt" required/>
-          </div>
-
-          <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 20px;">
-            <!-- Paystack Primary Button -->
-            <button type="submit" class="btn-buy-paystack" id="btn-pay-paystack" style="padding: 14px 20px; font-size: 0.95rem;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
-              <span>Pay with MoMo / Card (Paystack) →</span>
-            </button>
-
-            <!-- WhatsApp Secondary Button -->
-            <button type="button" class="btn-buy-whatsapp" id="btn-order-whatsapp-modal" style="padding: 12px 20px;">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 001.37 5.054L2 22l5.132-1.347a9.936 9.936 0 004.87 1.28h.005c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.037-5.176-2.923-7.062A9.923 9.923 0 0012.012 2zm5.728 14.105c-.313.882-1.534 1.613-2.115 1.7-.582.086-1.3-.178-3.793-1.215-3.08-1.28-5.068-4.417-5.223-4.622-.153-.205-1.236-1.644-1.236-3.136 0-1.492.78-2.224 1.057-2.52.277-.297.604-.37.807-.37.202 0 .405.002.58.01.183.008.43-.072.673.513.25.597.854 2.083.928 2.233.074.15.124.324.025.523-.1.2-.15.324-.3.498-.15.174-.312.387-.446.52-.15.15-.306.313-.13.615.176.302.78 1.286 1.676 2.085.938.835 1.73 1.093 1.977 1.217.247.124.39.1.536-.07.145-.17.632-.735.801-1.057.168-.323.336-.273.567-.186.231.087 1.464.69 1.716.814.252.124.42.186.48.291.06.105.06.61-.253 1.493z"/>
-              </svg>
-              <span>Or Order via WhatsApp Chat</span>
-            </button>
-          </div>
-
-          <div class="checkout-channel-badges">
-            <span>🔒 Secured by Paystack</span>
-            <span>·</span>
-            <span>📱 MTN MoMo</span>
-            <span>·</span>
-            <span>🔴 Telecel Cash</span>
-            <span>·</span>
-            <span>💳 Visa/Mastercard</span>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-
   <!-- Central Data Layer -->
   <script src="vto-data.js"></script>
 
@@ -339,29 +276,17 @@
       'use strict';
 
       let currentNetworkFilter = 'all';
-      let selectedBundle = null;
 
       const bundlesGrid = document.getElementById('bundles-grid');
       const bundlesEmpty = document.getElementById('bundles-empty');
       const filterButtons = document.querySelectorAll('.net-filter-btn');
 
-      // Modal Elements
-      const checkoutModal = document.getElementById('checkout-modal-overlay');
-      const btnCloseCheckout = document.getElementById('btn-close-checkout');
-      const checkoutForm = document.getElementById('data-checkout-form');
-      const modalBundleTitle = document.getElementById('modal-bundle-title');
-      const modalBundleMeta = document.getElementById('modal-bundle-meta');
-      const modalBundlePrice = document.getElementById('modal-bundle-price');
-      const checkoutPhone = document.getElementById('checkout-phone');
-      const checkoutName = document.getElementById('checkout-name');
-      const checkoutEmail = document.getElementById('checkout-email');
-      const btnOrderWhatsAppModal = document.getElementById('btn-order-whatsapp-modal');
-
-      // Settings Sync
+      // Settings Sync (Announcement Bar & Agent Portal Links)
       function syncSettings() {
         if (!window.VTOData) return;
         const settings = VTOData.getSettings();
 
+        // Announcement bar
         const announceBar = document.getElementById('vto-top-announcement');
         const announceText = document.getElementById('announcement-text-content');
         if (announceBar && announceText) {
@@ -371,6 +296,12 @@
           } else {
             announceBar.style.display = 'none';
           }
+        }
+
+        // Hero CTA direct link update
+        const heroLaunch = document.getElementById('hero-launch-agent');
+        if (heroLaunch && settings.agentReferralUrl) {
+          heroLaunch.href = settings.agentReferralUrl;
         }
       }
       syncSettings();
@@ -412,7 +343,7 @@
         if (network === 'all') {
           tag.textContent = 'All Available Bundles';
           title.textContent = 'Select Your Internet Plan';
-          sub.textContent = 'Click "Buy with Paystack" for instant card/MoMo payment, or "Order via WhatsApp" for direct booking.';
+          sub.textContent = 'Instant Mobile Money delivery through our verified agent portal, or order via WhatsApp for direct support.';
         } else if (network === 'MTN') {
           tag.textContent = '🟡 MTN Ghana 4G/5G Bundles';
           title.textContent = 'MTN Data Bundles (Non-Expiry)';
@@ -432,6 +363,8 @@
       function renderBundles() {
         if (!window.VTOData || !bundlesGrid) return;
         const allBundles = VTOData.getDataBundles(true); // Active only
+        const settings = VTOData.getSettings();
+        const agentUrl = settings.agentReferralUrl || 'https://www.bigmaxservices.com?ref=AGENT-A8ADA9';
 
         const filtered = currentNetworkFilter === 'all' 
           ? allBundles 
@@ -475,13 +408,13 @@
                 <span class="price-amount">${formattedPrice}</span>
               </div>
 
-              <p class="bundle-desc">${escapeHtml(bundle.description || 'Instant data transfer directly to recipient SIM.')}</p>
+              <p class="bundle-desc">${escapeHtml(bundle.description || 'Instant automated data transfer to recipient line.')}</p>
 
               <div class="bundle-actions">
-                <button class="btn-buy-paystack trigger-checkout" data-id="${bundle.id}">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
-                  <span>Buy with Paystack</span>
-                </button>
+                <a href="${agentUrl}" target="_blank" rel="noopener noreferrer" class="btn-buy-agent">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                  <span>Buy Now (Instant MoMo) &rarr;</span>
+                </a>
                 <button class="btn-buy-whatsapp trigger-quick-wa" data-id="${bundle.id}">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 001.37 5.054L2 22l5.132-1.347a9.936 9.936 0 004.87 1.28h.005c5.505 0 9.988-4.478 9.989-9.985 0-2.669-1.037-5.176-2.923-7.062A9.923 9.923 0 0012.012 2zm5.728 14.105c-.313.882-1.534 1.613-2.115 1.7-.582.086-1.3-.178-3.793-1.215-3.08-1.28-5.068-4.417-5.223-4.622-.153-.205-1.236-1.644-1.236-3.136 0-1.492.78-2.224 1.057-2.52.277-.297.604-.37.807-.37.202 0 .405.002.58.01.183.008.43-.072.673.513.25.597.854 2.083.928 2.233.074.15.124.324.025.523-.1.2-.15.324-.3.498-.15.174-.312.387-.446.52-.15.15-.306.313-.13.615.176.302.78 1.286 1.676 2.085.938.835 1.73 1.093 1.977 1.217.247.124.39.1.536-.07.145-.17.632-.735.801-1.057.168-.323.336-.273.567-.186.231.087 1.464.69 1.716.814.252.124.42.186.48.291.06.105.06.61-.253 1.493z"/>
@@ -497,14 +430,6 @@
       }
 
       function attachActionListeners() {
-        // Trigger Checkout Modal
-        document.querySelectorAll('.trigger-checkout').forEach(btn => {
-          btn.addEventListener('click', (e) => {
-            const id = e.currentTarget.getAttribute('data-id');
-            openCheckout(id);
-          });
-        });
-
         // Quick WhatsApp Button
         document.querySelectorAll('.trigger-quick-wa').forEach(btn => {
           btn.addEventListener('click', (e) => {
@@ -513,233 +438,19 @@
             if (!bundle) return;
             const settings = VTOData.getSettings();
             const waNumber = settings.whatsappNumber || '233559024653';
+            const agentUrl = settings.agentReferralUrl || 'https://www.bigmaxservices.com?ref=AGENT-A8ADA9';
+            const agentCode = settings.agentReferralCode || 'AGENT-A8ADA9';
             const msg = encodeURIComponent(
-              `Hello VTO Data Store,\nI would like to purchase the following bundle:\n` +
+              `Hello VTO Data Store,\nI would like to purchase a data bundle:\n` +
               `• Network: ${bundle.network}\n` +
               `• Bundle: ${bundle.dataSize} (${bundle.validity})\n` +
-              `• Price: GH₵ ${parseFloat(bundle.price).toFixed(2)}\n\n` +
-              `Please send payment details / MoMo prompt.`
+              `• Price: GH₵ ${parseFloat(bundle.price).toFixed(2)}\n` +
+              `• Agent Ref: ${agentCode}\n\n` +
+              `Please assist me or verify my purchase on your portal: ${agentUrl}`
             );
             window.open(`https://wa.me/${waNumber}?text=${msg}`, '_blank');
           });
         });
-      }
-
-      // Checkout Modal Open/Close
-      function openCheckout(bundleId) {
-        selectedBundle = VTOData.getDataBundleById(bundleId);
-        if (!selectedBundle) return;
-
-        modalBundleTitle.textContent = `${selectedBundle.network} ${selectedBundle.dataSize}`;
-        modalBundleMeta.textContent = `${selectedBundle.network} Ghana · ${selectedBundle.validity || 'Direct Crediting'}`;
-        modalBundlePrice.textContent = `GH₵ ${parseFloat(selectedBundle.price).toFixed(2)}`;
-
-        // Load cached contact info if available
-        try {
-          const cachedName = localStorage.getItem('vto_client_name');
-          const cachedPhone = localStorage.getItem('vto_client_phone');
-          const cachedEmail = localStorage.getItem('vto_client_email');
-          if (cachedName && !checkoutName.value) checkoutName.value = cachedName;
-          if (cachedPhone && !checkoutPhone.value) checkoutPhone.value = cachedPhone;
-          if (cachedEmail && !checkoutEmail.value) checkoutEmail.value = cachedEmail;
-        } catch(e) {}
-
-        checkoutModal.classList.add('active');
-        document.body.classList.add('no-scroll');
-        if (checkoutPhone) checkoutPhone.focus();
-      }
-
-      function closeCheckout() {
-        checkoutModal.classList.remove('active');
-        document.body.classList.remove('no-scroll');
-      }
-
-      if (btnCloseCheckout) btnCloseCheckout.addEventListener('click', closeCheckout);
-      if (checkoutModal) {
-        checkoutModal.addEventListener('click', (e) => {
-          if (e.target === checkoutModal) closeCheckout();
-        });
-      }
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && checkoutModal.classList.contains('active')) closeCheckout();
-      });
-
-      // WhatsApp Button inside Modal
-      if (btnOrderWhatsAppModal) {
-        btnOrderWhatsAppModal.addEventListener('click', () => {
-          if (!selectedBundle) return;
-          const phone = checkoutPhone.value.trim() || '[Phone pending]';
-          const name = checkoutName.value.trim() || 'Client';
-          const settings = VTOData.getSettings();
-          const waNumber = settings.whatsappNumber || '233559024653';
-
-          const msg = encodeURIComponent(
-            `Hello VTO Data Store,\nI want to place an order:\n` +
-            `• Name: ${name}\n` +
-            `• Recipient Phone: ${phone}\n` +
-            `• Network: ${selectedBundle.network}\n` +
-            `• Package: ${selectedBundle.dataSize} (${selectedBundle.validity})\n` +
-            `• Price: GH₵ ${parseFloat(selectedBundle.price).toFixed(2)}\n\n` +
-            `Please confirm availability and crediting.`
-          );
-
-          // Save lead to CRM
-          VTOData.addBooking({
-            name,
-            phone,
-            serviceId: 'data-bundle-' + selectedBundle.network.toLowerCase(),
-            serviceTitle: `Data: ${selectedBundle.network} ${selectedBundle.dataSize}`,
-            status: 'new',
-            details: {
-              network: selectedBundle.network,
-              bundle: selectedBundle.dataSize,
-              price: `GH₵ ${selectedBundle.price}`,
-              recipientNumber: phone,
-              method: 'WhatsApp Inquiry'
-            },
-            notes: `Requested direct order via WhatsApp for ${phone}`,
-            source: 'Data Reseller Page'
-          });
-
-          window.open(`https://wa.me/${waNumber}?text=${msg}`, '_blank');
-          closeCheckout();
-        });
-      }
-
-      // Paystack Payment Execution
-      if (checkoutForm) {
-        checkoutForm.addEventListener('submit', (e) => {
-          e.preventDefault();
-          if (!selectedBundle) return;
-
-          const recipientNumber = checkoutPhone.value.trim();
-          const name = checkoutName.value.trim();
-          const email = checkoutEmail.value.trim();
-
-          if (!recipientNumber) {
-            alert('Please provide the recipient phone number.');
-            checkoutPhone.focus();
-            return;
-          }
-
-          // Cache details locally for convenience
-          try {
-            localStorage.setItem('vto_client_name', name);
-            localStorage.setItem('vto_client_phone', recipientNumber);
-            localStorage.setItem('vto_client_email', email);
-          } catch(e) {}
-
-          const settings = VTOData.getSettings();
-          const publicKey = settings.paystackPublicKey || 'pk_test_sample_placeholder';
-          const amountInPesewas = Math.round(parseFloat(selectedBundle.price) * 100);
-
-          // Check if Paystack Inline JS is available
-          if (typeof PaystackPop === 'undefined') {
-            alert('Paystack payment gateway is loading. If this persists, please use the WhatsApp option to order instantly.');
-            return;
-          }
-
-          // Close modal while Paystack modal opens
-          closeCheckout();
-
-          // Initialize Paystack Inline Pop
-          const handler = PaystackPop.setup({
-            key: publicKey,
-            email: email,
-            amount: amountInPesewas,
-            currency: 'GHS',
-            ref: 'VTO-DATA-' + Math.floor((Math.random() * 1000000000) + 1),
-            metadata: {
-              custom_fields: [
-                { display_name: "Recipient Phone Number", variable_name: "recipient_number", value: recipientNumber },
-                { display_name: "Mobile Network", variable_name: "network", value: selectedBundle.network },
-                { display_name: "Data Bundle", variable_name: "bundle_size", value: selectedBundle.dataSize },
-                { display_name: "Customer Name", variable_name: "customer_name", value: name }
-              ]
-            },
-            callback: function(response) {
-              // Payment Successful!
-              handlePaymentSuccess(response, {
-                recipientNumber,
-                name,
-                email,
-                bundle: selectedBundle
-              });
-            },
-            onClose: function() {
-              showStoreToast('Payment was cancelled. You can retry or order via WhatsApp.', 'info');
-            }
-          });
-
-          handler.openIframe();
-        });
-      }
-
-      // Handle Successful Paystack Transaction
-      function handlePaymentSuccess(response, orderMeta) {
-        const ref = response.reference || response.trxref || 'REF-OK';
-
-        // 1. Record verified paid order into Admin CRM
-        VTOData.addBooking({
-          name: orderMeta.name,
-          phone: orderMeta.recipientNumber,
-          email: orderMeta.email,
-          serviceId: 'data-bundle-' + orderMeta.bundle.network.toLowerCase(),
-          serviceTitle: `Data (PAID): ${orderMeta.bundle.network} ${orderMeta.bundle.dataSize}`,
-          status: 'new', // Flagged for immediate crediting by Admin
-          details: {
-            network: orderMeta.bundle.network,
-            bundle: orderMeta.bundle.dataSize,
-            pricePaid: `GH₵ ${parseFloat(orderMeta.bundle.price).toFixed(2)}`,
-            recipientNumber: orderMeta.recipientNumber,
-            paymentGateway: 'Paystack',
-            paystackReference: ref,
-            paymentStatus: 'SUCCESS'
-          },
-          notes: `PAID via Paystack. Ref: ${ref}. Recipient SIM: ${orderMeta.recipientNumber}. Please credit immediately.`,
-          source: 'Data Reseller (Paystack)'
-        });
-
-        // 2. Show rich confirmation toast with WhatsApp follow-up
-        const settings = VTOData.getSettings();
-        const cleanPhone = settings.whatsappNumber || '233559024653';
-        const waText = encodeURIComponent(
-          `Hi VTO, I just paid for a data bundle via Paystack!\n` +
-          `• Ref: ${ref}\n` +
-          `• Recipient SIM: ${orderMeta.recipientNumber}\n` +
-          `• Bundle: ${orderMeta.bundle.network} ${orderMeta.bundle.dataSize}\n` +
-          `• Amount: GH₵ ${parseFloat(orderMeta.bundle.price).toFixed(2)}\n\n` +
-          `Please credit my line!`
-        );
-        const waUrl = `https://wa.me/${cleanPhone}?text=${waText}`;
-
-        const toast = document.createElement('div');
-        toast.className = 'client-booking-toast';
-        toast.style.borderColor = '#27c93f';
-        toast.innerHTML = `
-          <div>
-            <div style="font-weight: 700; color: #27c93f; margin-bottom: 2px;">🎉 Payment Successful!</div>
-            <div style="font-size: 0.82rem; color: #eee; margin-bottom: 8px;">
-              Your order for <strong>${escapeHtml(orderMeta.bundle.network)} ${escapeHtml(orderMeta.bundle.dataSize)}</strong> on <strong>${escapeHtml(orderMeta.recipientNumber)}</strong> has been registered.
-            </div>
-            <div style="font-size: 0.72rem; color: var(--text-dim); margin-bottom: 8px;">Ref: ${escapeHtml(ref)}</div>
-            <a href="${waUrl}" target="_blank" style="display: inline-block; background: #25d366; color: #000; font-size: 0.76rem; font-weight: 800; padding: 6px 12px; border-radius: 4px; text-decoration: none;">
-              💬 Notify Admin on WhatsApp for Instant Delivery &rarr;
-            </a>
-          </div>
-        `;
-        document.body.appendChild(toast);
-      }
-
-      function showStoreToast(msg, type = 'info') {
-        const toast = document.createElement('div');
-        toast.className = 'client-booking-toast';
-        toast.innerHTML = `<div style="font-size: 0.85rem;">${escapeHtml(msg)}</div>`;
-        document.body.appendChild(toast);
-        setTimeout(() => {
-          toast.style.opacity = '0';
-          setTimeout(() => toast.remove(), 400);
-        }, 5000);
       }
 
       function escapeHtml(str) {

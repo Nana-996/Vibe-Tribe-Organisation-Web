@@ -384,7 +384,7 @@
             <div class="card-header-bar">
               <div>
                 <h3 class="card-title">Site Configuration &amp; Contact Numbers</h3>
-                <p class="card-subtitle">Update WhatsApp hotline, voice phone lines, campus location, and Paystack integration.</p>
+                <p class="card-subtitle">Update WhatsApp hotline, voice phone lines, campus location, and Data Agent referral link.</p>
               </div>
               <button class="btn-primary-action" id="btn-save-site-settings">💾 Save Changes</button>
             </div>
@@ -420,17 +420,17 @@
                 <label style="font-size: 0.86rem; color: var(--text-muted);">Enable Top Announcement Banner on Live Website</label>
               </div>
 
-              <!-- Paystack Configuration -->
+              <!-- Data Agent Referral Configuration -->
               <div style="border-top: 1px solid var(--admin-card-border); margin: 24px 0 16px; padding-top: 20px;">
-                <h4 style="color: var(--gold-primary); margin-bottom: 6px;">💳 Paystack Payment Gateway Configuration</h4>
-                <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 14px;">Enter your Paystack Public Key (starts with pk_live_ or pk_test_) to enable instant Mobile Money and Bank Card payments on the data store.</p>
+                <h4 style="color: var(--gold-primary); margin-bottom: 6px;">🌐 Data Agent Referral Portal Configuration</h4>
+                <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 14px;">Enter your BigMax Services (or partner agent platform) customer referral link. All "Buy Data" buttons on VTO route customers through this link so your profit margin is automatically credited to your agent account.</p>
                 <div class="form-group">
-                  <label class="form-label">Paystack Public Key</label>
-                  <input type="text" class="form-control" id="setting-paystack-key" placeholder="e.g. pk_live_xxxxxxxxxxxxxxxxxxxxxxxxxxxx or pk_test_xxxx"/>
+                  <label class="form-label">Agent Referral URL</label>
+                  <input type="url" class="form-control" id="setting-agent-url" placeholder="https://www.bigmaxservices.com?ref=AGENT-XXXXXX"/>
                 </div>
-                <div style="display: flex; align-items: center; gap: 8px; margin-top: 10px;">
-                  <input type="checkbox" id="setting-paystack-enabled"/>
-                  <label style="font-size: 0.86rem; color: var(--text-muted);">Enable Paystack Checkout on Data Store</label>
+                <div class="form-group">
+                  <label class="form-label">Agent Referral Code</label>
+                  <input type="text" class="form-control" id="setting-agent-code" placeholder="e.g. AGENT-A8ADA9"/>
                 </div>
               </div>
             </div>

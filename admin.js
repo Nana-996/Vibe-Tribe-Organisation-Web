@@ -1073,8 +1073,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const elTag = document.getElementById('setting-tagline');
     const elAnnounce = document.getElementById('setting-announcement');
     const elAnnounceActive = document.getElementById('setting-announcement-active');
-    const elPaystackKey = document.getElementById('setting-paystack-key');
-    const elPaystackEnabled = document.getElementById('setting-paystack-enabled');
+    const elAgentUrl = document.getElementById('setting-agent-url');
+    const elAgentCode = document.getElementById('setting-agent-code');
 
     if (elWa) elWa.value = s.whatsappNumber || '';
     if (elVoice) elVoice.value = s.voiceNumber || '';
@@ -1082,15 +1082,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (elTag) elTag.value = s.tagline || '';
     if (elAnnounce) elAnnounce.value = s.announcementText || '';
     if (elAnnounceActive) elAnnounceActive.checked = s.announcementActive !== false;
-    if (elPaystackKey) elPaystackKey.value = s.paystackPublicKey || '';
-    if (elPaystackEnabled) elPaystackEnabled.checked = s.paystackEnabled !== false;
+    if (elAgentUrl) elAgentUrl.value = s.agentReferralUrl || 'https://www.bigmaxservices.com?ref=AGENT-A8ADA9';
+    if (elAgentCode) elAgentCode.value = s.agentReferralCode || 'AGENT-A8ADA9';
   }
 
   const btnSaveSettings = document.getElementById('btn-save-site-settings');
   if (btnSaveSettings) {
     btnSaveSettings.addEventListener('click', () => {
-      const elPaystackKey = document.getElementById('setting-paystack-key');
-      const elPaystackEnabled = document.getElementById('setting-paystack-enabled');
+      const elAgentUrl = document.getElementById('setting-agent-url');
+      const elAgentCode = document.getElementById('setting-agent-code');
 
       const settings = {
         whatsappNumber: document.getElementById('setting-whatsapp').value.trim(),
@@ -1101,12 +1101,12 @@ document.addEventListener('DOMContentLoaded', () => {
         tagline: document.getElementById('setting-tagline').value.trim(),
         announcementText: document.getElementById('setting-announcement').value.trim(),
         announcementActive: document.getElementById('setting-announcement-active').checked,
-        paystackPublicKey: elPaystackKey ? elPaystackKey.value.trim() : '',
-        paystackEnabled: elPaystackEnabled ? elPaystackEnabled.checked : true
+        agentReferralUrl: elAgentUrl ? elAgentUrl.value.trim() : 'https://www.bigmaxservices.com?ref=AGENT-A8ADA9',
+        agentReferralCode: elAgentCode ? elAgentCode.value.trim() : 'AGENT-A8ADA9'
       };
 
       VTOData.saveSettings(settings);
-      showToast('Site settings and Paystack configuration saved!', 'success');
+      showToast('Site settings and Agent Referral configuration saved!', 'success');
     });
   }
 

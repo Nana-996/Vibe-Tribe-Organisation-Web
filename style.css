@@ -2944,7 +2944,8 @@ body {
   gap: 8px;
 }
 
-.btn-buy-paystack {
+.btn-buy-paystack,
+.btn-buy-agent {
   width: 100%;
   display: inline-flex;
   align-items: center;
@@ -2959,13 +2960,16 @@ body {
   padding: 12px 18px;
   border-radius: var(--radius-sm);
   cursor: pointer;
+  text-decoration: none;
   transition: all 0.25s;
   box-shadow: 0 4px 15px rgba(26, 107, 76, 0.25);
 }
 
-.btn-buy-paystack:hover {
+.btn-buy-paystack:hover,
+.btn-buy-agent:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(26, 107, 76, 0.38);
+  color: #FDFBF7;
 }
 
 .btn-buy-whatsapp {
