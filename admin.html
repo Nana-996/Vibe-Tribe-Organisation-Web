@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VTO Admin Console - Services & Management Hub</title>
+  <meta name="description" content="Executive Administration Dashboard for Vibe Tribe Organisation"/>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+  <!-- Ambient Glow Orbs -->
+  <div class="admin-orb admin-orb-1"></div>
+  <div class="admin-orb admin-orb-2"></div>
+
+  <!-- AUTHENTICATION / PIN LOCK OVERLAY -->
+  <div class="auth-overlay" id="auth-overlay">
+    <div class="auth-card">
+      <div class="auth-logo-wrap">
+        <img src="logo.png" alt="VTO Emblem" class="auth-logo-img">
+      </div>
+      <h2 class="auth-title">VTO Admin Console</h2>
+      <p class="auth-subtitle">Enter executive passcode to access management tools.</p>
+      
+      <div class="auth-pin-input-group">
+        <input type="password" id="admin-pin-input" class="auth-pin-input" placeholder="••••" maxlength="8" autofocus autocomplete="off"/>
+      </div>
+      
+      <button type="button" id="admin-pin-submit" class="auth-submit-btn">Unlock Console →</button>
+      <p class="auth-hint">Default Access PIN: <strong>1234</strong> (Customizable in Settings)</p>
+    </div>
+  </div>
+
+  <!-- MAIN APPLICATION LAYOUT -->
+  <div class="admin-layout">
+    
+    <!-- SIDEBAR -->
+    <aside class="admin-sidebar" id="admin-sidebar">
+      <div class="sidebar-brand">
+        <img src="logo.png" alt="VTO" class="sidebar-logo">
+        <div>
+          <div class="brand-name">VIBE TRIBE</div>
+          <div class="brand-badge">ADMIN HUB</div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-category-label">Main Menu</div>
+        
+        <a class="sidebar-link" data-tab="services">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+          <span>Services &amp; Offerings</span>
+          <span class="pill-badge" id="badge-services-count">0</span>
+        </a>
+
+        <a class="sidebar-link" data-tab="bookings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          <span>Inquiries &amp; CRM</span>
+          <span class="pill-badge alert" id="badge-bookings-count">0</span>
+        </a>
+
+        <a class="sidebar-link" data-tab="dashboard">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          <span>Overview Analytics</span>
+        </a>
+
+        <div class="nav-category-label">Management</div>
+
+        <a class="sidebar-link" data-tab="portfolio">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 14.7255 3.09032 17.1962 4.85857 19C5.03442 19.1758 5.14375 19.4184 5.14375 19.6791C5.14375 20.9609 6.18285 22 7.46467 22H12Z"></path></svg>
+          <span>Portfolio Showcase</span>
+        </a>
+
+        <a class="sidebar-link" data-tab="data-bundles">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M2 20h.01"></path><path d="M7 20v-4"></path><path d="M12 20v-8"></path><path d="M17 20V8"></path><path d="M22 4v16"></path></svg>
+          <span>Data Bundles Hub</span>
+          <span class="pill-badge" id="badge-bundles-count">0</span>
+        </a>
+
+        <a class="sidebar-link" data-tab="settings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          <span>Site &amp; Contacts</span>
+        </a>
+
+        <a class="sidebar-link" data-tab="backup">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          <span>Backup &amp; Export</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="admin-user-info">
+          <div class="admin-avatar">VT</div>
+          <div>
+            <div class="admin-name">Super Admin</div>
+            <div class="admin-role">Full Clearance</div>
+          </div>
+        </div>
+        <button type="button" class="btn-icon-lock" id="btn-lock-session" title="Lock Console Screen">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+        </button>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="admin-main">
+      
+      <!-- TOP HEADER -->
+      <header class="admin-header">
+        <div class="header-left">
+          <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Toggle Sidebar">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          </button>
+          <h1 class="page-header-title" id="page-header-title">Services &amp; Offerings Hub</h1>
+        </div>
+
+        <div class="header-actions">
+          <a href="index.html" target="_blank" class="btn-live-site">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            <span>Preview Live Site</span>
+          </a>
+          <button class="btn-primary-action" onclick="window.editService(null)">
+            <span>+ Add Service</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- BODY CONTENT PANES -->
+      <div class="admin-content-body">
+
+        <!-- ================================================================
+             TAB 1: SERVICES HUB (CORE FEATURE)
+             ================================================================ -->
+        <section class="tab-pane active" id="tab-services">
+          <div class="admin-card">
+            <div class="card-header-bar">
+              <div>
+                <h3 class="card-title">Active Offerings &amp; Service Management</h3>
+                <p class="card-subtitle">Create, configure, and publish any service (Results Checker, Car Sales, Gadget Swaps, etc.) directly to your website.</p>
+              </div>
+              <div class="filter-bar">
+                <div class="search-input-wrap">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                  <input type="text" id="service-search-input" class="search-input" placeholder="Search services, categories..."/>
+                </div>
+                <select id="service-filter-select" class="filter-select">
+                  <option value="all">All Services</option>
+                  <option value="active">Active Only</option>
+                  <option value="inactive">Disabled Only</option>
+                  <option value="custom">Custom Added Only</option>
+                  <option value="core">Core 5 Defaults</option>
+                </select>
+                <button class="btn-primary-action" id="btn-add-new-service">+ Create Service</button>
+              </div>
+            </div>
+            
+            <div class="card-body">
+              <!-- Dynamic Services Grid -->
+              <div class="services-admin-grid" id="admin-services-grid">
+                <!-- Injected via admin.js -->
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             TAB 2: BOOKINGS CRM
+             ================================================================ -->
+        <section class="tab-pane" id="tab-bookings">
+          <div class="admin-card">
+            <div class="card-header-bar">
+              <div>
+                <h3 class="card-title">Client Bookings &amp; Inquiries CRM</h3>
+                <p class="card-subtitle">Manage client requests submitted via website drawers or logged manually.</p>
+              </div>
+              <div class="filter-bar">
+                <div class="search-input-wrap">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                  <input type="text" id="booking-search-input" class="search-input" placeholder="Search client name, phone..."/>
+                </div>
+                <select id="booking-filter-select" class="filter-select">
+                  <option value="all">All Statuses</option>
+                  <option value="new">New Inquiries</option>
+                  <option value="in_progress">In Progress</option>
+                  <option value="completed">Completed</option>
+                  <option value="cancelled">Cancelled</option>
+                </select>
+                <button class="btn-primary-action" id="btn-add-manual-booking">+ Add Walk-In Lead</button>
+                <button class="btn-live-site" id="btn-export-bookings-csv">📥 Export CSV</button>
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Client Name / Phone</th>
+                    <th>Requested Service</th>
+                    <th>Status</th>
+                    <th>Date Received</th>
+                    <th>Notes / Summary</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="bookings-table-body">
+                  <!-- Injected via admin.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             TAB 3: OVERVIEW & ANALYTICS
+             ================================================================ -->
+        <section class="tab-pane" id="tab-dashboard">
+          
+          <!-- Key Metrics Grid -->
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div>
+                <div class="stat-info-title">Total Services</div>
+                <div class="stat-value" id="stat-total-services">0</div>
+                <div class="stat-meta"><span id="stat-custom-services">0</span> custom added</div>
+              </div>
+              <div class="stat-icon-wrap gold">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div>
+                <div class="stat-info-title">Active Services</div>
+                <div class="stat-value" id="stat-active-services">0</div>
+                <div class="stat-meta">Live on index.html</div>
+              </div>
+              <div class="stat-icon-wrap green">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div>
+                <div class="stat-info-title">Total Bookings</div>
+                <div class="stat-value" id="stat-total-leads">0</div>
+                <div class="stat-meta">All-time leads logged</div>
+              </div>
+              <div class="stat-icon-wrap indigo">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div>
+                <div class="stat-info-title">New Inquiries</div>
+                <div class="stat-value" id="stat-new-leads">0</div>
+                <div class="stat-meta">Awaiting WhatsApp reply</div>
+              </div>
+              <div class="stat-icon-wrap amber">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div>
+                <div class="stat-info-title">Conversion Rate</div>
+                <div class="stat-value" id="stat-conversion-rate">0%</div>
+                <div class="stat-meta">Leads fulfilled successfully</div>
+              </div>
+              <div class="stat-icon-wrap gold">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Distribution & Recent Stream -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 24px;">
+            <div class="admin-card">
+              <div class="card-header-bar">
+                <h3 class="card-title">Popular Services by Inquiries</h3>
+              </div>
+              <div class="card-body" id="dashboard-services-distribution">
+                <!-- Injected via admin.js -->
+              </div>
+            </div>
+
+            <div class="admin-card">
+              <div class="card-header-bar">
+                <h3 class="card-title">Recent Client Bookings</h3>
+              </div>
+              <div class="card-body" id="dashboard-recent-bookings">
+                <!-- Injected via admin.js -->
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ================================================================
+             TAB 4: PORTFOLIO SHOWCASE
+             ================================================================ -->
+        <section class="tab-pane" id="tab-portfolio">
+          <div class="admin-card">
+            <div class="card-header-bar">
+              <div>
+                <h3 class="card-title">Portfolio Deliverables Showcase</h3>
+                <p class="card-subtitle">Manage client deliverable highlights displayed on the homepage.</p>
+              </div>
+              <button class="btn-primary-action" id="btn-add-portfolio-item">+ Add Portfolio Work</button>
+            </div>
+            <div class="card-body">
+              <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px;" id="admin-portfolio-grid">
+                <!-- Injected via admin.js -->
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             TAB 4B: DATA BUNDLES RESELLER
+             ================================================================ -->
+        <section class="tab-pane" id="tab-data-bundles">
+          <div class="admin-card">
+            <div class="card-header-bar">
+              <div>
+                <h3 class="card-title">Data Bundles &amp; Reseller Pricing</h3>
+                <p class="card-subtitle">Configure mobile data plans, gigabyte quotas, validity, prices (GH₵), and active status across MTN, Telecel, and AT.</p>
+              </div>
+              <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                <a href="data.html" target="_blank" class="btn-live-site">🌐 View Live Data Store</a>
+                <button class="btn-primary-action" id="btn-add-bundle">+ Add New Bundle</button>
+              </div>
+            </div>
+            <div class="card-body">
+              
+              <!-- Filter Strip -->
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
+                <div style="display: flex; gap: 8px; flex-wrap: wrap;" id="admin-bundle-filter-buttons">
+                  <button class="btn-sm-action active" data-bundle-filter="all">All Networks</button>
+                  <button class="btn-sm-action" data-bundle-filter="MTN">MTN Ghana</button>
+                  <button class="btn-sm-action" data-bundle-filter="Telecel">Telecel</button>
+                  <button class="btn-sm-action" data-bundle-filter="AT">AT</button>
+                </div>
+                <div style="font-size: 0.82rem; color: var(--text-muted);" id="admin-bundles-summary-text">
+                  Showing all data plans
+                </div>
+              </div>
+
+              <!-- Bundles Table -->
+              <div style="overflow-x: auto;">
+                <table class="admin-table" style="width: 100%; text-align: left; border-collapse: collapse;">
+                  <thead>
+                    <tr style="border-bottom: 1px solid var(--admin-card-border); color: var(--text-muted); font-size: 0.78rem; text-transform: uppercase;">
+                      <th style="padding: 12px 14px;">Network</th>
+                      <th style="padding: 12px 14px;">Bundle Title / Size</th>
+                      <th style="padding: 12px 14px;">Validity</th>
+                      <th style="padding: 12px 14px;">Price (GH₵)</th>
+                      <th style="padding: 12px 14px;">Ribbon Badge</th>
+                      <th style="padding: 12px 14px;">Status</th>
+                      <th style="padding: 12px 14px; text-align: right;">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="admin-bundles-table-body">
+                    <!-- Injected dynamically via admin.js -->
+                  </tbody>
+                </table>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             TAB 5: SITE SETTINGS & CONTACT
+             ================================================================ -->
+        <section class="tab-pane" id="tab-settings">
+          <div class="admin-card" style="max-width: 800px;">
+            <div class="card-header-bar">
+              <div>
+                <h3 class="card-title">Site Configuration &amp; Contact Numbers</h3>
+                <p class="card-subtitle">Update WhatsApp hotline, voice phone lines, campus location, and Paystack integration.</p>
+              </div>
+              <button class="btn-primary-action" id="btn-save-site-settings">💾 Save Changes</button>
+            </div>
+            <div class="card-body">
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label class="form-label">WhatsApp Contact Number (No '+' or spaces for API)</label>
+                  <input type="text" class="form-control" id="setting-whatsapp" placeholder="e.g. 233559024653"/>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Voice Hotline Number</label>
+                  <input type="text" class="form-control" id="setting-voice" placeholder="e.g. +233 508 318 653"/>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Base of Operations / Campus Location</label>
+                <input type="text" class="form-control" id="setting-location" placeholder="e.g. Central University campus, Accra, Ghana"/>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Brand Tagline Quote</label>
+                <input type="text" class="form-control" id="setting-tagline" placeholder='"Where design remembers the ancestors, and speaks to tomorrow."'/>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Announcement Banner Text</label>
+                <input type="text" class="form-control" id="setting-announcement" placeholder="Banner message visible across website"/>
+              </div>
+
+              <div style="display: flex; align-items: center; gap: 8px; margin-top: 10px;">
+                <input type="checkbox" id="setting-announcement-active"/>
+                <label style="font-size: 0.86rem; color: var(--text-muted);">Enable Top Announcement Banner on Live Website</label>
+              </div>
+
+              <!-- Paystack Configuration -->
+              <div style="border-top: 1px solid var(--admin-card-border); margin: 24px 0 16px; padding-top: 20px;">
+                <h4 style="color: var(--gold-primary); margin-bottom: 6px;">💳 Paystack Payment Gateway Configuration</h4>
+                <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 14px;">Enter your Paystack Public Key (starts with pk_live_ or pk_test_) to enable instant Mobile Money and Bank Card payments on the data store.</p>
+                <div class="form-group">
+                  <label class="form-label">Paystack Public Key</label>
+                  <input type="text" class="form-control" id="setting-paystack-key" placeholder="e.g. pk_live_xxxxxxxxxxxxxxxxxxxxxxxxxxxx or pk_test_xxxx"/>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px; margin-top: 10px;">
+                  <input type="checkbox" id="setting-paystack-enabled"/>
+                  <label style="font-size: 0.86rem; color: var(--text-muted);">Enable Paystack Checkout on Data Store</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             TAB 6: DATA BACKUP & RESTORE
+             ================================================================ -->
+        <section class="tab-pane" id="tab-backup">
+          <div class="admin-card" style="max-width: 800px;">
+            <div class="card-header-bar">
+              <div>
+                <h3 class="card-title">System Backup, Security &amp; Data Restore</h3>
+                <p class="card-subtitle">Export all services, leads, and configuration as JSON, or update your security PIN.</p>
+              </div>
+            </div>
+            <div class="card-body">
+              <div style="display: flex; flex-direction: column; gap: 20px;">
+                
+                <!-- Export / Import -->
+                <div style="background: var(--admin-surface-2); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--admin-card-border);">
+                  <h4 style="color: #fff; margin-bottom: 6px;">📦 Full Data Backup &amp; Transfer</h4>
+                  <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 14px;">Download a complete JSON snapshot containing all created services, CRM booking leads, portfolio entries, and site settings.</p>
+                  <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <button class="btn-primary-action" id="btn-export-full-backup">📥 Download JSON Backup</button>
+                    <button class="btn-live-site" id="btn-import-full-backup">📤 Import JSON Backup</button>
+                    <input type="file" id="import-file-input" accept=".json" style="display: none;"/>
+                  </div>
+                </div>
+
+                <!-- Passcode -->
+                <div style="background: var(--admin-surface-2); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--admin-card-border);">
+                  <h4 style="color: #fff; margin-bottom: 6px;">🔐 Security &amp; Access PIN</h4>
+                  <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 14px;">Change the administrator passcode required to unlock this dashboard.</p>
+                  <button class="btn-live-site" id="btn-open-pin-change">Change Admin Passcode</button>
+                </div>
+
+                <!-- Factory Reset -->
+                <div style="background: rgba(239, 68, 68, 0.08); padding: 20px; border-radius: var(--radius-md); border: 1px solid rgba(239, 68, 68, 0.3);">
+                  <h4 style="color: var(--danger); margin-bottom: 6px;">⚠️ Factory Reset</h4>
+                  <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 14px;">Wipe locally stored data and reset all services to the initial factory seed state.</p>
+                  <button class="btn-sm-action danger" id="btn-reset-factory-data">Reset All Data to Defaults</button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 1: ADD / EDIT SERVICE (CORE FEATURE)
+       ========================================================================= -->
+  <div class="admin-modal-overlay" id="service-modal">
+    <div class="admin-modal" style="max-width: 720px;">
+      <div class="modal-header">
+        <h3 class="modal-title" id="service-modal-title">Add New Service</h3>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <form id="service-form">
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label">Service Title <span class="req">*</span></label>
+              <input type="text" class="form-control" id="service-title-input" placeholder="e.g. Exam Results Checking, Automobile Sales, DJ Services" required/>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Short Tab Name</label>
+              <input type="text" class="form-control" id="service-short-input" placeholder="e.g. Results, Cars, Sound"/>
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label">Category / Domain Tag <span class="req">*</span></label>
+              <input type="text" class="form-control" id="service-category-input" placeholder="e.g. Academic &amp; Portal, Automotive, Tech"/>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Badge Label</label>
+              <input type="text" class="form-control" id="service-badge-input" placeholder="e.g. Instant Delivery, Verified, Trending"/>
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label">Select Icon</label>
+              <select class="form-control" id="service-icon-input">
+                <option value="graduation">🎓 Graduation / Academic / Results</option>
+                <option value="car">🚗 Car / Automobile / Transport</option>
+                <option value="laptop">💻 Laptop / Tech / Software</option>
+                <option value="devices">📱 Devices / Phone / Gadgets</option>
+                <option value="design">🎨 Graphic Design / Visual</option>
+                <option value="web">🌐 Website / Coding / App</option>
+                <option value="cv">📄 CV / Career / Document</option>
+                <option value="briefcase">💼 Business / Consultation</option>
+                <option value="cart">🛒 Shopping / Store / Products</option>
+                <option value="music">🎵 Music / Events / Entertainment</option>
+                <option value="shield">🛡️ Security / Verification</option>
+                <option value="tool">🔧 Repairs / Tools / Maintenance</option>
+                <option value="key">🔑 Keys / Access / Unlock</option>
+                <option value="dollar">💵 Finance / Crypto / Exchange</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Rate / Pricing Display</label>
+              <input type="text" class="form-control" id="service-price-input" placeholder="e.g. GH₵ 30 / Check, Negotiable, From GH₵ 100"/>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Service Summary &amp; Description <span class="req">*</span></label>
+            <textarea class="form-control" id="service-summary-input" placeholder="Explain how you help the client and why they should choose your service..." required></textarea>
+          </div>
+
+          <!-- Dynamic Feature Bullets -->
+          <div class="form-group">
+            <label class="form-label">Key Deliverables &amp; Features (Bullet Points)</label>
+            <div id="service-bullets-container">
+              <!-- Dynamic bullet input rows -->
+            </div>
+            <button type="button" class="btn-add-item" id="btn-add-bullet-field">+ Add Bullet Point</button>
+          </div>
+
+          <!-- Dynamic Custom Booking Form Inputs -->
+          <div class="form-group" style="margin-top: 20px;">
+            <label class="form-label">Client Booking Form Inputs (What information should clients provide when booking?)</label>
+            <div id="service-custom-fields-container">
+              <!-- Dynamic form fields -->
+            </div>
+            <button type="button" class="btn-add-item" id="btn-add-custom-field">+ Add Custom Client Form Input</button>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 8px; margin-top: 16px;">
+            <input type="checkbox" id="service-active-input" checked/>
+            <label style="font-size: 0.88rem; color: #fff;">Publish this service immediately on the website</label>
+          </div>
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn-cancel">Cancel</button>
+        <button type="button" class="btn-primary-action" id="btn-save-service">Save &amp; Publish Service →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 2: BOOKING INQUIRY DETAIL
+       ========================================================================= -->
+  <div class="admin-modal-overlay" id="booking-detail-modal">
+    <div class="admin-modal">
+      <div class="modal-header">
+        <h3 class="modal-title">Client Inquiry Details</h3>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div style="background: var(--admin-surface-2); padding: 16px; border-radius: var(--radius-md); margin-bottom: 16px; border: 1px solid var(--admin-card-border);">
+          <div style="font-size: 1.2rem; font-weight: 700; color: #fff;" id="modal-client-name">Kwame Mensah</div>
+          <div style="color: var(--gold-glow); font-size: 0.9rem;" id="modal-client-phone">+233 55 902 4653</div>
+          <div style="font-size: 0.8rem; color: var(--text-sub); margin-top: 4px;">Service: <strong style="color: #fff;" id="modal-client-service">Result Checking</strong> · <span id="modal-client-date">2026-08-30</span></div>
+        </div>
+
+        <div style="margin-bottom: 16px;">
+          <h4 style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; margin-bottom: 8px;">Submitted Form Specifications</h4>
+          <div id="modal-booking-details-content">
+            <!-- Injected -->
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Inquiry Status</label>
+          <select class="form-control" id="modal-booking-status-select">
+            <option value="new">🔴 New (Uncontacted)</option>
+            <option value="in_progress">🟡 In Progress (Contacted / Working)</option>
+            <option value="completed">🟢 Completed (Delivered)</option>
+            <option value="cancelled">⚪ Cancelled / Archived</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Admin Internal Notes &amp; Follow-up</label>
+          <textarea class="form-control" id="modal-booking-notes" placeholder="Add internal notes about this client, agreement, delivery date, etc."></textarea>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <a href="#" target="_blank" class="btn-table-action whatsapp" id="modal-btn-whatsapp" style="padding: 9px 16px; font-size: 0.88rem;">💬 Chat on WhatsApp</a>
+        <button type="button" class="btn-cancel">Close</button>
+        <button type="button" class="btn-primary-action" id="btn-save-booking-update">Save Lead Status</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 3: MANUAL BOOKING (OFFLINE WALK-IN)
+       ========================================================================= -->
+  <div class="admin-modal-overlay" id="manual-booking-modal">
+    <div class="admin-modal">
+      <div class="modal-header">
+        <h3 class="modal-title">Log Walk-In / Phone Lead</h3>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label">Client Full Name <span class="req">*</span></label>
+          <input type="text" class="form-control" id="manual-name" placeholder="e.g. Ama Serwaa" required/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Client Phone / WhatsApp <span class="req">*</span></label>
+          <input type="tel" class="form-control" id="manual-phone" placeholder="e.g. +233 55 902 4653" required/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Service Required</label>
+          <select class="form-control" id="manual-service-select">
+            <!-- Injected -->
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Request Details / Notes</label>
+          <textarea class="form-control" id="manual-notes" placeholder="Describe client requirements, promised deadline, deposit info..."></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-cancel">Cancel</button>
+        <button type="button" class="btn-primary-action" id="btn-save-manual-booking">Save to CRM</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 4: CHANGE PIN PASSCODE
+       ========================================================================= -->
+  <div class="admin-modal-overlay" id="pin-change-modal">
+    <div class="admin-modal" style="max-width: 440px;">
+      <div class="modal-header">
+        <h3 class="modal-title">Update Admin PIN</h3>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label">Current PIN</label>
+          <input type="password" class="form-control" id="pin-current-input" placeholder="••••"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">New PIN (Minimum 4 digits)</label>
+          <input type="password" class="form-control" id="pin-new-input" placeholder="••••"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Confirm New PIN</label>
+          <input type="password" class="form-control" id="pin-confirm-input" placeholder="••••"/>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-cancel">Cancel</button>
+        <button type="button" class="btn-primary-action" id="btn-save-new-pin">Update Passcode</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL 5: ADD / EDIT DATA BUNDLE
+       ========================================================================= -->
+  <div class="admin-modal-overlay" id="bundle-modal">
+    <div class="admin-modal" style="max-width: 580px;">
+      <div class="modal-header">
+        <h3 class="modal-title" id="bundle-modal-title">Add Data Bundle</h3>
+        <button class="modal-close-btn" id="btn-close-bundle-modal">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <form id="bundle-form">
+          <input type="hidden" id="bundle-id-input" value=""/>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label">Mobile Network <span class="req">*</span></label>
+              <select class="form-control" id="bundle-network-input" required>
+                <option value="MTN">MTN Ghana</option>
+                <option value="Telecel">Telecel (Vodafone)</option>
+                <option value="AT">AT (AirtelTigo)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Data Capacity / Quota <span class="req">*</span></label>
+              <input type="text" class="form-control" id="bundle-size-input" placeholder="e.g. 5 GB, 2.5 GB, 10 GB" required/>
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label">Price in Cedis (GH₵) <span class="req">*</span></label>
+              <input type="number" step="0.5" min="1" class="form-control" id="bundle-price-input" placeholder="e.g. 24.00" required/>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Validity / Expiry</label>
+              <input type="text" class="form-control" id="bundle-validity-input" placeholder="e.g. Non-Expiry, 30 Days"/>
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label">Display Title</label>
+              <input type="text" class="form-control" id="bundle-title-input" placeholder="e.g. MTN 5 GB Bundle"/>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Promotional Ribbon</label>
+              <input type="text" class="form-control" id="bundle-badge-input" placeholder="e.g. Best Value, Popular, Starter"/>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Description / Feature Note</label>
+            <textarea class="form-control" id="bundle-desc-input" rows="2" placeholder="e.g. Instant 4G/5G data credited directly to recipient SIM."></textarea>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 8px; margin-top: 14px;">
+            <input type="checkbox" id="bundle-active-input" checked/>
+            <label style="font-size: 0.88rem; color: #fff;">Make bundle visible and purchasable on live store</label>
+          </div>
+
+          <div class="modal-footer" style="padding-left: 0; padding-right: 0; margin-top: 20px;">
+            <button type="button" class="btn-cancel" id="btn-cancel-bundle">Cancel</button>
+            <button type="submit" class="btn-primary-action" id="btn-save-bundle">Save Data Bundle</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Central Data Layer & Controller Scripts -->
+  <script src="vto-data.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

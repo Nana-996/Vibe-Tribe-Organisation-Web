@@ -15,6 +15,13 @@
 </head>
 <body>
 
+  <!-- Top Announcement Bar (Dynamic) -->
+  <div id="vto-top-announcement" class="top-announcement-bar" style="display: none;">
+    <span class="announcement-badge">UPDATED</span>
+    <span id="announcement-text-content">🔥 New Services Available</span>
+    <a href="#services-hub" class="announcement-link">Explore Now →</a>
+  </div>
+
   <!-- Background Orbs -->
   <div class="glow-orb orb-1"></div>
   <div class="glow-orb orb-2"></div>
@@ -35,6 +42,7 @@
       <!-- Desktop Links -->
       <div class="nav-links">
         <a href="#services-hub" class="nav-link">Our Services</a>
+        <a href="data.html" class="nav-link font-gold" style="font-weight: 700;">⚡ Buy Data</a>
         <a href="#portfolio" class="nav-link">Portfolio</a>
         <a href="#why-vto" class="nav-link">Why Choose Us</a>
         <a href="#contact" class="nav-link">Get in Touch</a>
@@ -59,6 +67,7 @@
     <div class="mobile-nav-overlay">
       <div class="mobile-nav-links">
         <a href="#services-hub" class="mob-link">Our Services</a>
+        <a href="data.html" class="mob-link text-gold" style="font-weight: 800;">⚡ Buy Mobile Data</a>
         <a href="#portfolio" class="mob-link">Portfolio Showcase</a>
         <a href="#why-vto" class="mob-link">Why Choose Us</a>
         <a href="#contact" class="mob-link">Get in Touch</a>
@@ -98,13 +107,33 @@
 
       <div class="hero-cta-group">
         <a href="#services-hub" class="btn-hero-primary">Explore Services</a>
+        <a href="data.html" class="btn-hero-secondary" style="border-color: var(--green-emerald); color: var(--green-deep); font-weight: 700;">⚡ Buy Cheap Data</a>
         <a href="#contact" class="btn-hero-secondary">Consult Directly</a>
+      </div>
+
+      <div class="stats-strip">
+        <div class="stat-item">
+          <span class="stat-number">200+</span>
+          <span class="stat-label">Clients Served</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">5</span>
+          <span class="stat-label">Core Services</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">24hr</span>
+          <span class="stat-label">Fast Turnaround</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">Accra</span>
+          <span class="stat-label">Based in Ghana</span>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- SERVICES HUB SECTION -->
-  <section class="services-hub-section" id="services-hub">
+  <section class="services-hub-section reveal-section" id="services-hub">
     <div class="container">
       <div class="section-header text-center">
         <span class="section-tag">Elite Core Services</span>
@@ -407,15 +436,23 @@
                   </div>
                   <div class="legend-content" id="legend-colors">
                     <h5 class="legend-title">🎨 Chromatic Harmony</h5>
-                    <p class="legend-text">VTO's signature palette: Champagne Gold and Royal Indigo over Ivory White. High-contrast levels exceed strict digital screen accessibility standards.</p>
+                    <p class="legend-text">VTO's signature palette: Forest Green and Jewel Emerald over Warm Light Cream. High-contrast levels exceed strict digital screen accessibility standards.</p>
                     <div class="legend-colors-list">
                       <div class="legend-color-item">
-                        <span class="color-swatch" style="background: #c98e26;"></span>
-                        <span>Gold (Contrast Aligned)</span>
+                        <span class="color-swatch" style="background: #0F3E2E;"></span>
+                        <span>Forest Green (#0F3E2E)</span>
                       </div>
                       <div class="legend-color-item">
-                        <span class="color-swatch" style="background: #5c62d6;"></span>
-                        <span>Indigo (Contrast Aligned)</span>
+                        <span class="color-swatch" style="background: #1A6B4C;"></span>
+                        <span>Emerald (#1A6B4C)</span>
+                      </div>
+                      <div class="legend-color-item">
+                        <span class="color-swatch" style="background: #FAF7F2; border: 1px solid #c8bfb0;"></span>
+                        <span>Light Cream (#FAF7F2)</span>
+                      </div>
+                      <div class="legend-color-item">
+                        <span class="color-swatch" style="background: #C49B38;"></span>
+                        <span>Champagne (#C49B38)</span>
                       </div>
                     </div>
                   </div>
@@ -579,7 +616,7 @@
   </section>
 
   <!-- PORTFOLIO SHOWCASE -->
-  <section class="portfolio-section" id="portfolio">
+  <section class="portfolio-section reveal-section" id="portfolio">
     <div class="container">
       <div class="section-header text-center">
         <span class="section-tag">Showcase of Work</span>
@@ -656,7 +693,7 @@
   </section>
 
   <!-- WHY CHOOSE VTO (TRUST STRIP) -->
-  <section class="why-vto-section" id="why-vto">
+  <section class="why-vto-section reveal-section" id="why-vto">
     <div class="container">
       <div class="section-header text-center">
         <span class="section-tag">Value Proposition</span>
@@ -698,7 +735,7 @@
   </section>
 
   <!-- GET IN TOUCH / CONTACT -->
-  <section class="contact-section" id="contact">
+  <section class="contact-section reveal-section" id="contact">
     <div class="container">
       <div class="contact-container glass-card">
         <div class="contact-badge">VTO Headquarters</div>
@@ -748,6 +785,16 @@
       <div class="footer-meta">
         <p>© 2026 Vibe Tribe Organisation. All rights reserved.</p>
         <p class="developed-by">Elite Web Engineering by VTO</p>
+        <div style="display: flex; gap: 8px; justify-content: flex-end; align-items: center; flex-wrap: wrap; margin-top: 8px;">
+          <a href="data.html" class="admin-entry-link" title="Open VTO Data Store">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20h.01"></path><path d="M7 20v-4"></path><path d="M12 20v-8"></path><path d="M17 20V8"></path><path d="M22 4v16"></path></svg>
+            <span>Data Store</span>
+          </a>
+          <a href="admin.html" class="admin-entry-link" target="_blank" title="Access VTO Admin Console">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1-2.83 0l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+            <span>Admin Portal</span>
+          </a>
+        </div>
       </div>
     </div>
   </footer>
@@ -1112,135 +1159,385 @@
     </div>
   </div>
 
-  <!-- Vanilla Scripts -->
+  <!-- Central Data Layer -->
+  <script src="vto-data.js"></script>
+
+  <!-- Dynamic Application Scripts -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      'use strict';
       
-      // 1. MOBILE NAVIGATION MENU
+      // =====================================================================
+      // 1. DYNAMIC SITE SETTINGS & ANNOUNCEMENT SYNC
+      // =====================================================================
+      function syncSiteSettings() {
+        if (!window.VTOData) return;
+        const settings = VTOData.getSettings();
+        
+        // Announcement banner
+        const announceBar = document.getElementById('vto-top-announcement');
+        const announceText = document.getElementById('announcement-text-content');
+        if (announceBar && announceText) {
+          if (settings.announcementActive && settings.announcementText) {
+            announceText.textContent = settings.announcementText;
+            announceBar.style.display = 'flex';
+          } else {
+            announceBar.style.display = 'none';
+          }
+        }
+
+        // WhatsApp links and contact lines
+        if (settings.whatsappNumber) {
+          document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+            link.href = `https://wa.me/${settings.whatsappNumber}`;
+          });
+        }
+      }
+      syncSiteSettings();
+
+      // =====================================================================
+      // 2. MOBILE NAVIGATION MENU
+      // =====================================================================
       const navToggle = document.querySelector('.nav-toggle');
       const mobileNav = document.querySelector('.mobile-nav-overlay');
       const mobLinks = document.querySelectorAll('.mob-link');
 
       function toggleMobileMenu() {
+        if (!navToggle || !mobileNav) return;
         navToggle.classList.toggle('active');
         mobileNav.classList.toggle('active');
         document.body.classList.toggle('no-scroll');
       }
 
-      navToggle.addEventListener('click', toggleMobileMenu);
+      if (navToggle) navToggle.addEventListener('click', toggleMobileMenu);
       
       mobLinks.forEach(link => {
         link.addEventListener('click', () => {
-          if (mobileNav.classList.contains('active')) {
+          if (mobileNav && mobileNav.classList.contains('active')) {
             toggleMobileMenu();
           }
         });
       });
 
-      // 2. INTERACTIVE SERVICE TABS
-      const tabButtons = document.querySelectorAll('.tab-btn');
-      const servicePanels = document.querySelectorAll('.service-panel');
+      // =====================================================================
+      // 3. DYNAMIC SERVICES HUB RENDERING
+      // =====================================================================
+      const tabsControllers = document.querySelector('.tabs-controllers');
+      const panelsContainer = document.querySelector('.service-panels-container');
 
-      tabButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-          // Remove active classes
-          tabButtons.forEach(b => b.classList.remove('active'));
-          servicePanels.forEach(p => p.classList.remove('active'));
+      function renderDynamicServices() {
+        if (!window.VTOData || !tabsControllers || !panelsContainer) return;
+        const activeServices = VTOData.getServices(true); // Active only
 
-          // Add active classes to current selection
-          btn.classList.add('active');
-          const targetId = `panel-${btn.getAttribute('data-target')}`;
-          const targetPanel = document.getElementById(targetId);
-          if (targetPanel) {
-            targetPanel.classList.add('active');
+        // Clear and rebuild tab buttons to match all active services
+        tabsControllers.innerHTML = activeServices.map((s, idx) => {
+          const iconHtml = VTOData.getIcon(s.iconKey || 'briefcase');
+          return `
+            <button class="tab-btn ${idx === 0 ? 'active' : ''}" data-target="${s.id}">
+              <span class="tab-icon">${iconHtml}</span>
+              <span class="tab-name">${escapeHtml(s.shortName || s.title)}</span>
+            </button>
+          `;
+        }).join('');
+
+        // Ensure custom service panels are created in container
+        activeServices.forEach(s => {
+          let panel = document.getElementById(`panel-${s.id}`);
+          if (!panel) {
+            // Build custom dynamic panel
+            panel = document.createElement('div');
+            panel.className = 'service-panel';
+            panel.id = `panel-${s.id}`;
+
+            const bulletsHtml = (s.bullets || []).map(b => `
+              <div class="p-bullet">
+                <svg class="bullet-check" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span>${escapeHtml(b)}</span>
+              </div>
+            `).join('');
+
+            const iconSvg = VTOData.getIcon(s.iconKey || 'briefcase');
+
+            panel.innerHTML = `
+              <div class="panel-grid">
+                <div class="panel-info">
+                  <div class="panel-badge">${escapeHtml(s.category)}</div>
+                  <h3 class="panel-title">${escapeHtml(s.title)}</h3>
+                  <p class="panel-desc">${escapeHtml(s.summary)}</p>
+                  
+                  <div class="panel-bullets">
+                    ${bulletsHtml}
+                  </div>
+
+                  <button class="btn-action-booking trigger-booking" data-service="${s.id}">
+                    <span>Initiate Service Request</span>
+                    <svg class="btn-arrow" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+                  </button>
+                </div>
+                
+                <div class="panel-visual">
+                  <div class="mockup-container">
+                    <div class="custom-service-visual">
+                      <div class="custom-visual-header">
+                        <div class="custom-visual-icon">${iconSvg}</div>
+                        <span class="custom-visual-badge">${escapeHtml(s.badge || 'Available Now')}</span>
+                      </div>
+                      <div class="custom-rate-tag">💳 Rate: ${escapeHtml(s.price || 'Affordable & Transparent')}</div>
+                      <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 16px; line-height: 1.5;">${escapeHtml(s.summary)}</p>
+                      <div class="custom-features-preview">
+                        ${(s.bullets || []).slice(0, 3).map(b => `
+                          <div class="custom-f-item">
+                            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            <span>${escapeHtml(b)}</span>
+                          </div>
+                        `).join('')}
+                      </div>
+                    </div>
+                    <div class="visual-glow-glow font-indigo"></div>
+                  </div>
+                </div>
+              </div>
+            `;
+            panelsContainer.appendChild(panel);
           }
         });
-      });
 
-      // 3. BOOKING DRAWER FUNCTIONALITY
+        // Activate the first panel
+        const firstBtn = tabsControllers.querySelector('.tab-btn');
+        if (firstBtn) {
+          const targetId = `panel-${firstBtn.getAttribute('data-target')}`;
+          document.querySelectorAll('.service-panel').forEach(p => p.classList.remove('active'));
+          const firstPanel = document.getElementById(targetId);
+          if (firstPanel) firstPanel.classList.add('active');
+        }
+
+        // Re-attach Tab click listeners
+        const tabButtons = tabsControllers.querySelectorAll('.tab-btn');
+        tabButtons.forEach(btn => {
+          btn.addEventListener('click', () => {
+            tabButtons.forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.service-panel').forEach(p => p.classList.remove('active'));
+
+            btn.classList.add('active');
+            const targetId = `panel-${btn.getAttribute('data-target')}`;
+            const targetPanel = document.getElementById(targetId);
+            if (targetPanel) targetPanel.classList.add('active');
+          });
+        });
+
+        // Re-attach booking trigger buttons
+        attachBookingTriggers();
+      }
+
+      // =====================================================================
+      // 4. DYNAMIC BOOKING DRAWER & LEAD CAPTURE
+      // =====================================================================
       const drawer = document.getElementById('booking-drawer');
       const drawerOverlay = document.getElementById('drawer-overlay');
       const drawerClose = document.getElementById('drawer-close');
-      const triggerButtons = document.querySelectorAll('.trigger-booking');
-      
-      // Service details mapping for Drawer customization
-      const serviceDetails = {
-        laptop: {
-          title: 'Laptop Software Request',
-          sub: 'Restore your device to peak processing speed.',
-          icon: `<svg class="vto-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>`
-        },
-        devices: {
-          title: 'Device Upgrade & Trade-in',
-          sub: 'Submit physical condition specs for precise valuations.',
-          icon: `<svg class="vto-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>`
-        },
-        design: {
-          title: 'Creative Brief details',
-          sub: 'Outline your target visuals, deadlines & colors.',
-          icon: `<svg class="vto-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 14.7255 3.09032 17.1962 4.85857 19C5.03442 19.1758 5.14375 19.4184 5.14375 19.6791C5.14375 20.9609 6.18285 22 7.46467 22H12Z"></path><circle cx="7.5" cy="10.5" r="1.5" fill="currentColor"></circle><circle cx="11.5" cy="7.5" r="1.5" fill="currentColor"></circle><circle cx="16.5" cy="9.5" r="1.5" fill="currentColor"></circle><circle cx="15.5" cy="14.5" r="1.5" fill="currentColor"></circle></svg>`
-        },
-        web: {
-          title: 'Website Specs Brief',
-          sub: 'Launch your premium, lightning-fast digital asset.',
-          icon: `<svg class="vto-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>`
-        },
-        cv: {
-          title: 'Executive CV Order',
-          sub: 'Craft an ATS-optimized profile that secures reviews.',
-          icon: `<svg class="vto-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>`
-        }
-      };
+      const drawerBody = document.querySelector('.drawer-body');
 
       function openDrawer(serviceKey) {
-        // Pre-configure drawer content
-        const defaultIcon = `<svg class="vto-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>`;
-        const details = serviceDetails[serviceKey] || { title: 'Book Service', sub: 'Send request', icon: defaultIcon };
-        
-        document.getElementById('drawer-service-title').textContent = details.title;
-        document.getElementById('drawer-service-sub').textContent = details.sub;
-        document.getElementById('drawer-service-icon').innerHTML = details.icon;
+        if (!window.VTOData || !drawer) return;
+        const service = VTOData.getServiceById(serviceKey) || {
+          id: serviceKey,
+          title: 'Custom Service Booking',
+          summary: 'Submit your request details directly to VTO.',
+          iconKey: 'briefcase'
+        };
+
+        const iconSvg = VTOData.getIcon(service.iconKey || 'briefcase');
+        document.getElementById('drawer-service-title').textContent = service.title;
+        document.getElementById('drawer-service-sub').textContent = service.summary;
+        document.getElementById('drawer-service-icon').innerHTML = iconSvg;
 
         // Hide all form wrappers
         const forms = document.querySelectorAll('.drawer-form-wrapper');
         forms.forEach(form => form.classList.remove('active'));
 
-        // Show matching form wrapper
-        const activeForm = document.getElementById(`form-${serviceKey}`);
+        let activeForm = document.getElementById(`form-${serviceKey}`);
+
+        // If no static form wrapper exists for this service, build it dynamically!
+        if (!activeForm && drawerBody) {
+          activeForm = document.createElement('div');
+          activeForm.className = 'drawer-form-wrapper';
+          activeForm.id = `form-${serviceKey}`;
+
+          const fields = service.customFields || [
+            { label: 'Request Details / Specifications', name: 'details', type: 'textarea', placeholder: 'Describe your requirements in detail', required: true }
+          ];
+
+          const fieldsHtml = fields.map(f => {
+            const reqMarker = f.required ? '<span class="req">*</span>' : '';
+            const isReq = f.required ? 'required' : '';
+
+            if (f.type === 'select' && f.options && f.options.length > 0) {
+              const optHtml = f.options.map(opt => `<option value="${escapeHtml(opt)}">${escapeHtml(opt)}</option>`).join('');
+              return `
+                <div class="form-field">
+                  <label>${escapeHtml(f.label)} ${reqMarker}</label>
+                  <select name="${escapeHtml(f.name)}" ${isReq}>
+                    <option value="">-- Choose option --</option>
+                    ${optHtml}
+                  </select>
+                </div>
+              `;
+            } else if (f.type === 'textarea') {
+              return `
+                <div class="form-field">
+                  <label>${escapeHtml(f.label)} ${reqMarker}</label>
+                  <textarea name="${escapeHtml(f.name)}" placeholder="${escapeHtml(f.placeholder || '')}" ${isReq}></textarea>
+                </div>
+              `;
+            } else if (f.type === 'date') {
+              return `
+                <div class="form-field">
+                  <label>${escapeHtml(f.label)} ${reqMarker}</label>
+                  <input type="date" name="${escapeHtml(f.name)}" ${isReq}/>
+                </div>
+              `;
+            } else {
+              return `
+                <div class="form-field">
+                  <label>${escapeHtml(f.label)} ${reqMarker}</label>
+                  <input type="text" name="${escapeHtml(f.name)}" placeholder="${escapeHtml(f.placeholder || '')}" ${isReq}/>
+                </div>
+              `;
+            }
+          }).join('');
+
+          activeForm.innerHTML = `
+            <form name="vto-dynamic-${serviceKey}" method="POST" data-netlify="true" action="/success.html">
+              <input type="hidden" name="form-name" value="vto-dynamic-${serviceKey}" />
+              <input type="hidden" name="service-id" value="${serviceKey}" />
+              
+              <div class="form-instructions">Submit your specifications for ${escapeHtml(service.title)}. We respond swiftly.</div>
+              
+              <div class="form-field">
+                <label>Full Name <span class="req">*</span></label>
+                <input type="text" name="name" placeholder="e.g. Kwame Mensah" required/>
+              </div>
+              
+              <div class="form-field">
+                <label>WhatsApp Number <span class="req">*</span></label>
+                <input type="tel" name="phone" placeholder="+233 XX XXX XXXX" required/>
+              </div>
+
+              ${fieldsHtml}
+
+              <button type="submit" class="btn-submit-form">Submit Secure Booking →</button>
+            </form>
+          `;
+
+          drawerBody.appendChild(activeForm);
+          attachFormSubmitCapture(activeForm.querySelector('form'), service);
+        }
+
         if (activeForm) {
           activeForm.classList.add('active');
         }
 
-        // Slide-in drawer
+        // Slide in drawer
         drawer.classList.add('active');
-        drawerOverlay.classList.add('active');
+        if (drawerOverlay) drawerOverlay.classList.add('active');
         document.body.classList.add('no-scroll');
       }
 
       function closeDrawer() {
-        drawer.classList.remove('active');
-        drawerOverlay.classList.remove('active');
+        if (drawer) drawer.classList.remove('active');
+        if (drawerOverlay) drawerOverlay.classList.remove('active');
         document.body.classList.remove('no-scroll');
       }
 
-      triggerButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-          const serviceKey = btn.getAttribute('data-service');
-          openDrawer(serviceKey);
+      function attachBookingTriggers() {
+        document.querySelectorAll('.trigger-booking').forEach(btn => {
+          btn.removeEventListener('click', handleBookingTriggerClick);
+          btn.addEventListener('click', handleBookingTriggerClick);
         });
-      });
+      }
 
-      drawerClose.addEventListener('click', closeDrawer);
-      drawerOverlay.addEventListener('click', closeDrawer);
+      function handleBookingTriggerClick(e) {
+        const btn = e.currentTarget;
+        const serviceKey = btn.getAttribute('data-service') || 'general';
+        openDrawer(serviceKey);
+      }
 
-      // ESC key to close drawer
+      if (drawerClose) drawerClose.addEventListener('click', closeDrawer);
+      if (drawerOverlay) drawerOverlay.addEventListener('click', closeDrawer);
+
       document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && drawer.classList.contains('active')) {
+        if (e.key === 'Escape' && drawer && drawer.classList.contains('active')) {
           closeDrawer();
         }
       });
-      
-      // 4. GRAPHIC DESIGN EXPLORER TABS
+
+      // Form Submission Capture into Admin CRM
+      function attachFormSubmitCapture(form, serviceObj = null) {
+        if (!form) return;
+        form.addEventListener('submit', (e) => {
+          const formData = new FormData(form);
+          const name = formData.get('name') || 'Valued Client';
+          const phone = formData.get('phone') || '';
+          const serviceId = form.getAttribute('name').replace('vto-', '').replace('-service', '');
+          const serviceTitle = serviceObj ? serviceObj.title : (document.getElementById('drawer-service-title') ? document.getElementById('drawer-service-title').textContent : 'Service Booking');
+
+          const details = {};
+          formData.forEach((value, key) => {
+            if (key !== 'name' && key !== 'phone' && key !== 'form-name') {
+              details[key] = value;
+            }
+          });
+
+          // Save to Local Data CRM
+          if (window.VTOData) {
+            VTOData.addBooking({
+              name,
+              phone,
+              serviceId,
+              serviceTitle,
+              details,
+              status: 'new',
+              source: 'Website Dynamic Drawer'
+            });
+          }
+
+          // Show rich toast notification
+          showClientToast(`Thank you ${name}! Your booking for "${serviceTitle}" has been received.`, phone, serviceTitle);
+        });
+      }
+
+      // Attach capture to existing static forms
+      document.querySelectorAll('.drawer-form-wrapper form').forEach(f => attachFormSubmitCapture(f));
+
+      // Client Confirmation Toast
+      function showClientToast(msg, phone, serviceTitle) {
+        const settings = VTOData ? VTOData.getSettings() : { whatsappNumber: '233559024653' };
+        const cleanPhone = settings.whatsappNumber || '233559024653';
+        const waText = encodeURIComponent(`Hi VTO, I just submitted a booking for "${serviceTitle}". My name is ${phone ? 'on the form' : ''}.`);
+        const waUrl = `https://wa.me/${cleanPhone}?text=${waText}`;
+
+        const toast = document.createElement('div');
+        toast.className = 'client-booking-toast';
+        toast.innerHTML = `
+          <div>
+            <div style="font-weight: 700; color: var(--gold-glow); margin-bottom: 2px;">✅ Request Registered!</div>
+            <div style="font-size: 0.82rem; color: #ddd; margin-bottom: 8px;">${escapeHtml(msg)}</div>
+            <a href="${waUrl}" target="_blank" style="display: inline-block; background: #25d366; color: #000; font-size: 0.76rem; font-weight: 700; padding: 4px 10px; border-radius: 4px; text-decoration: none;">
+              💬 Direct WhatsApp Follow-up &rarr;
+            </a>
+          </div>
+        `;
+        document.body.appendChild(toast);
+        setTimeout(() => {
+          toast.style.opacity = '0';
+          toast.style.transition = 'all 0.4s';
+          setTimeout(() => toast.remove(), 400);
+        }, 8000);
+      }
+
+      // =====================================================================
+      // 5. GRAPHIC DESIGN EXPLORER TABS
+      // =====================================================================
       const anatomyTabs = document.querySelectorAll('.anatomy-tab-btn');
       const anatomyCanvas = document.getElementById('anatomy-canvas');
       const legendContents = document.querySelectorAll('.legend-content');
@@ -1251,7 +1548,7 @@
           tab.classList.add('active');
 
           const state = tab.getAttribute('data-anatomy');
-          anatomyCanvas.className = `anatomy-canvas state-${state}`;
+          if (anatomyCanvas) anatomyCanvas.className = `anatomy-canvas state-${state}`;
 
           legendContents.forEach(content => {
             content.classList.remove('active');
@@ -1261,7 +1558,18 @@
           });
         });
       });
-      
+
+      // =====================================================================
+      // 6. INITIAL RENDER & REACTIVE EVENT SYNC
+      // =====================================================================
+      renderDynamicServices();
+
+      // Listen for data sync from admin tab
+      window.addEventListener('vto_data_sync', () => {
+        syncSiteSettings();
+        renderDynamicServices();
+      });
+
       // Auto-prefill forms based on anchor references if any
       const hash = window.location.hash;
       if (hash) {
@@ -1270,7 +1578,38 @@
           matchingTab.click();
         }
       }
+
+      function escapeHtml(str) {
+        if (!str) return '';
+        return String(str)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#039;');
+      }
+
+      // =================================================================
+      // 7. SCROLL REVEAL — INTERSECTION OBSERVER
+      // =================================================================
+      const revealSections = document.querySelectorAll('.reveal-section');
+      if (revealSections.length > 0 && 'IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('revealed');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+        revealSections.forEach(section => revealObserver.observe(section));
+      } else {
+        // Fallback: reveal all immediately
+        revealSections.forEach(s => s.classList.add('revealed'));
+      }
     });
   </script>
 </body>
 </html>
+

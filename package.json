@@ -1,0 +1,21 @@
+{
+  "name": "vibe-tribe-organisation-web",
+  "version": "1.0.0",
+  "description": "Vibe Tribe Organisation - Tech, Design & Data Reseller Hub",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "serve": "node server.js",
+    "test": "node -c vto-data.js && node -c admin.js && node -c server.js"
+  },
+  "keywords": [
+    "vto",
+    "data-reseller",
+    "paystack",
+    "ghana-data",
+    "tech-hub"
+  ],
+  "author": "Vibe Tribe Organisation",
+  "license": "ISC"
+}
