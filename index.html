@@ -811,6 +811,14 @@
       <button class="drawer-close-btn" id="drawer-close" aria-label="Close Booking Drawer">&times;</button>
     </div>
 
+    <!-- Quick Direct WhatsApp Inquiry Option -->
+    <div class="drawer-quick-wa-bar" id="drawer-quick-wa-bar">
+      <a href="https://wa.me/233559024653" id="drawer-quick-wa-link" target="_blank" class="drawer-quick-wa-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.301-.15-1.78-.878-2.056-.979-.276-.1-.476-.15-.677.15-.2.301-.777.98-.953 1.18-.175.2-.35.226-.651.076-.301-.15-1.27-.468-2.42-1.494-.894-.798-1.498-1.784-1.674-2.085-.175-.301-.019-.464.131-.613.136-.135.301-.35.451-.526.15-.175.2-.3.301-.501.1-.2.05-.376-.025-.526-.075-.15-.677-1.632-.927-2.235-.244-.588-.492-.508-.677-.517-.175-.008-.376-.01-.576-.01s-.526.075-.802.376c-.276.301-1.053 1.028-1.053 2.508s1.078 2.909 1.229 3.11c.15.2 2.122 3.24 5.141 4.544.718.31 1.279.496 1.716.634.721.23 1.377.198 1.896.12.578-.088 1.78-.727 2.031-1.429.251-.702.251-1.304.175-1.43-.075-.125-.276-.2-.576-.35z"/></svg>
+        <span id="drawer-quick-wa-text">💬 Quick WhatsApp Inquiry for this Service</span>
+      </a>
+    </div>
+
     <div class="drawer-body">
       
       <!-- FORM 1: LAPTOP SOFTWARE SERVICES -->
@@ -869,7 +877,7 @@
             </div>
           </div>
           
-          <button type="submit" class="btn-submit-form">Submit Secure Booking →</button>
+          <button type="submit" class="btn-submit-form">💬 Send Request via WhatsApp →</button>
         </form>
       </div>
 
@@ -942,7 +950,7 @@
             <textarea name="details" placeholder="Specify if battery health is key, colors, box & original charger inclusions, etc."></textarea>
           </div>
           
-          <button type="submit" class="btn-submit-form">Submit Hardware Listing →</button>
+          <button type="submit" class="btn-submit-form">💬 Send Request via WhatsApp →</button>
         </form>
       </div>
 
@@ -1003,7 +1011,7 @@
             <textarea name="inspiration" placeholder="Describe the aesthetic direction (e.g. minimal, afro-centric, corporate luxury)"></textarea>
           </div>
           
-          <button type="submit" class="btn-submit-form">Submit Creative Brief →</button>
+          <button type="submit" class="btn-submit-form">💬 Send Request via WhatsApp →</button>
         </form>
       </div>
 
@@ -1073,7 +1081,7 @@
             <textarea name="extra_info" placeholder="Specify if custom payment APIs, database setups, or specific integrations are required."></textarea>
           </div>
           
-          <button type="submit" class="btn-submit-form">Launch Web Project →</button>
+          <button type="submit" class="btn-submit-form">💬 Send Request via WhatsApp →</button>
         </form>
       </div>
 
@@ -1148,7 +1156,7 @@
             </div>
           </div>
           
-          <button type="submit" class="btn-submit-form">Initiate Resume Order →</button>
+          <button type="submit" class="btn-submit-form">💬 Send Request via WhatsApp →</button>
         </form>
       </div>
 
@@ -1182,10 +1190,25 @@
           }
         }
 
-        // WhatsApp links and contact lines
+        // WhatsApp links and contact lines (preserving pre-filled service text)
         if (settings.whatsappNumber) {
           document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
-            link.href = `https://wa.me/${settings.whatsappNumber}`;
+            try {
+              const currentUrl = new URL(link.href);
+              const textParam = currentUrl.searchParams.get('text');
+              if (textParam) {
+                link.href = `https://wa.me/${settings.whatsappNumber}?text=${encodeURIComponent(textParam)}`;
+              } else {
+                link.href = `https://wa.me/${settings.whatsappNumber}`;
+              }
+            } catch (err) {
+              if (link.href.includes('?text=')) {
+                const textPart = link.href.split('?text=')[1];
+                link.href = `https://wa.me/${settings.whatsappNumber}?text=${textPart}`;
+              } else {
+                link.href = `https://wa.me/${settings.whatsappNumber}`;
+              }
+            }
           });
         }
       }
@@ -1265,10 +1288,16 @@
                     ${bulletsHtml}
                   </div>
 
-                  <button class="btn-action-booking trigger-booking" data-service="${s.id}">
-                    <span>Initiate Service Request</span>
-                    <svg class="btn-arrow" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
-                  </button>
+                  <div class="service-actions-group">
+                    <button class="btn-action-booking trigger-booking" data-service="${s.id}">
+                      <span>Request Service</span>
+                      <svg class="btn-arrow" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+                    </button>
+                    <a href="https://wa.me/233559024653?text=${encodeURIComponent(`Hello VTO! 👋\n\nI want to inquire about your *${s.title}* service. Could you please share details, rates, and turnaround time?`)}" target="_blank" class="btn-service-whatsapp" title="Inquire on WhatsApp about ${escapeHtml(s.title)}">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.301-.15-1.78-.878-2.056-.979-.276-.1-.476-.15-.677.15-.2.301-.777.98-.953 1.18-.175.2-.35.226-.651.076-.301-.15-1.27-.468-2.42-1.494-.894-.798-1.498-1.784-1.674-2.085-.175-.301-.019-.464.131-.613.136-.135.301-.35.451-.526.15-.175.2-.3.301-.501.1-.2.05-.376-.025-.526-.075-.15-.677-1.632-.927-2.235-.244-.588-.492-.508-.677-.517-.175-.008-.376-.01-.576-.01s-.526.075-.802.376c-.276.301-1.053 1.028-1.053 2.508s1.078 2.909 1.229 3.11c.15.2 2.122 3.24 5.141 4.544.718.31 1.279.496 1.716.634.721.23 1.377.198 1.896.12.578-.088 1.78-.727 2.031-1.429.251-.702.251-1.304.175-1.43-.075-.125-.276-.2-.576-.35z"/></svg>
+                      <span>WhatsApp Inquiry</span>
+                    </a>
+                  </div>
                 </div>
                 
                 <div class="panel-visual">
@@ -1347,6 +1376,19 @@
         document.getElementById('drawer-service-sub').textContent = service.summary;
         document.getElementById('drawer-service-icon').innerHTML = iconSvg;
 
+        // Configure Quick WhatsApp Action Bar specifically for this service
+        const waLink = document.getElementById('drawer-quick-wa-link');
+        const waText = document.getElementById('drawer-quick-wa-text');
+        const settings = VTOData ? VTOData.getSettings() : { whatsappNumber: '233559024653' };
+        const waNum = (settings && settings.whatsappNumber) || '233559024653';
+        if (waLink) {
+          const quickMsg = encodeURIComponent(`Hello VTO! 👋\n\nI want to inquire about your *${service.title}* service. Could you please share more information, pricing, and timeline?`);
+          waLink.href = `https://wa.me/${waNum}?text=${quickMsg}`;
+        }
+        if (waText) {
+          waText.textContent = `💬 Quick WhatsApp Inquiry for "${service.title}"`;
+        }
+
         // Hide all form wrappers
         const forms = document.querySelectorAll('.drawer-form-wrapper');
         forms.forEach(form => form.classList.remove('active'));
@@ -1421,7 +1463,7 @@
 
               ${fieldsHtml}
 
-              <button type="submit" class="btn-submit-form">Submit Secure Booking →</button>
+              <button type="submit" class="btn-submit-form">💬 Send Request via WhatsApp →</button>
             </form>
           `;
 
@@ -1467,24 +1509,49 @@
         }
       });
 
-      // Form Submission Capture into Admin CRM
+      // Form Submission Capture into Admin CRM & Direct WhatsApp Dispatch
       function attachFormSubmitCapture(form, serviceObj = null) {
         if (!form) return;
         form.addEventListener('submit', (e) => {
+          e.preventDefault();
+
+          if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+          }
+
           const formData = new FormData(form);
-          const name = formData.get('name') || 'Valued Client';
-          const phone = formData.get('phone') || '';
-          const serviceId = form.getAttribute('name').replace('vto-', '').replace('-service', '');
+          const name = (formData.get('name') || 'Valued Client').toString().trim();
+          const phone = (formData.get('phone') || '').toString().trim();
           const serviceTitle = serviceObj ? serviceObj.title : (document.getElementById('drawer-service-title') ? document.getElementById('drawer-service-title').textContent : 'Service Booking');
+          const serviceId = serviceObj ? serviceObj.id : (form.getAttribute('name') ? form.getAttribute('name').replace('vto-', '').replace('-service', '') : 'service');
 
           const details = {};
+          const detailsList = [];
+
           formData.forEach((value, key) => {
-            if (key !== 'name' && key !== 'phone' && key !== 'form-name') {
-              details[key] = value;
+            if (key !== 'name' && key !== 'phone' && key !== 'form-name' && key !== 'service-id') {
+              const strVal = value ? value.toString().trim() : '';
+              if (strVal) {
+                details[key] = strVal;
+                // Find readable field label
+                const fieldEl = form.querySelector(`[name="${key}"]`);
+                let labelText = key.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+                if (fieldEl) {
+                  const parentField = fieldEl.closest('.form-field');
+                  if (parentField) {
+                    const lbl = parentField.querySelector('label');
+                    if (lbl) {
+                      labelText = lbl.textContent.replace('*', '').trim();
+                    }
+                  }
+                }
+                detailsList.push(`• *${labelText}*: ${strVal}`);
+              }
             }
           });
 
-          // Save to Local Data CRM
+          // 1. Save directly into Admin CRM
           if (window.VTOData) {
             VTOData.addBooking({
               name,
@@ -1493,33 +1560,53 @@
               serviceTitle,
               details,
               status: 'new',
-              source: 'Website Dynamic Drawer'
+              source: 'Website Booking Form'
             });
           }
 
-          // Show rich toast notification
-          showClientToast(`Thank you ${name}! Your booking for "${serviceTitle}" has been received.`, phone, serviceTitle);
+          // 2. Format WhatsApp message with exact requested service & specifications
+          const settings = VTOData ? VTOData.getSettings() : { whatsappNumber: '233559024653' };
+          const cleanPhone = (settings && settings.whatsappNumber) || '233559024653';
+
+          let msg = `Hello VTO! 👋\n\nI would like to request your service:\n\n📌 *Service*: ${serviceTitle}\n👤 *Name*: ${name}\n📞 *Phone*: ${phone || 'Not provided'}`;
+
+          if (detailsList.length > 0) {
+            msg += `\n\n📋 *Request Specifications*:\n` + detailsList.join('\n');
+          }
+
+          msg += `\n\nPlease confirm availability and next steps. Thank you!`;
+
+          const waUrl = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(msg)}`;
+
+          // 3. Open WhatsApp directly in new window/tab
+          window.open(waUrl, '_blank');
+
+          // 4. Close drawer & reset form
+          closeDrawer();
+          form.reset();
+
+          // 5. Show prominent confirmation toast with direct fallback button
+          showClientToast(`Your request for "${serviceTitle}" was registered and dispatched to WhatsApp!`, phone, serviceTitle, waUrl);
         });
       }
 
       // Attach capture to existing static forms
       document.querySelectorAll('.drawer-form-wrapper form').forEach(f => attachFormSubmitCapture(f));
 
-      // Client Confirmation Toast
-      function showClientToast(msg, phone, serviceTitle) {
-        const settings = VTOData ? VTOData.getSettings() : { whatsappNumber: '233559024653' };
-        const cleanPhone = settings.whatsappNumber || '233559024653';
-        const waText = encodeURIComponent(`Hi VTO, I just submitted a booking for "${serviceTitle}". My name is ${phone ? 'on the form' : ''}.`);
-        const waUrl = `https://wa.me/${cleanPhone}?text=${waText}`;
-
+      // Client Confirmation Toast with Direct WhatsApp Action
+      function showClientToast(msg, phone, serviceTitle, waUrl) {
         const toast = document.createElement('div');
         toast.className = 'client-booking-toast';
         toast.innerHTML = `
-          <div>
-            <div style="font-weight: 700; color: var(--gold-glow); margin-bottom: 2px;">✅ Request Registered!</div>
-            <div style="font-size: 0.82rem; color: #ddd; margin-bottom: 8px;">${escapeHtml(msg)}</div>
-            <a href="${waUrl}" target="_blank" style="display: inline-block; background: #25d366; color: #000; font-size: 0.76rem; font-weight: 700; padding: 4px 10px; border-radius: 4px; text-decoration: none;">
-              💬 Direct WhatsApp Follow-up &rarr;
+          <div style="flex: 1;">
+            <div style="font-weight: 700; color: var(--gold-glow); margin-bottom: 4px; display: flex; align-items: center; gap: 6px;">
+              <span>✅</span> <span>Request Dispatched!</span>
+            </div>
+            <div style="font-size: 0.82rem; color: #eee; margin-bottom: 8px; line-height: 1.4;">
+              ${escapeHtml(msg)}
+            </div>
+            <a href="${waUrl}" target="_blank" style="display: inline-flex; align-items: center; gap: 6px; background: #25d366; color: #06110a; font-size: 0.8rem; font-weight: 800; padding: 6px 12px; border-radius: 6px; text-decoration: none; box-shadow: 0 4px 12px rgba(37,211,102,0.35);">
+              <span>💬 Open WhatsApp Chat &rarr;</span>
             </a>
           </div>
         `;
@@ -1528,7 +1615,7 @@
           toast.style.opacity = '0';
           toast.style.transition = 'all 0.4s';
           setTimeout(() => toast.remove(), 400);
-        }, 8000);
+        }, 12000);
       }
 
       // =====================================================================
