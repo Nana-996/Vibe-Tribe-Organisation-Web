@@ -1310,6 +1310,23 @@ document.addEventListener('DOMContentLoaded', () => {
     switchTab('services');
   }
 
+  // Real-time synchronization across tabs and client bookings
+  if (window.VTOData) {
+    VTOData.on('*', () => {
+      renderTabContent(currentTab);
+    });
+  }
+
+  window.addEventListener('vto_data_sync', () => {
+    renderTabContent(currentTab);
+  });
+
+  window.addEventListener('storage', (e) => {
+    if (e.key && (e.key.startsWith('vto_') || e.key === 'vto_realtime_ping')) {
+      renderTabContent(currentTab);
+    }
+  });
+
   // Start Auth Check
   checkAuth();
 });

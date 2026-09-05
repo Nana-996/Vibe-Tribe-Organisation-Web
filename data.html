@@ -277,10 +277,11 @@
       const bundlesEmpty = document.getElementById('bundles-empty');
       const filterButtons = document.querySelectorAll('.net-filter-btn');
 
-      // Settings Sync (Announcement Bar & Agent Portal Links)
+      // Settings Sync (Announcement Bar, Agent Portal Links & WhatsApp Links)
       function syncSettings() {
         if (!window.VTOData) return;
         const settings = VTOData.getSettings();
+        const waNum = settings.whatsappNumber || '233559024653';
 
         // Announcement bar
         const announceBar = document.getElementById('vto-top-announcement');
@@ -299,6 +300,26 @@
         if (heroLaunch && settings.agentReferralUrl) {
           heroLaunch.href = settings.agentReferralUrl;
         }
+
+        // WhatsApp links across page
+        document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+          try {
+            const currentUrl = new URL(link.href);
+            const textParam = currentUrl.searchParams.get('text');
+            if (textParam) {
+              link.href = `https://wa.me/${waNum}?text=${encodeURIComponent(textParam)}`;
+            } else {
+              link.href = `https://wa.me/${waNum}`;
+            }
+          } catch (err) {
+            if (link.href.includes('?text=')) {
+              const textPart = link.href.split('?text=')[1];
+              link.href = `https://wa.me/${waNum}?text=${textPart}`;
+            } else {
+              link.href = `https://wa.me/${waNum}`;
+            }
+          }
+        });
       }
       syncSettings();
 
@@ -459,10 +480,35 @@
           .replace(/'/g, '&#039;');
       }
 
-      // Reactive Sync with Admin
-      window.addEventListener('vto_data_sync', (e) => {
+      // Reactive Sync with Admin (Instant Real-Time)
+      if (window.VTOData) {
+        VTOData.on('data_bundles_updated', () => {
+          renderBundles();
+        });
+        VTOData.on('settings_updated', () => {
+          syncSettings();
+          renderBundles();
+        });
+        VTOData.on('data_updated', () => {
+          syncSettings();
+          renderBundles();
+        });
+        VTOData.on('reset_complete', () => {
+          syncSettings();
+          renderBundles();
+        });
+      }
+
+      window.addEventListener('vto_data_sync', () => {
         syncSettings();
         renderBundles();
+      });
+
+      window.addEventListener('storage', (e) => {
+        if (e.key && (e.key.startsWith('vto_') || e.key === 'vto_realtime_ping')) {
+          syncSettings();
+          renderBundles();
+        }
       });
 
       // Initial Render

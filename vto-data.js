@@ -1095,24 +1095,89 @@
       return true;
     },
 
-    // EVENT SYSTEM FOR REACTIVE SYNC
+    // REAL-TIME MULTI-TAB & CROSS-WINDOW SYNC SYSTEM
     _listeners: {},
+    _broadcastChannel: null,
+
+    initRealtimeSync() {
+      if (typeof window === 'undefined') return;
+
+      // 1. BroadcastChannel (instant multi-tab synchronization)
+      try {
+        if ('BroadcastChannel' in window) {
+          this._broadcastChannel = new BroadcastChannel('vto_live_realtime_sync');
+          this._broadcastChannel.onmessage = (msgEvent) => {
+            if (msgEvent && msgEvent.data && msgEvent.data.event) {
+              this._dispatchLocalListeners(msgEvent.data.event, msgEvent.data.data, false);
+            }
+          };
+        }
+      } catch (e) {
+        console.warn('BroadcastChannel not available, using storage event fallback:', e);
+      }
+
+      // 2. Storage Event Listener (cross-tab fallback for all browser environments)
+      window.addEventListener('storage', (e) => {
+        if (e.key && e.key.startsWith('vto_')) {
+          let eventType = 'data_updated';
+          if (e.key === STORAGE_KEYS.SERVICES) eventType = 'services_updated';
+          else if (e.key === STORAGE_KEYS.SETTINGS) eventType = 'settings_updated';
+          else if (e.key === STORAGE_KEYS.DATA_BUNDLES) eventType = 'data_bundles_updated';
+          else if (e.key === STORAGE_KEYS.PORTFOLIO) eventType = 'portfolio_updated';
+          else if (e.key === STORAGE_KEYS.BOOKINGS) eventType = 'bookings_updated';
+          else if (e.key === 'vto_realtime_ping') {
+            try {
+              const pingData = JSON.parse(e.newValue || '{}');
+              if (pingData.event) eventType = pingData.event;
+            } catch (err) {}
+          }
+          this._dispatchLocalListeners(eventType, null, false);
+        }
+      });
+    },
+
     on(event, callback) {
       if (!this._listeners[event]) this._listeners[event] = [];
       this._listeners[event].push(callback);
     },
-    _notifyListeners(event, data) {
+
+    _dispatchLocalListeners(event, data, isSource = true) {
       if (this._listeners[event]) {
         this._listeners[event].forEach(cb => {
-          try { cb(data); } catch(err) { console.error(err); }
+          try { cb(data); } catch(err) { console.error('Error in VTOData listener:', err); }
         });
       }
-      // Also broadcast storage event for multi-tab sync
+      if (this._listeners['*']) {
+        this._listeners['*'].forEach(cb => {
+          try { cb({ event, data }); } catch(err) { console.error('Error in VTOData wildcard listener:', err); }
+        });
+      }
+      // Trigger DOM CustomEvent
       try {
-        window.dispatchEvent(new CustomEvent('vto_data_sync', { detail: { event, data } }));
+        window.dispatchEvent(new CustomEvent('vto_data_sync', { detail: { event, data, isSource } }));
+      } catch (e) {}
+    },
+
+    _notifyListeners(event, data) {
+      // 1. Dispatch to current window listeners
+      this._dispatchLocalListeners(event, data, true);
+
+      // 2. Broadcast across tabs via BroadcastChannel
+      if (this._broadcastChannel) {
+        try {
+          this._broadcastChannel.postMessage({ event, data, timestamp: Date.now() });
+        } catch (e) {}
+      }
+
+      // 3. Trigger cross-tab storage event for all other windows/tabs
+      try {
+        localStorage.setItem('vto_realtime_ping', JSON.stringify({ event, timestamp: Date.now() }));
       } catch (e) {}
     }
   };
+
+  // Initialize real-time multi-tab sync
+  VTOData.initRealtimeSync();
 
   // Expose to window
   global.VTOData = VTOData;
