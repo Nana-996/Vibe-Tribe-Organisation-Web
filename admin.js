@@ -231,10 +231,10 @@ document.addEventListener('DOMContentLoaded', () => {
         recentList.innerHTML = `<div style="text-align:center; padding: 24px; color: var(--text-muted);">No client inquiries logged yet.</div>`;
       } else {
         recentList.innerHTML = bookings.map(b => `
-          <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--admin-card-border);">
             <div>
-              <div style="font-weight: 600; color: #fff;">${escapeHtml(b.name)} <span style="font-size: 0.8rem; font-weight: normal; color: var(--text-muted);">(${escapeHtml(b.phone)})</span></div>
-              <div style="font-size: 0.8rem; color: var(--gold-glow);">${escapeHtml(b.serviceTitle)}</div>
+              <div style="font-weight: 600; color: var(--text-main);">${escapeHtml(b.name)} <span style="font-size: 0.8rem; font-weight: normal; color: var(--text-muted);">(${escapeHtml(b.phone)})</span></div>
+              <div style="font-size: 0.8rem; color: var(--gold-primary); font-weight: 600;">${escapeHtml(b.serviceTitle)}</div>
             </div>
             <div style="text-align: right;">
               <span class="badge-status ${b.status}">${b.status.replace('_', ' ')}</span>
@@ -258,10 +258,10 @@ document.addEventListener('DOMContentLoaded', () => {
           return `
             <div style="margin-bottom: 14px;">
               <div style="display: flex; justify-content: space-between; font-size: 0.84rem; margin-bottom: 4px;">
-                <span style="color: #fff; font-weight: 500;">${escapeHtml(k)}</span>
+                <span style="color: var(--text-main); font-weight: 600;">${escapeHtml(k)}</span>
                 <span style="color: var(--gold-primary); font-weight: 600;">${count} inquiries (${pct}%)</span>
               </div>
-              <div style="background: rgba(255,255,255,0.06); height: 8px; border-radius: 4px; overflow: hidden;">
+              <div style="background: var(--admin-surface-2); border: 1px solid var(--admin-card-border); height: 8px; border-radius: 4px; overflow: hidden;">
                 <div style="background: linear-gradient(90deg, var(--gold-primary), var(--indigo-primary)); height: 100%; width: ${pct}%;"></div>
               </div>
             </div>
@@ -306,7 +306,7 @@ document.addEventListener('DOMContentLoaded', () => {
       servicesGrid.innerHTML = `
         <div style="grid-column: 1 / -1; text-align: center; padding: 48px 20px; background: var(--admin-surface-2); border-radius: var(--radius-lg); border: 1px dashed var(--admin-card-border);">
           <div style="font-size: 2rem; margin-bottom: 8px;">🔍</div>
-          <h4 style="color: #fff; margin-bottom: 6px;">No services matching your criteria</h4>
+          <h4 style="color: var(--text-main); margin-bottom: 6px;">No services matching your criteria</h4>
           <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 16px;">Try adjusting your search terms or add a brand new service.</p>
           <button class="btn-primary-action" id="empty-state-add-btn">+ Add New Service</button>
         </div>
@@ -657,7 +657,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="client-phone">${escapeHtml(b.phone)}</div>
           </td>
           <td>
-            <div style="font-weight: 500; color: #fff;">${escapeHtml(b.serviceTitle)}</div>
+            <div style="font-weight: 600; color: var(--text-main);">${escapeHtml(b.serviceTitle)}</div>
             <div style="font-size: 0.75rem; color: var(--text-sub);">${escapeHtml(b.source || 'Website')}</div>
           </td>
           <td>
@@ -709,9 +709,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (detailsContainer) {
       if (b.details && typeof b.details === 'object' && Object.keys(b.details).length > 0) {
         detailsContainer.innerHTML = Object.entries(b.details).map(([k, v]) => `
-          <div style="margin-bottom: 10px; background: rgba(0,0,0,0.2); padding: 8px 12px; border-radius: var(--radius-sm);">
+          <div style="margin-bottom: 10px; background: var(--admin-surface-2); border: 1px solid var(--admin-card-border); padding: 8px 12px; border-radius: var(--radius-sm);">
             <div style="font-size: 0.75rem; text-transform: uppercase; color: var(--gold-primary); font-weight: 600;">${escapeHtml(k.replace(/_/g, ' '))}</div>
-            <div style="font-size: 0.88rem; color: #fff; margin-top: 2px;">${escapeHtml(String(v))}</div>
+            <div style="font-size: 0.88rem; color: var(--text-main); margin-top: 2px;">${escapeHtml(String(v))}</div>
           </div>
         `).join('');
       } else {
@@ -857,7 +857,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <span class="badge-custom-service">${escapeHtml(p.category)}</span>
           <button class="btn-sm-action danger" onclick="deletePortfolioPrompt('${p.id}')">🗑️</button>
         </div>
-        <h4 style="color: #fff; margin-bottom: 6px;">${escapeHtml(p.title)}</h4>
+        <h4 style="color: var(--text-main); margin-bottom: 6px;">${escapeHtml(p.title)}</h4>
         <p style="font-size: 0.84rem; color: var(--text-muted); line-height: 1.4;">${escapeHtml(p.description)}</p>
       </div>
     `).join('');
@@ -950,7 +950,7 @@ document.addEventListener('DOMContentLoaded', () => {
               ${escapeHtml(b.network)}
             </span>
           </td>
-          <td style="padding: 12px 14px; font-weight: 700; color: #fff;">
+          <td style="padding: 12px 14px; font-weight: 700; color: var(--text-main);">
             ${escapeHtml(b.title || b.dataSize)}
             <div style="font-size: 0.72rem; color: var(--text-muted); font-weight: 400;">${escapeHtml(b.dataSize)}</div>
           </td>
@@ -961,7 +961,7 @@ document.addEventListener('DOMContentLoaded', () => {
             GH₵ ${parseFloat(b.price || 0).toFixed(2)}
           </td>
           <td style="padding: 12px 14px;">
-            ${b.badge ? `<span style="font-size: 0.7rem; background: rgba(212,168,67,0.15); border: 1px solid rgba(212,168,67,0.3); color: var(--gold-glow); padding: 2px 8px; border-radius: 4px; font-weight: 700;">${escapeHtml(b.badge)}</span>` : '<span style="color: var(--text-dim); font-size: 0.75rem;">—</span>'}
+            ${b.badge ? `<span style="font-size: 0.7rem; background: rgba(26,107,76,0.12); border: 1px solid rgba(26,107,76,0.25); color: var(--gold-primary); padding: 2px 8px; border-radius: 4px; font-weight: 700;">${escapeHtml(b.badge)}</span>` : '<span style="color: var(--text-dim); font-size: 0.75rem;">—</span>'}
           </td>
           <td style="padding: 12px 14px;">
             ${statusBadge}

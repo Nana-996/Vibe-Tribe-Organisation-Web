@@ -41,8 +41,8 @@
   --cyan-glow:      rgba(46, 196, 125, 0.12);
 
   --text-primary:   #0D2319;   /* Deep forest obsidian */
-  --text-muted:     #3D594B;   /* Mid-tone dark sage slate */
-  --text-dim:       #6B8778;   /* Refined soft sage */
+  --text-muted:     #1D3B2D;   /* Dark pine/sage slate - AAA contrast > 11:1 */
+  --text-dim:       #264234;   /* Deep forest sage - AA contrast > 10:1 */
   --text-inverse:   #FDFBF7;   /* Warm cream */
 
   --border-subtle:  rgba(15, 62, 46, 0.08);
@@ -131,7 +131,12 @@ body {
 
 /* Placeholder */
 ::placeholder {
-  color: var(--text-dim);
+  color: #526D5F;
+  opacity: 1;
+}
+input::placeholder,
+textarea::placeholder {
+  color: #526D5F;
   opacity: 1;
 }
 
@@ -883,8 +888,8 @@ body {
 
 .btn-service-whatsapp {
   background: rgba(37, 211, 102, 0.12);
-  border: 1px solid rgba(37, 211, 102, 0.35);
-  color: #25d366;
+  border: 1px solid rgba(18, 140, 126, 0.35);
+  color: #0c5a2c;
   font-family: var(--font-headings);
   font-weight: 700;
   font-size: 0.92rem;
@@ -899,19 +904,27 @@ body {
   backdrop-filter: blur(8px);
 }
 
+.btn-service-whatsapp svg {
+  color: #128C7E;
+}
+
 .btn-service-whatsapp:hover {
-  background: #25d366;
-  color: #06110a;
-  border-color: #25d366;
+  background: #128C7E;
+  color: #FFFFFF;
+  border-color: #128C7E;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
+  box-shadow: 0 8px 24px rgba(18, 140, 126, 0.35);
+}
+
+.btn-service-whatsapp:hover svg {
+  color: #FFFFFF;
 }
 
 .drawer-quick-wa-bar {
   margin: 14px 20px 0;
   padding: 10px 16px;
-  background: rgba(37, 211, 102, 0.08);
-  border: 1px solid rgba(37, 211, 102, 0.25);
+  background: rgba(18, 140, 126, 0.08);
+  border: 1px solid rgba(18, 140, 126, 0.25);
   border-radius: var(--radius-md);
   text-align: center;
 }
@@ -921,15 +934,19 @@ body {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  color: #25d366;
+  color: #0c5a2c;
   font-weight: 700;
   font-size: 0.88rem;
   text-decoration: none;
   transition: all 0.2s ease;
 }
 
+.drawer-quick-wa-btn svg {
+  color: #128C7E;
+}
+
 .drawer-quick-wa-btn:hover {
-  color: #4ade80;
+  color: #075E54;
   transform: scale(1.02);
 }
 
@@ -1013,11 +1030,11 @@ body {
 }
 
 .c-keyword {
-  color: var(--blue-primary);
+  color: #4ADE80;
 }
 
 .code-result {
-  color: var(--text-dim);
+  color: #A3BFB0;
   margin-bottom: 4px;
 }
 
@@ -1090,7 +1107,7 @@ body {
   font-size: 0.6rem;
   background: var(--gold-dim);
   border: 1px solid var(--gold-border);
-  color: var(--gold-glow);
+  color: var(--green-emerald);
   padding: 2px 8px;
   border-radius: 100px;
   margin-bottom: 12px;
@@ -1777,7 +1794,7 @@ body {
   text-transform: uppercase;
   background: var(--bg-deep);
   border: 1px solid var(--gold-border);
-  color: var(--gold-glow);
+  color: var(--green-emerald);
   padding: 4px 10px;
   border-radius: 4px;
   z-index: 5;
@@ -2024,7 +2041,7 @@ body {
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: var(--gold-glow);
+  color: var(--green-emerald);
   background: var(--gold-dim);
   padding: 4px 12px;
   border-radius: 100px;
@@ -2094,7 +2111,7 @@ body {
   font-family: var(--font-headings);
   font-size: 1.05rem;
   font-weight: 700;
-  color: var(--gold-glow);
+  color: var(--green-emerald);
 }
 
 .location-stamp {
@@ -2292,7 +2309,7 @@ body {
 
 .form-instructions {
   font-size: 0.8rem;
-  color: var(--gold-glow);
+  color: #0F3E2E;
   background: var(--gold-dim);
   border: 1px dashed var(--gold-border);
   padding: 12px 16px;
@@ -2915,21 +2932,21 @@ body {
 }
 
 .net-badge.badge-mtn {
-  background: rgba(255, 204, 0, 0.12);
-  border: 1px solid rgba(255, 204, 0, 0.35);
-  color: #ffd633;
+  background: rgba(217, 143, 0, 0.12);
+  border: 1px solid rgba(217, 143, 0, 0.4);
+  color: #7A5200;
 }
 
 .net-badge.badge-telecel {
-  background: rgba(230, 0, 0, 0.12);
-  border: 1px solid rgba(230, 0, 0, 0.35);
-  color: #ff4d4d;
+  background: rgba(220, 38, 38, 0.10);
+  border: 1px solid rgba(220, 38, 38, 0.35);
+  color: #991B1B;
 }
 
 .net-badge.badge-at {
-  background: rgba(0, 132, 255, 0.12);
-  border: 1px solid rgba(0, 132, 255, 0.35);
-  color: #38a2ff;
+  background: rgba(2, 132, 199, 0.10);
+  border: 1px solid rgba(2, 132, 199, 0.35);
+  color: #075985;
 }
 
 .bundle-ribbon {
@@ -2938,7 +2955,7 @@ body {
   text-transform: uppercase;
   background: var(--gold-dim);
   border: 1px solid var(--gold-border);
-  color: var(--gold-glow);
+  color: #0F5332;
   padding: 3px 8px;
   border-radius: 100px;
 }
@@ -3040,8 +3057,8 @@ body {
   justify-content: center;
   gap: 8px;
   background: rgba(37, 211, 102, 0.12);
-  color: #25d366;
-  border: 1px solid rgba(37, 211, 102, 0.25);
+  color: #0c5a2c;
+  border: 1px solid rgba(18, 140, 126, 0.3);
   font-family: var(--font-headings);
   font-weight: 700;
   font-size: 0.82rem;
@@ -3053,9 +3070,9 @@ body {
 }
 
 .btn-buy-whatsapp:hover {
-  background: rgba(37, 211, 102, 0.2);
-  border-color: #25d366;
-  color: #fff;
+  background: #128C7E;
+  border-color: #128C7E;
+  color: #FFFFFF;
 }
 
 /* Checkout Modal */
