@@ -28,14 +28,11 @@ function createServer() {
     let reqPath = decodeURIComponent(req.url.split('?')[0].split('#')[0]);
     if (reqPath === '/') reqPath = '/index.html';
 
-    // Route shortcuts & security redirects
-    if (reqPath === '/admin' || reqPath === '/admin/' || reqPath === '/admin.html') {
-      res.writeHead(302, { Location: '/' });
-      return res.end();
-    }
-    if (reqPath === '/vto-control-vault' || reqPath === '/vto-control-vault/') reqPath = '/admin.html';
-    if (reqPath === '/data' || reqPath === '/data/') reqPath = '/data.html';
-    if (reqPath === '/success' || reqPath === '/success/') reqPath = '/success.html';
+    // Route shortcuts & direct access
+    if (reqPath === '/admin' || reqPath === '/admin/' || reqPath === '/admin.html') reqPath = '/admin.html';
+    if (reqPath === '/vto-control-vault' || reqPath === '/vto-control-vault/' || reqPath === '/vto-control-vault.html') reqPath = '/admin.html';
+    if (reqPath === '/data' || reqPath === '/data/' || reqPath === '/data.html') reqPath = '/data.html';
+    if (reqPath === '/success' || reqPath === '/success/' || reqPath === '/success.html') reqPath = '/success.html';
 
     // Prevent directory traversal
     const safePath = path.normalize(reqPath).replace(/^(\.\.[\/\\])+/, '');

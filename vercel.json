@@ -2,12 +2,10 @@
   "outputDirectory": ".",
   "cleanUrls": true,
   "trailingSlash": false,
-  "redirects": [
-    { "source": "/admin", "destination": "/", "permanent": false },
-    { "source": "/admin.html", "destination": "/", "permanent": false }
-  ],
   "rewrites": [
     { "source": "/vto-control-vault", "destination": "/admin.html" },
+    { "source": "/vto-control-vault.html", "destination": "/admin.html" },
+    { "source": "/admin", "destination": "/admin.html" },
     { "source": "/data", "destination": "/data.html" },
     { "source": "/success", "destination": "/success.html" }
   ],
