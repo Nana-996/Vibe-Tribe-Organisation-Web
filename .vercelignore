@@ -2,3 +2,5 @@
 .github
 .gemini
 .agents
+local-server.js
+server.js
