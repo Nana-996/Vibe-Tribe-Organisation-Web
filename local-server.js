@@ -28,8 +28,12 @@ function createServer() {
     let reqPath = decodeURIComponent(req.url.split('?')[0].split('#')[0]);
     if (reqPath === '/') reqPath = '/index.html';
 
-    // Route shortcuts
-    if (reqPath === '/admin' || reqPath === '/admin/') reqPath = '/admin.html';
+    // Route shortcuts & security redirects
+    if (reqPath === '/admin' || reqPath === '/admin/' || reqPath === '/admin.html') {
+      res.writeHead(302, { Location: '/' });
+      return res.end();
+    }
+    if (reqPath === '/vto-control-vault' || reqPath === '/vto-control-vault/') reqPath = '/admin.html';
     if (reqPath === '/data' || reqPath === '/data/') reqPath = '/data.html';
     if (reqPath === '/success' || reqPath === '/success/') reqPath = '/success.html';
 
@@ -55,7 +59,7 @@ function createServer() {
           <body style="background:#0a1628;color:#e8ecf4;font-family:sans-serif;padding:40px;text-align:center;">
             <h1 style="color:#d4a843;">404 - Page Not Found</h1>
             <p>The requested file was not found on this server.</p>
-            <p><a href="/" style="color:#3b82f6;">← Back to Home</a> | <a href="/data.html" style="color:#d4a843;">Data Store</a> | <a href="/admin.html" style="color:#8899b4;">Admin Portal</a></p>
+            <p><a href="/" style="color:#3b82f6;">← Back to Home</a> | <a href="/data.html" style="color:#d4a843;">Data Store</a></p>
           </body>
           </html>
         `);
@@ -95,7 +99,7 @@ function startServer(port) {
     console.log(`🚀 VTO Local Server running successfully!`);
     console.log(`👉 Home:       http://localhost:${port}/`);
     console.log(`👉 Data Store: http://localhost:${port}/data.html`);
-    console.log(`👉 Admin Hub:  http://localhost:${port}/admin.html`);
+    console.log(`👉 Owner Hub:  http://localhost:${port}/vto-control-vault (or press Ctrl+Shift+A on Home)`);
     console.log(`======================================================\n`);
   });
 

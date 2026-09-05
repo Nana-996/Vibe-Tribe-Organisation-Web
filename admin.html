@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>VTO Admin Console - Services & Management Hub</title>
   <meta name="description" content="Executive Administration Dashboard for Vibe Tribe Organisation"/>
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet"/>
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,11 +30,11 @@
       <p class="auth-subtitle">Enter executive passcode to access management tools.</p>
       
       <div class="auth-pin-input-group">
-        <input type="password" id="admin-pin-input" class="auth-pin-input" placeholder="••••" maxlength="8" autofocus autocomplete="off"/>
+        <input type="password" id="admin-pin-input" class="auth-pin-input" placeholder="••••" maxlength="12" autofocus autocomplete="off"/>
       </div>
       
       <button type="button" id="admin-pin-submit" class="auth-submit-btn">Unlock Console →</button>
-      <p class="auth-hint">Default Access PIN: <strong>1234</strong> (Customizable in Settings)</p>
+      <p class="auth-hint" id="auth-lock-hint" style="display:none; color: #ef4444; margin-top: 12px; font-weight: 600; font-size: 0.85rem;"></p>
     </div>
   </div>
 

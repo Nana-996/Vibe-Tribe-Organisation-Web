@@ -30,9 +30,34 @@ document.addEventListener('DOMContentLoaded', () => {
   const bundleModal = document.getElementById('bundle-modal');
   const bundleForm = document.getElementById('bundle-form');
 
+  const lockHint = document.getElementById('auth-lock-hint');
+
   // =========================================================================
-  // 1. AUTHENTICATION & SESSION
+  // 1. AUTHENTICATION & SESSION SECURITY
   // =========================================================================
+  const MAX_FAILED_ATTEMPTS = 5;
+  const LOCKOUT_DURATION_MS = 5 * 60 * 1000; // 5 minutes
+
+  function checkLockout() {
+    const lockoutUntil = parseInt(localStorage.getItem('vto_admin_lockout') || '0', 10);
+    const now = Date.now();
+    if (now < lockoutUntil) {
+      const remainingSec = Math.ceil((lockoutUntil - now) / 1000);
+      const remainingMin = Math.ceil(remainingSec / 60);
+      if (lockHint) {
+        lockHint.style.display = 'block';
+        lockHint.textContent = `Security Lockout: Try again in ${remainingMin}m (${remainingSec}s)`;
+      }
+      if (pinInput) pinInput.disabled = true;
+      if (pinSubmitBtn) pinSubmitBtn.disabled = true;
+      return true;
+    }
+    if (pinInput) pinInput.disabled = false;
+    if (pinSubmitBtn) pinSubmitBtn.disabled = false;
+    if (lockHint) lockHint.style.display = 'none';
+    return false;
+  }
+
   function checkAuth() {
     const isAuthed = sessionStorage.getItem('vto_admin_session') === 'active';
     if (isAuthed) {
@@ -40,22 +65,39 @@ document.addEventListener('DOMContentLoaded', () => {
       initDashboard();
     } else {
       authOverlay.classList.remove('hidden');
-      if (pinInput) pinInput.focus();
+      if (!checkLockout() && pinInput) {
+        pinInput.focus();
+      }
     }
   }
 
   function handleLogin() {
+    if (checkLockout()) return;
+
     const entered = pinInput.value.trim();
     if (VTOData.verifyAdminPin(entered)) {
+      localStorage.removeItem('vto_admin_attempts');
+      localStorage.removeItem('vto_admin_lockout');
       sessionStorage.setItem('vto_admin_session', 'active');
       authOverlay.classList.add('hidden');
       pinInput.value = '';
       showToast('Admin access granted. Welcome to VTO Control Hub.', 'success');
       initDashboard();
     } else {
-      showToast('Incorrect PIN. Default is 1234.', 'error');
+      let attempts = parseInt(localStorage.getItem('vto_admin_attempts') || '0', 10) + 1;
+      localStorage.setItem('vto_admin_attempts', attempts.toString());
+
+      if (attempts >= MAX_FAILED_ATTEMPTS) {
+        localStorage.setItem('vto_admin_lockout', (Date.now() + LOCKOUT_DURATION_MS).toString());
+        checkLockout();
+        showToast('Too many failed attempts. Console locked for 5 minutes.', 'error');
+      } else {
+        const remaining = MAX_FAILED_ATTEMPTS - attempts;
+        showToast(`Access denied. Invalid passcode. (${remaining} attempts left)`, 'error');
+      }
+
       pinInput.value = '';
-      pinInput.focus();
+      if (!pinInput.disabled) pinInput.focus();
     }
   }
 
