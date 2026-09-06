@@ -1221,7 +1221,9 @@
       const candidates = ['/api/data', '/vto-data-store.json', 'vto-data-store.json'];
       const fetchCandidate = (idx) => {
         if (idx >= candidates.length) return Promise.reject(new Error('No sync endpoint accessible'));
-        return fetch(this._resolveUrl(candidates[idx]), { cache: 'no-store' })
+        const rawUrl = this._resolveUrl(candidates[idx]);
+        const url = rawUrl + (rawUrl.includes('?') ? '&' : '?') + '_t=' + Date.now();
+        return fetch(url, { cache: 'no-store' })
           .then(res => {
             if (!res.ok) throw new Error('HTTP ' + res.status);
             return res.json();
@@ -1290,7 +1292,7 @@
         if (typeof fetch === 'undefined') return Promise.resolve(false);
         try {
           const fullBackup = JSON.parse(this.exportFullBackup());
-          return fetch('/api/data', {
+          return fetch(this._resolveUrl('/api/data'), {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(fullBackup)
