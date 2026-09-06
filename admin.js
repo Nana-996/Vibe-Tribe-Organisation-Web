@@ -153,10 +153,22 @@ document.addEventListener('DOMContentLoaded', () => {
     if (pageTitle) pageTitle.textContent = titles[tabId] || 'Admin Dashboard';
 
     // Close mobile menu if open
-    if (sidebar) sidebar.classList.remove('open');
+    closeSidebar();
 
     // Refresh tab content
     renderTabContent(tabId);
+  }
+
+  const sidebarOverlay = document.getElementById('sidebar-overlay');
+
+  function openSidebar() {
+    if (sidebar) sidebar.classList.add('open');
+    if (sidebarOverlay) sidebarOverlay.classList.add('active');
+  }
+
+  function closeSidebar() {
+    if (sidebar) sidebar.classList.remove('open');
+    if (sidebarOverlay) sidebarOverlay.classList.remove('active');
   }
 
   sidebarLinks.forEach(link => {
@@ -168,9 +180,18 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   if (mobileToggle) {
-    mobileToggle.addEventListener('click', () => {
-      sidebar.classList.toggle('open');
+    mobileToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (sidebar && sidebar.classList.contains('open')) {
+        closeSidebar();
+      } else {
+        openSidebar();
+      }
     });
+  }
+
+  if (sidebarOverlay) {
+    sidebarOverlay.addEventListener('click', closeSidebar);
   }
 
   function renderTabContent(tabId) {
@@ -1317,15 +1338,73 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  window.addEventListener('vto_data_sync', () => {
-    renderTabContent(currentTab);
-  });
+  // =========================================================================
+  // 10. MULTI-DEVICE CLOUD & SERVER SYNC CONTROLLERS
+  // =========================================================================
+  const syncBadge = document.getElementById('admin-sync-badge');
+  const syncPill = document.getElementById('sync-pill-status');
 
-  window.addEventListener('storage', (e) => {
-    if (e.key && (e.key.startsWith('vto_') || e.key === 'vto_realtime_ping')) {
-      renderTabContent(currentTab);
+  function updateSyncStatus(status) {
+    if (!syncBadge) return;
+    syncBadge.className = 'sync-status-badge ' + status;
+    const textEl = syncBadge.querySelector('.sync-text');
+    if (status === 'synced') {
+      if (textEl) textEl.textContent = 'Synced';
+      if (syncPill) { syncPill.textContent = 'Server Connected'; syncPill.style.background = '#144D38'; }
+    } else if (status === 'saving') {
+      if (textEl) textEl.textContent = 'Saving';
+      if (syncPill) { syncPill.textContent = 'Saving to Server...'; syncPill.style.background = '#F59E0B'; }
+    } else if (status === 'offline') {
+      if (textEl) textEl.textContent = 'Local Cache';
+      if (syncPill) { syncPill.textContent = 'Local Mode'; syncPill.style.background = '#6B7280'; }
     }
-  });
+  }
+
+  const forcePushBtn = document.getElementById('btn-force-push-sync');
+  if (forcePushBtn) {
+    forcePushBtn.addEventListener('click', () => {
+      updateSyncStatus('saving');
+      if (window.VTOData && typeof VTOData.pushFullSyncToServer === 'function') {
+        VTOData.pushFullSyncToServer()
+          .then(() => {
+            updateSyncStatus('synced');
+            showToast('✅ All data successfully synced and saved to server store!', 'success');
+          })
+          .catch(err => {
+            updateSyncStatus('offline');
+            showToast('Could not reach server: ' + err.message, 'error');
+          });
+      }
+    });
+  }
+
+  const forcePullBtn = document.getElementById('btn-force-pull-sync');
+  if (forcePullBtn) {
+    forcePullBtn.addEventListener('click', () => {
+      updateSyncStatus('saving');
+      if (window.VTOData && typeof VTOData.syncFromServer === 'function') {
+        VTOData.syncFromServer(true)
+          .then(ok => {
+            updateSyncStatus(ok ? 'synced' : 'offline');
+            renderTabContent(currentTab);
+            showToast(ok ? '✅ Pulled latest catalog from server!' : 'No fresh server data available.', ok ? 'success' : 'info');
+          })
+          .catch(err => {
+            updateSyncStatus('offline');
+            showToast('Error syncing from server: ' + err.message, 'error');
+          });
+      }
+    });
+  }
+
+  if (window.VTOData) {
+    VTOData.on('server_saved', (d) => {
+      if (d && d.success) updateSyncStatus('synced');
+    });
+    VTOData.on('server_synced', (d) => {
+      if (d) updateSyncStatus(d.success ? 'synced' : 'offline');
+    });
+  }
 
   // Start Auth Check
   checkAuth();

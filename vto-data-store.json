@@ -1,0 +1,848 @@
+{
+  "version": "2.0.1",
+  "exportedAt": "2026-09-06T02:39:09.237Z",
+  "services": [
+    {
+      "id": "laptop",
+      "title": "Laptop Software Services",
+      "shortName": "Laptops",
+      "category": "Tech & Diagnostics",
+      "badge": "Core Service",
+      "iconKey": "laptop",
+      "price": "Affordable Rates",
+      "summary": "Is your machine running slow, crashing, or infected with malware? We offer premium software diagnostic, optimization, and installation services to restore peak productivity.",
+      "bullets": [
+        "Windows Installation / Reinstallation",
+        "Laptop Speed Optimization & Temp Cleaner",
+        "Virus & Malware Deep Cleanup",
+        "Pro Apps Setup (Office, SPSS, Creative Cloud)",
+        "System Drivers Auditing & Refreshes",
+        "Data Recovery & Safe Local Backups"
+      ],
+      "customFields": [
+        {
+          "label": "Laptop Brand & Model",
+          "name": "laptop_model",
+          "type": "text",
+          "placeholder": "e.g. HP Pavilion 15, Dell Inspiron",
+          "required": false
+        },
+        {
+          "label": "Required Service Option",
+          "name": "service_type",
+          "type": "select",
+          "options": [
+            "Windows Installation / Reinstallation",
+            "Speed Optimization & Cleanup",
+            "Virus & Malware Deep Clean",
+            "Professional Applications Setup",
+            "System Drivers & Updates",
+            "Data Backup & Recovery",
+            "Password / Account Unlock",
+            "Other / Diagnostics"
+          ],
+          "required": true
+        },
+        {
+          "label": "Describe the Symptoms / Requirements",
+          "name": "problem_description",
+          "type": "textarea",
+          "placeholder": "Specify if there are specific errors, blue screens, or specific apps needed.",
+          "required": true
+        }
+      ],
+      "isCore": true,
+      "active": true,
+      "featured": true,
+      "order": 1,
+      "createdAt": "2026-01-01T00:00:00Z"
+    },
+    {
+      "id": "devices",
+      "title": "Buy, Sell & Swap Devices",
+      "shortName": "Buy & Sell",
+      "category": "Gadgets & Hardware",
+      "badge": "Guaranteed Authentic",
+      "iconKey": "devices",
+      "price": "Best Market Valuation",
+      "summary": "Looking to upgrade your phone, tablet, or laptop? We facilitate reliable sales, purchase of used gear, and direct trade-in swaps. Receipts provided, screen protectors included.",
+      "bullets": [
+        "Certified New & Used Smart Devices",
+        "Transparent Value Evaluation for Sellers",
+        "Hassle-Free Trade-In / Swap Options",
+        "Premium Accessories & Screen Protection",
+        "Safe Delivery Across Greater Accra"
+      ],
+      "customFields": [
+        {
+          "label": "Transaction Intent",
+          "name": "action_type",
+          "type": "select",
+          "options": [
+            "Buy a Device",
+            "Sell My Device",
+            "Swap / Trade-In",
+            "Device Repairs",
+            "Purchase Accessory",
+            "Phone Unlocking"
+          ],
+          "required": true
+        },
+        {
+          "label": "Device Category",
+          "name": "device_type",
+          "type": "select",
+          "options": [
+            "Smartphone",
+            "Laptop",
+            "Tablet",
+            "Smartwatch",
+            "Earbuds / Audio",
+            "Other"
+          ],
+          "required": false
+        },
+        {
+          "label": "Device Name / Spec / Desired Model",
+          "name": "device_model",
+          "type": "text",
+          "placeholder": "e.g. iPhone 14 Pro Max 256GB, MacBook Air M1",
+          "required": true
+        },
+        {
+          "label": "Target Budget / Valuation",
+          "name": "budget",
+          "type": "text",
+          "placeholder": "e.g. describe your budget range",
+          "required": false
+        },
+        {
+          "label": "Current Physical Grade",
+          "name": "condition",
+          "type": "select",
+          "options": [
+            "N/A - I am purchasing",
+            "Brand New Sealed",
+            "Grade A (Like new)",
+            "Grade B (Minor wear)",
+            "Grade C (Scratched/Faults)"
+          ],
+          "required": false
+        },
+        {
+          "label": "Additional Notes",
+          "name": "details",
+          "type": "textarea",
+          "placeholder": "Specify battery health, colors, box & original charger inclusions, etc.",
+          "required": false
+        }
+      ],
+      "isCore": true,
+      "active": true,
+      "featured": true,
+      "order": 2,
+      "createdAt": "2026-01-01T00:00:00Z"
+    },
+    {
+      "id": "design",
+      "title": "Graphic Design & Visual Branding",
+      "shortName": "Graphics",
+      "category": "Creative & Branding",
+      "badge": "Elite Visuals",
+      "iconKey": "design",
+      "price": "Student Friendly",
+      "summary": "Stand out with bold, memorable designs that respect heritage and grab attention. From event flyers and professional corporate logos to comprehensive digital branding kits.",
+      "bullets": [
+        "Impactful Event Flyers & Posters",
+        "Minimalist & Sophisticated Logos",
+        "Cohesive Brand Kits & Color Systems",
+        "Social Media Assets & Post Templates",
+        "Event Brochures & Printed Collateral"
+      ],
+      "customFields": [
+        {
+          "label": "Design Option",
+          "name": "design_type",
+          "type": "select",
+          "options": [
+            "Flyer / Poster",
+            "Corporate Logo Design",
+            "Branding Identity Kit",
+            "Social Media Pack",
+            "Business Card Suite",
+            "Banner / Signage",
+            "Brochure / Event program",
+            "Custom Request"
+          ],
+          "required": true
+        },
+        {
+          "label": "Required Deadline",
+          "name": "deadline",
+          "type": "date",
+          "required": false
+        },
+        {
+          "label": "Purpose / Event / Company Name",
+          "name": "event_name",
+          "type": "text",
+          "placeholder": "e.g. Corporate rebranding, Club flyers, Product Launch",
+          "required": false
+        },
+        {
+          "label": "Visual Palette / Colors Preferred",
+          "name": "colors",
+          "type": "text",
+          "placeholder": "e.g. Royal violet, gold gradient, clean white",
+          "required": false
+        },
+        {
+          "label": "Raw Copy / Text Content to Include",
+          "name": "content_text",
+          "type": "textarea",
+          "placeholder": "Paste titles, dates, locations, phone numbers, and speaker details.",
+          "required": true
+        },
+        {
+          "label": "Reference Designs or Concept Links",
+          "name": "inspiration",
+          "type": "textarea",
+          "placeholder": "Describe the aesthetic direction (e.g. minimal, afro-centric, corporate luxury)",
+          "required": false
+        }
+      ],
+      "isCore": true,
+      "active": true,
+      "featured": true,
+      "order": 3,
+      "createdAt": "2026-01-01T00:00:00Z"
+    },
+    {
+      "id": "web",
+      "title": "Website Design & Development",
+      "shortName": "Websites",
+      "category": "Engineering & Code",
+      "badge": "High Conversion",
+      "iconKey": "web",
+      "price": "Custom Quotes",
+      "summary": "Establish a world-class digital presence. We build lightning-fast, fully responsive, and SEO-optimized websites built for conversions, portfolios, or online commerce.",
+      "bullets": [
+        "Bespoke Corporate & Portfolio Platforms",
+        "100% Mobile & Tablet Responsive Engineering",
+        "Integrated Contact Modules & Booking Pipelines",
+        "Search Engine Optimization (SEO) Built-In",
+        "Clean Code, Lightweight Back-ends, Faster Speeds"
+      ],
+      "customFields": [
+        {
+          "label": "Company / Brand Name",
+          "name": "business_name",
+          "type": "text",
+          "placeholder": "Name of business/organisation",
+          "required": true
+        },
+        {
+          "label": "Website Structure",
+          "name": "website_type",
+          "type": "select",
+          "options": [
+            "Business Brand Website",
+            "Professional Portfolio",
+            "Single-page Landing Page",
+            "Organisation Portal",
+            "E-commerce Store",
+            "Interactive Web Application"
+          ],
+          "required": true
+        },
+        {
+          "label": "Target Launch Date",
+          "name": "deadline",
+          "type": "date",
+          "required": false
+        },
+        {
+          "label": "Required Functional Scope",
+          "name": "functionality",
+          "type": "textarea",
+          "placeholder": "What actions should users perform? (e.g. make bookings, purchase items)",
+          "required": true
+        },
+        {
+          "label": "Artistic Theme Direction",
+          "name": "design_style",
+          "type": "select",
+          "options": [
+            "Obsidian & Gold Dark Mode (VTO Signature)",
+            "Clean & Minimalist High-light",
+            "Modern Vibrant & High-Contrast",
+            "Classic Corporate Professional",
+            "Artistic & Fluid"
+          ],
+          "required": false
+        },
+        {
+          "label": "Competitors / Reference Websites",
+          "name": "references",
+          "type": "text",
+          "placeholder": "Paste URL addresses of designs you admire",
+          "required": false
+        },
+        {
+          "label": "Scope Budget & Custom Features",
+          "name": "extra_info",
+          "type": "textarea",
+          "placeholder": "Specify custom payment APIs, database setups, or specific integrations.",
+          "required": false
+        }
+      ],
+      "isCore": true,
+      "active": true,
+      "featured": true,
+      "order": 4,
+      "createdAt": "2026-01-01T00:00:00Z"
+    },
+    {
+      "id": "cv",
+      "title": "CV Expert Writing & Redesign",
+      "shortName": "CV Expert",
+      "category": "Career & Professional",
+      "badge": "ATS Optimized",
+      "iconKey": "cv",
+      "price": "Fast Delivery",
+      "summary": "Secure interviews at top-tier firms. We build high-impact, ATS-optimized resumes and matching cover letters formatted to modern recruiting standards.",
+      "bullets": [
+        "Professional ATS-friendly Restructuring",
+        "Industry-targeted Professional Keywords",
+        "Persuasive Tailored Cover Letters",
+        "LinkedIn Profile Optimisation Blueprint",
+        "Delivered in Editable Word & Print-Ready PDF"
+      ],
+      "customFields": [
+        {
+          "label": "Email Address",
+          "name": "email",
+          "type": "email",
+          "placeholder": "your@email.com",
+          "required": false
+        },
+        {
+          "label": "Selected Package",
+          "name": "service_needed",
+          "type": "select",
+          "options": [
+            "New CV Drafting (from scratch)",
+            "Professional CV Refresh",
+            "Tailored Cover Letter",
+            "CV & Cover Letter Bundle",
+            "LinkedIn Optimization Roadmap"
+          ],
+          "required": true
+        },
+        {
+          "label": "Job Hunting Field / Industry",
+          "name": "industry",
+          "type": "text",
+          "placeholder": "e.g. Finance, Healthcare, Tech",
+          "required": true
+        },
+        {
+          "label": "Current Educational Milestones",
+          "name": "education",
+          "type": "textarea",
+          "placeholder": "List institutions attended, degrees, graduation months & honors.",
+          "required": false
+        },
+        {
+          "label": "Work & Professional Milestones",
+          "name": "experience",
+          "type": "textarea",
+          "placeholder": "List past roles, responsibilities, projects, and volunteer contributions.",
+          "required": false
+        },
+        {
+          "label": "Core Technical & Soft Skills",
+          "name": "skills",
+          "type": "textarea",
+          "placeholder": "e.g. Financial auditing, React.js, CRM software, leadership, etc.",
+          "required": false
+        },
+        {
+          "label": "Formatting Direction",
+          "name": "style",
+          "type": "select",
+          "options": [
+            "Clean Modern Corporate",
+            "Traditional / Classic Academic",
+            "Creative Visual Layout",
+            "Minimalist Single-Page Profile"
+          ],
+          "required": false
+        },
+        {
+          "label": "Target Delivery Date",
+          "name": "deadline",
+          "type": "date",
+          "required": false
+        }
+      ],
+      "isCore": true,
+      "active": true,
+      "featured": true,
+      "order": 5,
+      "createdAt": "2026-01-01T00:00:00Z"
+    },
+    {
+      "id": "results-checker",
+      "title": "Exam Results Checker & Portal Assistance",
+      "shortName": "Result Check",
+      "category": "Academic & Portal",
+      "badge": "Instant Support",
+      "iconKey": "graduation",
+      "price": "GH₵ 30 / Check",
+      "summary": "Prompt, hassle-free checking and retrieval of semester results, WAEC/WASSCE checker cards, transcripts guidance, and student portal password resets.",
+      "bullets": [
+        "Instant Result Voucher Card Generation & Processing",
+        "Student Portal Password & Login Recovery",
+        "Transcript & Statement of Results Guidance",
+        "Print-Ready & PDF Delivery Directly to WhatsApp",
+        "100% Confidential & Secure Student Verification"
+      ],
+      "customFields": [
+        {
+          "label": "Institution / Exam Body",
+          "name": "institution",
+          "type": "select",
+          "options": [
+            "Central University",
+            "University of Ghana (UG)",
+            "KNUST",
+            "UCC",
+            "WAEC / WASSCE / BECE",
+            "Other Institution"
+          ],
+          "required": true
+        },
+        {
+          "label": "Student / Index ID Number",
+          "name": "student_id",
+          "type": "text",
+          "placeholder": "e.g. 202401928 / Index Number",
+          "required": true
+        },
+        {
+          "label": "Exam Year / Semester",
+          "name": "exam_period",
+          "type": "text",
+          "placeholder": "e.g. 2025/2026 First Semester, Nov/Dec 2025",
+          "required": true
+        },
+        {
+          "label": "Request Type",
+          "name": "request_action",
+          "type": "select",
+          "options": [
+            "Check & Send PDF Results",
+            "Buy Checker Card / Scratch Voucher",
+            "Student Portal Password Reset",
+            "General Portal Assistance"
+          ],
+          "required": true
+        },
+        {
+          "label": "Additional Details / Notes",
+          "name": "notes",
+          "type": "textarea",
+          "placeholder": "Provide any portal specific login or requirements.",
+          "required": false
+        }
+      ],
+      "isCore": false,
+      "active": true,
+      "featured": true,
+      "order": 6,
+      "createdAt": "2026-02-15T00:00:00Z"
+    },
+    {
+      "id": "auto-sales",
+      "title": "Automobile & Car Dealership",
+      "shortName": "Car Sales",
+      "category": "Automotive & Trading",
+      "badge": "Verified Clean Titles",
+      "iconKey": "car",
+      "price": "Negotiable / Inspection Ready",
+      "summary": "Looking to buy, sell, or inspect a clean vehicle in Accra? We link buyers with verified unregistered and registered cars, complete with physical diagnostic checks.",
+      "bullets": [
+        "Verified Clean Titles & Duty Clearance Papers",
+        "Pre-Purchase Mechanical & OBD2 Computer Diagnostics",
+        "Assisted Direct Trade-Ins & Consignment Sales",
+        "Test Drives Scheduled with Full Safety Protocols",
+        "Budget-Friendly Campus & Commuter Friendly Cars"
+      ],
+      "customFields": [
+        {
+          "label": "Dealership Action",
+          "name": "deal_action",
+          "type": "select",
+          "options": [
+            "I want to Buy a Car",
+            "I want to Sell My Car",
+            "Car Swap / Trade-In",
+            "Request Car Inspection / Diagnostic",
+            "Car Sourcing (Find specific model)"
+          ],
+          "required": true
+        },
+        {
+          "label": "Target Make & Model",
+          "name": "car_model",
+          "type": "text",
+          "placeholder": "e.g. Toyota Corolla 2018, Hyundai Elantra, Honda Civic",
+          "required": true
+        },
+        {
+          "label": "Target Budget / Selling Price (GH₵)",
+          "name": "car_budget",
+          "type": "text",
+          "placeholder": "e.g. GH₵ 75,000 - GH₵ 120,000",
+          "required": true
+        },
+        {
+          "label": "Transmission & Fuel Preference",
+          "name": "transmission",
+          "type": "select",
+          "options": [
+            "Automatic (Petrol)",
+            "Automatic (Hybrid)",
+            "Manual",
+            "Any"
+          ],
+          "required": false
+        },
+        {
+          "label": "Vehicle Details / Inspection Location",
+          "name": "car_details",
+          "type": "textarea",
+          "placeholder": "For sellers: mileage, condition, issues. For buyers: color, year range.",
+          "required": false
+        }
+      ],
+      "isCore": false,
+      "active": true,
+      "featured": true,
+      "order": 7,
+      "createdAt": "2026-02-20T00:00:00Z"
+    }
+  ],
+  "bookings": [
+    {
+      "id": "lead-1001",
+      "name": "Kwame Osei",
+      "phone": "+233 55 902 4653",
+      "serviceId": "results-checker",
+      "serviceTitle": "Exam Results Checker & Portal Assistance",
+      "status": "new",
+      "date": "2026-09-06T00:39:09.232Z",
+      "details": {
+        "institution": "Central University",
+        "student_id": "CU2024-8841",
+        "exam_period": "Semester 1 2025/2026",
+        "request_action": "Check & Send PDF Results"
+      },
+      "notes": "Client requested results sent to WhatsApp directly before 5pm.",
+      "source": "Website Booking Drawer"
+    },
+    {
+      "id": "lead-1002",
+      "name": "Abena Frimpong",
+      "phone": "+233 24 411 2233",
+      "serviceId": "auto-sales",
+      "serviceTitle": "Automobile & Car Dealership",
+      "status": "in_progress",
+      "date": "2026-09-05T02:39:09.236Z",
+      "details": {
+        "deal_action": "I want to Buy a Car",
+        "car_model": "Toyota Corolla 2017/2018",
+        "car_budget": "GH₵ 85,000 max",
+        "transmission": "Automatic (Petrol)"
+      },
+      "notes": "Shared 2 verified listings on WhatsApp. Inspection pending for Saturday.",
+      "source": "Website Booking Drawer"
+    },
+    {
+      "id": "lead-1003",
+      "name": "Emmanuel Mensah",
+      "phone": "+233 50 123 4567",
+      "serviceId": "laptop",
+      "serviceTitle": "Laptop Software Services",
+      "status": "completed",
+      "date": "2026-09-04T02:39:09.236Z",
+      "details": {
+        "laptop_model": "HP Pavilion x360",
+        "service_type": "Windows Installation / Reinstallation",
+        "problem_description": "Bootloop error, needs clean Windows 11 + MS Office 2024"
+      },
+      "notes": "Completed and delivered on campus. Client satisfied.",
+      "source": "Website Booking Drawer"
+    }
+  ],
+  "settings": {
+    "whatsappNumber": "233559024653",
+    "whatsappDisplay": "+233 559 024 653",
+    "voiceNumber": "233508318653",
+    "voiceDisplay": "+233 508 318 653",
+    "location": "Central University campus, Accra, Ghana",
+    "tagline": "\"Where design remembers the ancestors, and speaks to tomorrow.\"",
+    "brandTitle": "VIBE TRIBE",
+    "brandSubtitle": "ORGANISATION",
+    "announcementText": "🔥 New Services Available: Instant Result Checking & Automobile Sourcing!",
+    "announcementActive": true,
+    "agentReferralUrl": "https://www.bigmaxservices.com?ref=AGENT-A8ADA9",
+    "agentReferralCode": "AGENT-A8ADA9",
+    "dataStoreNotice": "⚡ Instant crediting within 5-15 mins. Direct automated Mobile Money delivery."
+  },
+  "portfolio": [
+    {
+      "id": "port-1",
+      "title": "Modern Branding Assets",
+      "category": "Graphics",
+      "tag": "Graphics",
+      "description": "Complete logo redesign, social kits, and flyers using obsidian black and champagne gold.",
+      "serviceId": "design",
+      "visualClass": "mock-design-visual",
+      "createdAt": "2026-01-10T00:00:00Z"
+    },
+    {
+      "id": "port-2",
+      "title": "Landing Page Systems",
+      "category": "Websites",
+      "tag": "Websites",
+      "description": "High-conversion responsive landing pages with full SEO setups and integrated lead triggers.",
+      "serviceId": "web",
+      "visualClass": "mock-web-visual",
+      "createdAt": "2026-01-12T00:00:00Z"
+    },
+    {
+      "id": "port-3",
+      "title": "Executive ATS Resume",
+      "category": "Career Development",
+      "tag": "Career Development",
+      "description": "Full overhaul of resume and LinkedIn profiles with recruiters keywords for corporate interviews.",
+      "serviceId": "cv",
+      "visualClass": "mock-cv-visual",
+      "createdAt": "2026-01-15T00:00:00Z"
+    }
+  ],
+  "dataBundles": [
+    {
+      "id": "mtn-1gb",
+      "network": "MTN",
+      "title": "MTN 1 GB",
+      "dataSize": "1 GB",
+      "validity": "Non-Expiry",
+      "price": 5.5,
+      "badge": "Starter",
+      "description": "Instant 4G/5G data credited to your MTN number. Does not expire.",
+      "active": true,
+      "order": 1,
+      "createdAt": "2026-03-01T00:00:00Z",
+      "updatedAt": "2026-09-06T02:47:06.248Z"
+    },
+    {
+      "id": "mtn-2-5gb",
+      "network": "MTN",
+      "title": "MTN 2.5 GB",
+      "dataSize": "2.5 GB",
+      "validity": "Non-Expiry",
+      "price": 13,
+      "badge": "Popular",
+      "description": "High-speed internet bundle with non-expiry validity.",
+      "active": true,
+      "order": 2,
+      "createdAt": "2026-03-01T00:00:00Z"
+    },
+    {
+      "id": "mtn-5gb",
+      "network": "MTN",
+      "title": "MTN 5 GB",
+      "dataSize": "5 GB",
+      "validity": "Non-Expiry",
+      "price": 24,
+      "badge": "Best Value",
+      "description": "Top seller! Perfect for streaming, campus work and social apps.",
+      "active": true,
+      "order": 3,
+      "createdAt": "2026-03-01T00:00:00Z"
+    },
+    {
+      "id": "mtn-10gb",
+      "network": "MTN",
+      "title": "MTN 10 GB",
+      "dataSize": "10 GB",
+      "validity": "Non-Expiry",
+      "price": 45,
+      "badge": "Pro Tier",
+      "description": "Substantial monthly data reserve for power users and creators.",
+      "active": true,
+      "order": 4,
+      "createdAt": "2026-03-01T00:00:00Z"
+    },
+    {
+      "id": "mtn-15gb",
+      "network": "MTN",
+      "title": "MTN 15 GB",
+      "dataSize": "15 GB",
+      "validity": "Non-Expiry",
+      "price": 65,
+      "badge": "",
+      "description": "Superfast uninterrupted connection. No expiry limit.",
+      "active": true,
+      "order": 5,
+      "createdAt": "2026-03-01T00:00:00Z"
+    },
+    {
+      "id": "mtn-20gb",
+      "network": "MTN",
+      "title": "MTN 20 GB",
+      "dataSize": "20 GB",
+      "validity": "Non-Expiry",
+      "price": 85,
+      "badge": "Max Pack",
+      "description": "Executive tier bundle for heavy research, downloading and hotspots.",
+      "active": true,
+      "order": 6,
+      "createdAt": "2026-03-01T00:00:00Z"
+    },
+    {
+      "id": "telecel-1-5gb",
+      "network": "Telecel",
+      "title": "Telecel 1.5 GB",
+      "dataSize": "1.5 GB",
+      "validity": "30 Days",
+      "price": 7,
+      "badge": "Starter",
+      "description": "Reliable 4G data for Telecel users with 30-day validity.",
+      "active": true,
+      "order": 7,
+      "createdAt": "2026-03-01T00:00:00Z"
+    },
+    {
+      "id": "telecel-3gb",
+      "network": "Telecel",
+      "title": "Telecel 3 GB",
+      "dataSize": "3 GB",
+      "validity": "30 Days",
+      "price": 14,
+      "badge": "Popular",
+      "description": "Great for browsing, WhatsApp, Instagram, and daily tasks.",
+      "active": true,
+      "order": 8,
+      "createdAt": "2026-03-01T00:00:00Z"
+    },
+    {
+      "id": "telecel-6gb",
+      "network": "Telecel",
+      "title": "Telecel 6 GB",
+      "dataSize": "6 GB",
+      "validity": "30 Days",
+      "price": 27,
+      "badge": "Best Value",
+      "description": "Solid data allocation for streaming and academic work.",
+      "active": true,
+      "order": 9,
+      "createdAt": "2026-03-01T00:00:00Z"
+    },
+    {
+      "id": "telecel-12gb",
+      "network": "Telecel",
+      "title": "Telecel 12 GB",
+      "dataSize": "12 GB",
+      "validity": "30 Days",
+      "price": 52,
+      "badge": "Pro Tier",
+      "description": "Generous quota for remote work, gaming and HD videos.",
+      "active": true,
+      "order": 10,
+      "createdAt": "2026-03-01T00:00:00Z"
+    },
+    {
+      "id": "telecel-25gb",
+      "network": "Telecel",
+      "title": "Telecel 25 GB",
+      "dataSize": "25 GB",
+      "validity": "30 Days",
+      "price": 98,
+      "badge": "Max Pack",
+      "description": "Maximum capacity data bundle for Telecel subscribers.",
+      "active": true,
+      "order": 11,
+      "createdAt": "2026-03-01T00:00:00Z"
+    },
+    {
+      "id": "at-2gb",
+      "network": "AT",
+      "title": "AT 2 GB",
+      "dataSize": "2 GB",
+      "validity": "Non-Expiry",
+      "price": 8.5,
+      "badge": "Budget Pack",
+      "description": "Big allocation at minimal cost on the AT network. Non-expiry.",
+      "active": true,
+      "order": 12,
+      "createdAt": "2026-03-01T00:00:00Z"
+    },
+    {
+      "id": "at-4-5gb",
+      "network": "AT",
+      "title": "AT 4.5 GB",
+      "dataSize": "4.5 GB",
+      "validity": "Non-Expiry",
+      "price": 18,
+      "badge": "Popular",
+      "description": "Generous mid-tier AT bundle with zero expiration worries.",
+      "active": true,
+      "order": 13,
+      "createdAt": "2026-03-01T00:00:00Z"
+    },
+    {
+      "id": "at-7gb",
+      "network": "AT",
+      "title": "AT 7 GB",
+      "dataSize": "7 GB",
+      "validity": "Non-Expiry",
+      "price": 28,
+      "badge": "Best Value",
+      "description": "High performance data for streaming and downloads.",
+      "active": true,
+      "order": 14,
+      "createdAt": "2026-03-01T00:00:00Z"
+    },
+    {
+      "id": "at-15gb",
+      "network": "AT",
+      "title": "AT 15 GB",
+      "dataSize": "15 GB",
+      "validity": "Non-Expiry",
+      "price": 55,
+      "badge": "Pro Tier",
+      "description": "Massive AT volume. Excellent value per gigabyte.",
+      "active": true,
+      "order": 15,
+      "createdAt": "2026-03-01T00:00:00Z"
+    },
+    {
+      "id": "at-30gb",
+      "network": "AT",
+      "title": "AT 30 GB",
+      "dataSize": "30 GB",
+      "validity": "Non-Expiry",
+      "price": 105,
+      "badge": "Max Pack",
+      "description": "Ultra heavy data bundle for intensive connectivity.",
+      "active": true,
+      "order": 16,
+      "createdAt": "2026-03-01T00:00:00Z"
+    }
+  ],
+  "updatedAt": "2026-09-06T02:47:06.770Z"
+}

@@ -611,6 +611,7 @@
       try {
         localStorage.setItem(STORAGE_KEYS.SERVICES, JSON.stringify(services));
         this._notifyListeners('services_updated', services);
+        this._persistToServer('services', services);
         return true;
       } catch (e) {
         console.error('Error saving services:', e);
@@ -740,6 +741,7 @@
       try {
         localStorage.setItem(STORAGE_KEYS.BOOKINGS, JSON.stringify(bookings));
         this._notifyListeners('bookings_updated', bookings);
+        this._persistToServer('bookings', bookings);
         return true;
       } catch (e) {
         console.error('Error saving bookings:', e);
@@ -832,6 +834,7 @@
       try {
         localStorage.setItem(STORAGE_KEYS.SETTINGS, JSON.stringify(settings));
         this._notifyListeners('settings_updated', settings);
+        this._persistToServer('settings', settings);
         return true;
       } catch (e) {
         console.error('Error saving settings:', e);
@@ -859,6 +862,7 @@
       try {
         localStorage.setItem(STORAGE_KEYS.PORTFOLIO, JSON.stringify(portfolio));
         this._notifyListeners('portfolio_updated', portfolio);
+        this._persistToServer('portfolio', portfolio);
         return true;
       } catch (e) {
         console.error('Error saving portfolio:', e);
@@ -913,6 +917,7 @@
       try {
         localStorage.setItem(STORAGE_KEYS.DATA_BUNDLES, JSON.stringify(bundles));
         this._notifyListeners('data_bundles_updated', bundles);
+        this._persistToServer('dataBundles', bundles);
         return true;
       } catch (e) {
         console.error('Error saving data bundles:', e);
@@ -1173,11 +1178,151 @@
       try {
         localStorage.setItem('vto_realtime_ping', JSON.stringify({ event, timestamp: Date.now() }));
       } catch (e) {}
-    }
-  };
+    },
 
-  // Initialize real-time multi-tab sync
+    _resolveUrl(endpoint) {
+      if (typeof window !== 'undefined' && window.location && window.location.origin && window.location.origin.startsWith('http')) {
+        const base = window.location.origin.replace(/\/+$/, '');
+        const rel = endpoint.startsWith('/') ? endpoint : '/' + endpoint;
+        return base + rel;
+      }
+      return endpoint;
+    },
+
+    // 4. Server API Persistence & Cross-Device Sync
+    _persistToServer(section, data) {
+      if (typeof fetch === 'undefined') return Promise.resolve(false);
+      const payload = {};
+      payload[section] = data;
+      payload.updatedAt = new Date().toISOString();
+
+      return fetch(this._resolveUrl('/api/data'), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      .then(res => {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return res.json();
+      })
+      .then(resData => {
+        this._dispatchLocalListeners('server_saved', { section, success: true, timestamp: Date.now() }, true);
+        return true;
+      })
+      .catch(err => {
+        console.warn('VTOData: Remote persist note:', err.message);
+        this._dispatchLocalListeners('server_saved', { section, success: false, error: err.message }, true);
+        return false;
+      });
+    },
+
+    syncFromServer(force = false) {
+      if (typeof fetch === 'undefined') return Promise.resolve(false);
+      const candidates = ['/api/data', '/vto-data-store.json', 'vto-data-store.json'];
+      const fetchCandidate = (idx) => {
+        if (idx >= candidates.length) return Promise.reject(new Error('No sync endpoint accessible'));
+        return fetch(this._resolveUrl(candidates[idx]), { cache: 'no-store' })
+          .then(res => {
+            if (!res.ok) throw new Error('HTTP ' + res.status);
+            return res.json();
+          })
+          .catch(() => fetchCandidate(idx + 1));
+      };
+
+        return fetchCandidate(0)
+          .then(data => {
+            if (!data || typeof data !== 'object') return false;
+            let changed = false;
+
+            if (Array.isArray(data.dataBundles) && data.dataBundles.length > 0) {
+              const cur = localStorage.getItem(STORAGE_KEYS.DATA_BUNDLES);
+              const fresh = JSON.stringify(data.dataBundles);
+              if (cur !== fresh || force) {
+                localStorage.setItem(STORAGE_KEYS.DATA_BUNDLES, fresh);
+                this._dispatchLocalListeners('data_bundles_updated', data.dataBundles, false);
+                changed = true;
+              }
+            }
+
+            if (data.settings && typeof data.settings === 'object') {
+              const cur = localStorage.getItem(STORAGE_KEYS.SETTINGS);
+              const fresh = JSON.stringify(data.settings);
+              if (cur !== fresh || force) {
+                localStorage.setItem(STORAGE_KEYS.SETTINGS, fresh);
+                this._dispatchLocalListeners('settings_updated', data.settings, false);
+                changed = true;
+              }
+            }
+
+            if (Array.isArray(data.services) && data.services.length > 0) {
+              const cur = localStorage.getItem(STORAGE_KEYS.SERVICES);
+              const fresh = JSON.stringify(data.services);
+              if (cur !== fresh || force) {
+                localStorage.setItem(STORAGE_KEYS.SERVICES, fresh);
+                this._dispatchLocalListeners('services_updated', data.services, false);
+                changed = true;
+              }
+            }
+
+            if (Array.isArray(data.portfolio) && data.portfolio.length > 0) {
+              const cur = localStorage.getItem(STORAGE_KEYS.PORTFOLIO);
+              const fresh = JSON.stringify(data.portfolio);
+              if (cur !== fresh || force) {
+                localStorage.setItem(STORAGE_KEYS.PORTFOLIO, fresh);
+                this._dispatchLocalListeners('portfolio_updated', data.portfolio, false);
+                changed = true;
+              }
+            }
+
+            if (changed) {
+              this._dispatchLocalListeners('data_updated', data, false);
+            }
+            this._dispatchLocalListeners('server_synced', { success: true, timestamp: Date.now() }, false);
+            return true;
+          })
+          .catch(err => {
+            this._dispatchLocalListeners('server_synced', { success: false, error: err.message }, false);
+            return false;
+          });
+      },
+
+      pushFullSyncToServer() {
+        if (typeof fetch === 'undefined') return Promise.resolve(false);
+        try {
+          const fullBackup = JSON.parse(this.exportFullBackup());
+          return fetch('/api/data', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(fullBackup)
+          })
+          .then(r => r.json())
+          .then(res => {
+            this._dispatchLocalListeners('server_saved', { section: 'all', success: true, timestamp: Date.now() }, true);
+            return res;
+          });
+        } catch (err) {
+          return Promise.reject(err);
+        }
+      }
+    };
+
+  // Initialize real-time multi-tab and cross-device sync
   VTOData.initRealtimeSync();
+
+  // Run initial server sync on load
+  if (typeof window !== 'undefined') {
+    VTOData.syncFromServer();
+    if (typeof window.addEventListener === 'function') {
+      window.addEventListener('focus', () => {
+        VTOData.syncFromServer();
+      });
+    }
+    if (typeof setInterval === 'function') {
+      setInterval(() => {
+        VTOData.syncFromServer();
+      }, 30000);
+    }
+  }
 
   // Expose to window
   global.VTOData = VTOData;

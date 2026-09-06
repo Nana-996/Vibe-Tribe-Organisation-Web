@@ -108,6 +108,7 @@
         </button>
       </div>
     </aside>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
     <!-- MAIN CONTENT -->
     <main class="admin-main">
@@ -122,6 +123,10 @@
         </div>
 
         <div class="header-actions">
+          <div id="admin-sync-badge" class="sync-status-badge synced" title="Persistence Status">
+            <span class="sync-dot"></span>
+            <span class="sync-text">Synced</span>
+          </div>
           <a href="index.html" target="_blank" class="btn-live-site">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
             <span>Preview Live Site</span>
@@ -452,6 +457,19 @@
             <div class="card-body">
               <div style="display: flex; flex-direction: column; gap: 20px;">
                 
+                <!-- Cross-Device Cloud & Server Sync -->
+                <div style="background: var(--admin-surface-2); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--admin-card-border);">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 10px;">
+                    <h4 style="color: var(--text-main); margin: 0;">🌐 Multi-Device Cloud &amp; Server Synchronization</h4>
+                    <span class="pill-badge" id="sync-pill-status" style="background: #144D38; color: #fff;">Server Connected</span>
+                  </div>
+                  <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 14px;">Changes you make (data bundles, pricing, active services, contact settings) automatically persist to the server database (<code>vto-data-store.json</code>) so they immediately load on all mobile phones, computers, and visitors. Use the manual controls below if you wish to force an immediate push or pull.</p>
+                  <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <button class="btn-primary-action" id="btn-force-push-sync">⚡ Push All Changes to Server</button>
+                    <button class="btn-live-site" id="btn-force-pull-sync">🔄 Pull Fresh Data from Server</button>
+                  </div>
+                </div>
+
                 <!-- Export / Import -->
                 <div style="background: var(--admin-surface-2); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--admin-card-border);">
                   <h4 style="color: var(--text-main); margin-bottom: 6px;">📦 Full Data Backup &amp; Transfer</h4>

@@ -1134,6 +1134,61 @@ textarea.form-control {
   to { transform: translateX(0); opacity: 1; }
 }
 
+/* Sidebar Overlay for Mobile */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 95;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar-overlay.active {
+  display: block;
+  opacity: 1;
+}
+
+/* Sync Status Badge */
+.sync-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 100px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  background: var(--admin-surface-2);
+  border: 1px solid var(--admin-card-border);
+  color: var(--text-muted);
+  transition: all 0.3s;
+}
+
+.sync-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #10B981;
+  box-shadow: 0 0 8px #10B981;
+}
+
+.sync-status-badge.saving .sync-dot {
+  background-color: #F59E0B;
+  box-shadow: 0 0 8px #F59E0B;
+  animation: pulse 1s infinite;
+}
+
+.sync-status-badge.offline .sync-dot {
+  background-color: #9CA3AF;
+  box-shadow: none;
+}
+
 /* ==========================================================================
    RESPONSIVE DESIGN
    ========================================================================== */
@@ -1141,9 +1196,11 @@ textarea.form-control {
   .admin-sidebar {
     position: fixed;
     left: -280px;
+    z-index: 100;
   }
   .admin-sidebar.open {
     left: 0;
+    box-shadow: 10px 0 40px rgba(0, 0, 0, 0.7);
   }
   .mobile-menu-btn {
     display: block;
@@ -1155,18 +1212,65 @@ textarea.form-control {
 
 @media (max-width: 600px) {
   .admin-content-body {
-    padding: 16px;
+    padding: 12px;
   }
   .admin-header {
-    padding: 0 16px;
+    padding: 0 12px;
+    height: 60px;
+  }
+  .page-header-title {
+    font-size: 1.02rem;
   }
   .card-header-bar {
-    padding: 14px 16px;
+    padding: 12px 14px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .filter-bar {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+  .search-input-wrap {
+    min-width: 100%;
+    width: 100%;
+  }
+  .filter-select {
+    width: 100%;
   }
   .card-body {
-    padding: 16px;
+    padding: 14px 12px;
+  }
+  .services-admin-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .service-admin-card {
+    padding: 14px;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .header-actions {
+    gap: 8px;
+  }
+  .header-actions .btn-primary-action span {
+    display: none;
   }
   .header-actions .btn-live-site span {
     display: none;
   }
+  .admin-table th,
+  .admin-table td {
+    padding: 10px 8px;
+    font-size: 0.8rem;
+  }
+  .auth-card {
+    padding: 28px 18px;
+    max-width: 92%;
+  }
 }
+

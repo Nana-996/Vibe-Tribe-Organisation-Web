@@ -22,10 +22,87 @@ const MIME_TYPES = {
   '.txt': 'text/plain; charset=utf-8'
 };
 
+const STORE_FILE = path.join(ROOT_DIR, 'vto-data-store.json');
+
+function handleApiData(req, res) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+  if (req.method === 'OPTIONS') {
+    res.writeHead(204);
+    return res.end();
+  }
+
+  if (req.method === 'GET') {
+    fs.readFile(STORE_FILE, 'utf8', (err, data) => {
+      if (err) {
+        res.writeHead(500, { 'Content-Type': 'application/json' });
+        return res.end(JSON.stringify({ error: 'Failed to read data store' }));
+      }
+      res.writeHead(200, {
+        'Content-Type': 'application/json; charset=utf-8',
+        'Cache-Control': 'no-cache, no-store, must-revalidate'
+      });
+      res.end(data);
+    });
+    return;
+  }
+
+  if (req.method === 'POST' || req.method === 'PUT') {
+    let body = '';
+    req.on('data', chunk => {
+      body += chunk.toString();
+      if (body.length > 10 * 1024 * 1024) {
+        req.destroy();
+      }
+    });
+
+    req.on('end', () => {
+      try {
+        const payload = JSON.parse(body);
+        let currentData = {};
+        if (fs.existsSync(STORE_FILE)) {
+          try {
+            currentData = JSON.parse(fs.readFileSync(STORE_FILE, 'utf8'));
+          } catch (e) {
+            currentData = {};
+          }
+        }
+
+        if (payload.services !== undefined) currentData.services = payload.services;
+        if (payload.bookings !== undefined) currentData.bookings = payload.bookings;
+        if (payload.settings !== undefined) currentData.settings = payload.settings;
+        if (payload.portfolio !== undefined) currentData.portfolio = payload.portfolio;
+        if (payload.dataBundles !== undefined) currentData.dataBundles = payload.dataBundles;
+        if (payload.version) currentData.version = payload.version;
+        currentData.updatedAt = new Date().toISOString();
+
+        fs.writeFileSync(STORE_FILE, JSON.stringify(currentData, null, 2), 'utf8');
+        res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+        res.end(JSON.stringify({ success: true, updatedAt: currentData.updatedAt }));
+      } catch (err) {
+        res.writeHead(400, { 'Content-Type': 'application/json; charset=utf-8' });
+        res.end(JSON.stringify({ error: 'Invalid JSON payload: ' + err.message }));
+      }
+    });
+    return;
+  }
+
+  res.writeHead(405, { 'Content-Type': 'application/json' });
+  res.end(JSON.stringify({ error: 'Method not allowed' }));
+}
+
 function createServer() {
   return http.createServer((req, res) => {
     // Parse URL path and strip query strings / hash
     let reqPath = decodeURIComponent(req.url.split('?')[0].split('#')[0]);
+
+    // API endpoint for cross-device shared storage
+    if (reqPath === '/api/data' || reqPath === '/api/data/') {
+      return handleApiData(req, res);
+    }
+
     if (reqPath === '/') reqPath = '/index.html';
 
     // Route shortcuts & direct access
