@@ -103,6 +103,23 @@ function createServer() {
       return handleApiData(req, res);
     }
 
+    // API endpoint for live agent price synchronization
+    if (reqPath === '/api/sync-prices' || reqPath === '/api/sync-prices/') {
+      const syncHandler = require('./api/sync-prices.js');
+      if (!res.status) {
+        res.status = function(code) { this.statusCode = code; return this; };
+      }
+      if (!res.json) {
+        res.json = function(data) {
+          this.setHeader('Content-Type', 'application/json; charset=utf-8');
+          return this.end(JSON.stringify(data));
+        };
+      }
+      const parsedUrl = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
+      req.query = Object.fromEntries(parsedUrl.searchParams);
+      return syncHandler(req, res);
+    }
+
     if (reqPath === '/') reqPath = '/index.html';
 
     // Route shortcuts & direct access

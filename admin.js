@@ -1125,6 +1125,62 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Live Agent Price Sync from BigMax Portal
+  const btnSyncAgentPrices = document.getElementById('btn-sync-agent-prices');
+  const agentSyncIndicator = document.getElementById('agent-sync-indicator');
+
+  if (btnSyncAgentPrices) {
+    btnSyncAgentPrices.addEventListener('click', async () => {
+      const originalHtml = btnSyncAgentPrices.innerHTML;
+      btnSyncAgentPrices.disabled = true;
+      btnSyncAgentPrices.innerHTML = `
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="spin-animation"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+        <span>Syncing from BigMax...</span>
+      `;
+
+      try {
+        const res = await VTOData.syncAgentPrices(true);
+        if (res && res.success) {
+          showToast(`⚡ Live sync complete! Synced ${res.count} bundles directly from your BigMax agent portal.`, 'success');
+          if (agentSyncIndicator) {
+            agentSyncIndicator.innerHTML = `
+              <span style="display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #27c93f;"></span>
+              <span>Synced Just Now</span>
+            `;
+          }
+        } else {
+          showToast(res.warning || res.error || 'Failed to sync live prices from agent portal.', 'warning');
+          if (agentSyncIndicator) {
+            agentSyncIndicator.innerHTML = `
+              <span style="display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #eab308;"></span>
+              <span>Sync Fallback</span>
+            `;
+          }
+        }
+      } catch (err) {
+        showToast('Error syncing agent prices: ' + err.message, 'danger');
+      } finally {
+        btnSyncAgentPrices.disabled = false;
+        btnSyncAgentPrices.innerHTML = originalHtml;
+        renderDataBundlesTab();
+        updateBadges();
+      }
+    });
+  }
+
+  if (window.VTOData) {
+    VTOData.on('agent_prices_synced', (data) => {
+      if (agentSyncIndicator) {
+        agentSyncIndicator.innerHTML = `
+          <span style="display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #27c93f;"></span>
+          <span>Live Synced (${data.count || ''} plans)</span>
+        `;
+      }
+      renderDataBundlesTab();
+      updateBadges();
+    });
+  }
+
   // =========================================================================
   // 7. SITE SETTINGS & CONTACT
   // =========================================================================

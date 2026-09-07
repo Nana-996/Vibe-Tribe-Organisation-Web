@@ -1000,6 +1000,55 @@
       return false;
     },
 
+    // AUTOMATED AGENT PORTAL PRICE SYNCHRONIZATION
+    syncAgentPrices(force = false) {
+      if (typeof fetch === 'undefined') return Promise.resolve({ success: false, error: 'fetch unavailable' });
+      const url = this._resolveUrl(`/api/sync-prices${force ? '?force=true' : ''}`);
+
+      return fetch(url)
+        .then(res => res.json())
+        .then(result => {
+          if (result && Array.isArray(result.bundles) && result.bundles.length > 0) {
+            const currentBundles = this.getDataBundles();
+            const currentMap = {};
+            currentBundles.forEach(b => { if (b && b.id) currentMap[b.id] = b; });
+
+            // Merge incoming synced bundles while preserving custom admin overrides
+            const updatedBundles = result.bundles.map(b => {
+              const existing = currentMap[b.id];
+              if (existing) {
+                return {
+                  ...b,
+                  badge: existing.badge !== undefined ? existing.badge : b.badge,
+                  description: existing.description || b.description,
+                  active: existing.active !== undefined ? existing.active : b.active
+                };
+              }
+              return b;
+            });
+
+            this.saveDataBundles(updatedBundles);
+            this._notifyListeners('agent_prices_synced', {
+              count: updatedBundles.length,
+              syncedAt: result.syncedAt,
+              source: result.source
+            });
+            return {
+              success: true,
+              count: updatedBundles.length,
+              syncedAt: result.syncedAt,
+              source: result.source,
+              bundles: updatedBundles
+            };
+          }
+          return { success: false, warning: result.warning || 'No bundles returned' };
+        })
+        .catch(err => {
+          console.warn('VTOData: Agent price sync note:', err.message);
+          return { success: false, error: err.message };
+        });
+    },
+
     // AUTHENTICATION SECURITY
     getAdminPin() {
       return localStorage.getItem(STORAGE_KEYS.ADMIN_AUTH) || '1234';
@@ -1314,6 +1363,12 @@
   // Run initial server sync on load
   if (typeof window !== 'undefined') {
     VTOData.syncFromServer();
+
+    // Background check for updated agent portal prices after initial render
+    setTimeout(() => {
+      VTOData.syncAgentPrices().catch(() => {});
+    }, 2500);
+
     if (typeof window.addEventListener === 'function') {
       window.addEventListener('focus', () => {
         VTOData.syncFromServer();
@@ -1323,6 +1378,11 @@
       setInterval(() => {
         VTOData.syncFromServer();
       }, 30000);
+
+      // Periodic agent price sync (every 15 minutes)
+      setInterval(() => {
+        VTOData.syncAgentPrices().catch(() => {});
+      }, 15 * 60 * 1000);
     }
   }
 
